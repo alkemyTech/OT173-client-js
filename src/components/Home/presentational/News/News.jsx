@@ -1,17 +1,30 @@
+import { useState,useEffect } from "react"
+import axios from "axios"
 import "./News.scss"
 const News = () => {
-  let news= [...Array(3).keys()]
+  const [news,setNews] = useState([])
+  useEffect(()=>{
+    const newsRequest = async ()=>{
+        try{
+            const newsResponse = await axios.get("")
+            setNews(newsResponse.data)
+        }catch(err){
+            console.log(err.message)
+        }
+    }
+    newsRequest()
+  },[])
   return (
     <div className='container'>
         <h2 className='news-title'>Lastest News</h2>
         <div className='news'>
-            {news.map((newN,i)=>{
+            {news.map((newSlide,i)=>{
                 return(
-                    <div className='news__new'>
+                    <div className='news__new' key={i}>
                         <div className='news__new--image'>
-                            <img src="https://img.remediosdigitales.com/e9f8f8/istock_000040965646_small/450_1000.jpg" alt="" />
+                            <img src={newSlide.image} alt="" />
                         </div>
-                        <p className='news__new--info'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis corporis voluptate maiores deserunt ratione alias quidem numquam nihil! Labore, alias?</p>
+                        <p className='news__new--info'>{newSlide.text}</p>
                     </div>
                 )
             })}

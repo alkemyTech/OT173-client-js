@@ -27,9 +27,6 @@ const Footer = () => {
                 <SocialIcon network='discord' style={{ height: 40, width: 40 }} ></SocialIcon>
             </ul>
             <h4>2021 by Alkemy. All Rights Reserved</h4>
-            <h4>
-
-            </h4>
         </div>
     </div>
   )
