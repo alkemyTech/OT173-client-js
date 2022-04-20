@@ -3,6 +3,7 @@ import { Formik, Form, Field, FieldArray, ErrorMessage } from 'formik';
 
 import { editHomeFormValidationSchema } from './EditHomeFormValidation';
 import PreviewImageSlide from './PreviewImageSlide';
+import styles from './EditHome.module.css';
 
 // This function creates a file from an image URL for testing purposes
 // I use it to simulate a image File returned by the API
@@ -79,8 +80,8 @@ const EditHome = () => {
   if (isLoading) return <h1>Cargando...</h1>;
 
   return (
-    <section>
-      <h1>Editar página de inicio</h1>
+    <section className={styles.edit_home}>
+      <h1 className={styles.title}>Editar página de inicio</h1>
       <Formik
         initialValues={{
           welcomeText,
@@ -92,23 +93,24 @@ const EditHome = () => {
       >
         {({ isSubmitting, values, errors, setFieldValue, setFieldTouched }) => {
           return (
-            <Form>
+            <Form className={styles.form}>
               <Field
+                className={styles.welcome_text}
                 type="text"
                 name="welcomeText"
                 placeholder="Texto de bienvenida"
                 component="textarea"
               />
               <ErrorMessage name="welcomeText">
-                {error => <div>{error}</div>}
+                {error => <div className={styles.error}>{error}</div>}
               </ErrorMessage>
 
-              <fieldset>
+              <fieldset className={styles.slide_list}>
                 <FieldArray
                   name="slides"
                   render={() =>
                     values.slides.map((_, index) => (
-                      <div key={index}>
+                      <div key={index} className={styles.slide}>
                         <Field
                           as={PreviewImageSlide}
                           setFieldValue={setFieldValue}
@@ -117,16 +119,17 @@ const EditHome = () => {
                           name={`slides.${index}.image`}
                         />
                         <ErrorMessage name={`slides[${index}].image`}>
-                          {error => <div>{error}</div>}
+                          {error => <div className={styles.error}>{error}</div>}
                         </ErrorMessage>
 
                         <Field
                           type="text"
                           name={`slides.${index}.text`}
                           placeholder="Texto de la slide"
+                          className={styles.slide_text}
                         />
                         <ErrorMessage name={`slides.${index}.text`}>
-                          {error => <div>{error}</div>}
+                          {error => <div className={styles.error}>{error}</div>}
                         </ErrorMessage>
                       </div>
                     ))
@@ -134,9 +137,12 @@ const EditHome = () => {
                 />
               </fieldset>
 
-              {errorMessage && <div>{errorMessage}</div>}
+              {errorMessage && (
+                <div className={styles.error}>{errorMessage}</div>
+              )}
 
               <button
+                className={styles.submit}
                 type="submit"
                 disabled={isSubmitting || Object.entries(errors).length}
               >
