@@ -1,0 +1,132 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+
+    background: #FFFFFF;
+}
+
+.columText{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 50px;
+}
+
+.container {
+    width: 730px;
+    height: 560px;
+    box-sizing: border-box;
+    margin: 50px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.formTitle {
+    margin: 50px;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.inputFirstName {
+    margin-left: 50px;
+    padding: 15px;
+    width: 298px;
+    height: 60px;
+    box-sizing: border-box;
+
+    font-size: 17px;
+    font-weight: 100;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background: #FFFFFF;
+}
+
+.inputFirstName:focus {
+    outline: none;
+    border: 2px solid #18A0FB;
+}
+
+.inputLastName {
+    margin-left: 25px;
+    width: 298.35px;
+    height: 60.14px;
+    padding: 15px;
+    box-sizing: border-box;
+
+    font-size: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background: #FFFFFF;
+}
+
+.inputLastName:focus {
+    outline: none;
+    border: 2px solid #18A0FB;
+}
+
+.inputEmail {
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 621px;
+    height: 60px;
+    padding: 15px;
+    box-sizing: border-box;
+    
+    font-size: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background: #FFFFFF;
+}
+
+.inputEmail:focus {
+    outline: none;
+    border: 2px solid #18A0FB;
+}
+
+.inputMessage {
+    margin-left: 50px;
+    margin-top: 30px;
+    width: 621px;
+    height: 135px;
+    padding: 15px;
+    box-sizing: border-box;
+
+    font-size: 17px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background: #FFFFFF;
+    resize: none;
+}
+
+.inputMessage:focus {
+    outline: none;
+    border: 2px solid #18A0FB;
+}
+
+.inputMessage::placeholder {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+}
+
+.buttonSend {
+    margin-left: 50px;
+    margin-top: 20px;
+    height: 60px;
+    width: 163px;
+    border-radius: 6px;
+
+    font-size: 15px;
+    font-weight: 27px;
+    border: none;
+    color: #ffffff;
+    background: #18A0FB;
+
+    cursor: pointer;
+}
+
+.buttonSend:hover {
+    background: #18a0fb9d;
+}
