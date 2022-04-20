@@ -2,15 +2,21 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import { BackOffice } from './pages/BackOffice';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+
+    <BackOffice />
+
+
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          <a href="https://www.flaticon.com/free-icons/activities" title="Activities icons">Activities icons created by GOWI - Flaticon</a>
         </p>
         <span>
           <span>Learn </span>
@@ -50,7 +56,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
 }
