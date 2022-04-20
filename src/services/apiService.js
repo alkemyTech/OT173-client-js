@@ -13,19 +13,19 @@ const getHeaders = () => {
 export const get = async url => {
   const headers = getHeaders();
   try {
-    const response = await axios.get(url, { headers });
-    return response;
+    const { data, status } = await axios.get(url, { headers });
+    return { ok: true, data, status };
   } catch (err) {
-    return err;
+    return { ok: false, error: err, status: 500 };
   }
 };
 
 export const post = async (url, body) => {
   const headers = getHeaders();
   try {
-    const response = await axios.post(url, body, { headers });
-    return response;
+    const { data, status } = await axios.post(url, body, { headers });
+    return { ok: true, data, status };
   } catch (err) {
-    return err;
+    return { ok: false, error: err, status: 500 };
   }
 };
