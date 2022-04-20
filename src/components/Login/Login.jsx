@@ -4,18 +4,18 @@ import {
   initialLoginValue,
   loginSchema,
   logInHandleError,
-} from "../../helpers/loginFormSettings/loginFormSettings";
+} from "../../helpers/loginFormSettings/loginFormValidation";
 import { loginRequest } from "../../helpers/loginFormSettings/loginRequest";
-import "./Login.scss";
+import LoginStyles from "./Login.module.css";
 
 const Login = () => {
   const [error, setError] = useState(null);
   return (
     <>
-      {error && <div className="error-tologin">Error to login</div>}
-      <div className="login-wrapper">
-        <div className="login">
-          <div className="login-img">
+      {error && <div className={LoginStyles.error_tologin}>Error to login</div>}
+      <div className={LoginStyles.login_wrapper}>
+        <div className={LoginStyles.login}>
+          <div className={LoginStyles.login_img}>
             <img src="https://i.ibb.co/7Qcvm6c/LOGO-SOMOS-MAS.png" alt="" />
           </div>
           <Formik
@@ -28,26 +28,26 @@ const Login = () => {
           >
             {({ errors }) => {
               return (
-                <Form className="login-form">
-                  <div className="login-form__field">
+                <Form className={LoginStyles.login_form}>
+                  <div className={LoginStyles.login_form_field}>
                     <span htmlFor="email">Email</span>
                     <Field
-                      className="login-form__field__input"
+                      className={LoginStyles.login_form_field_input}
                       placeholder="Enter email..."
                       name="email"
                     />
                   </div>
                   {logInHandleError(errors).email()}
-                  <div className="login-form__field">
+                  <div className={LoginStyles.login_form_field}>
                     <span>Password</span>
                     <Field
-                      className="login-form__field__input"
+                      className={LoginStyles.login_form_field_input}
                       name="password"
                       type="password"
                     />
                   </div>
                   {logInHandleError(errors).password()}
-                  <button className="" type="submit">
+                  <button type="submit">
                     Log In
                   </button>
                 </Form>
