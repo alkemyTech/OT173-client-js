@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
+import { SUPPORTED_IMAGE_FORMATS } from './EditHomeFormValidation';
 import styles from './PreviewImageSlide.module.css';
 
 const IMAGE_PLACEHOLDER = '/images/placeholder/470x340.png';
@@ -51,7 +52,7 @@ const PreviewImageSlide = ({
         type={type}
         name={name}
         ref={inputRef}
-        accept={'image/jpg, image/jpeg, image/png'}
+        accept={SUPPORTED_IMAGE_FORMATS.join(', ')}
         onChange={handleImageChange}
         className={styles.invisible}
       />

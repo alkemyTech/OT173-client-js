@@ -7,7 +7,7 @@ const SLIDE_TEXT_REQUIRED = 'El texto de la slide es requerido';
 const SLIDE_IMAGE_REQUIRED = 'La imagen de la slide es requerida';
 const SLIDE_IMAGE_FORMAT = 'El formato de la imagen de la slide no es válido';
 
-const SUPPORTED_IMAGE_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
+export const SUPPORTED_IMAGE_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 
 export const editHomeFormValidationSchema = Yup.object().shape({
   welcomeText: Yup.string()
