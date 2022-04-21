@@ -8,13 +8,13 @@
 .navlinks {
   align-items: center;
   display: flex;
-  justify-content: space-evenly;
   width: 70%;
 }
 
 .navlink {
   text-decoration: none;
   color: #18a0fb;
+  margin-left: 2em;
 }
 
 .navlink:hover {
@@ -25,6 +25,7 @@
 .logo {
   width: 100px;
   height: 100px;
+  margin-left: 2em;
 }
 
 .buttons {

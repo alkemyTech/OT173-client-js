@@ -1,18 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styles from "./Header.module.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from './Header.module.css';
 
 function Header({ logo, menu }) {
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.navlinks}>
+    <header className={styles.navbar}>
+      <nav className={styles.navlinks}>
         <img className={styles.logo} src={logo} alt="Logo" />
-        {menu.map((menuItem) => (
+        {menu.map(menuItem => (
           <Link className={styles.navlink} to={menuItem.link}>
             {menuItem.name}
           </Link>
         ))}
-      </div>
+      </nav>
       <div className={styles.buttons}>
         <button className={`${styles.button} ${styles.loginbtn}`}>
           Log in
@@ -21,7 +21,7 @@ function Header({ logo, menu }) {
           Registrate
         </button>
       </div>
-    </nav>
+    </header>
   );
 }
 
