@@ -1,0 +1,68 @@
+.nav .nav_container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav_container_logo {
+  width: 80px;
+  height: 80px;
+}
+
+.nav_container_logo img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.nav_container_links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  cursor: pointer;
+}
+.nav_container_links_link {
+  transition: color 0.3s ease-in-out;
+}
+
+.nav_container_links_link:hover {
+  color: #18a0fb;
+}
+.nav_container_btns {
+  display: flex;
+  gap: 10px;
+}
+
+.nav_container_btns_btn {
+  padding: 5px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.nav_container_btns_btn.login-btn {
+  border: 1px solid #18a0fb;
+  background-color: transparent;
+  color: #18a0fb;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.nav_container_btns_btn.login-btn:hover {
+  background-color: #18a0fb;
+  color: #fff;
+}
+
+.nav_container_btns_btn.sign-btn {
+  color: #fff;
+  border: 1px solid #18a0fb;
+  background-color: #18a0fb;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.nav_container_btns_btn.sign-btn:hover {
+  background-color: transparent;
+  color: #18a0fb;
+}

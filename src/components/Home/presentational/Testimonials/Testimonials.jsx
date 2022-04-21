@@ -1,9 +1,7 @@
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import ArrowLeft from '../HomeSlider/presentational/ArrowLeft/ArrowLeft';
-import ArrowRight from '../HomeSlider/presentational/ArrowRight/ArrowRight';
-import "./Testimonials.scss"
+import "./Testimonials.css"
 
 
 const settings ={
@@ -12,16 +10,16 @@ const settings ={
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  nextArrow: <ArrowRight />,
-  prevArrow: <ArrowLeft />,
+  nextArrow: <div>Prev</div>,
+  prevArrow: <div>Next</div>,
 }
 
 const Testimonials = () => {
   return (
     <>
-    <h2 className='test-title'>Testimonials</h2>
-    <Slider {...settings} className="slider-test">
-        <div className='slider-test__slide'>
+    <h2 className='test_title'>Testimonials</h2>
+    <Slider {...settings} className="slider_test">
+        <div className='slider_test_slide'>
             <h2>
                 No lo puedo creer
             </h2>
@@ -29,7 +27,7 @@ const Testimonials = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sunt dignissimos voluptate expedita nam. Commodi delectus quis accusantium velit illo!
             </p>
         </div>
-        <div className='slider-test__slide'>
+        <div className='slider_test_slide'>
             <h2>
                 No lo puedo creer
             </h2>
@@ -37,7 +35,7 @@ const Testimonials = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sunt dignissimos voluptate expedita nam. Commodi delectus quis accusantium velit illo!
             </p>
         </div>
-        <div className='slider-test__slide'>
+        <div className='slider_test_slide'>
             <h2>
                 No lo puedo creer
             </h2>
@@ -45,7 +43,7 @@ const Testimonials = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sunt dignissimos voluptate expedita nam. Commodi delectus quis accusantium velit illo!
             </p>
         </div>
-        <div className='slider-test__slide'>
+        <div className='slider_test_slide'>
             <h2>
                 No lo puedo creer
             </h2>
@@ -53,7 +51,7 @@ const Testimonials = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sunt dignissimos voluptate expedita nam. Commodi delectus quis accusantium velit illo!
             </p>
         </div>
-        <div className='slider-test__slide'>
+        <div className='slider_test_slide'>
             <h2>
                 No lo puedo creer
             </h2>

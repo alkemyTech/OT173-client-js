@@ -1,36 +1,36 @@
 import { useState,useEffect } from "react"
 import axios from "axios"
-import "./News.scss"
+import NewsStyles from "./News.module.css"
 const News = () => {
   const [news,setNews] = useState([])
-  useEffect(()=>{
+  /* useEffect(()=>{
     const newsRequest = async ()=>{
         try{
             const newsResponse = await axios.get("")
-            setNews(newsResponse.data)
+            setNews(newsResponse.data || []) 
         }catch(err){
             console.log(err.message)
         }
     }
     newsRequest()
-  },[])
+  },[]) */
   return (
-    <div className='container'>
-        <h2 className='news-title'>Lastest News</h2>
-        <div className='news'>
+    <div className={NewsStyles.container}>
+        <h2 className={NewsStyles.news_title}>Lastest News</h2>
+        <div className={NewsStyles.news}>
             {news.map((newSlide,i)=>{
                 return(
-                    <div className='news__new' key={i}>
-                        <div className='news__new--image'>
-                            <img src={newSlide.image} alt="" />
+                    <div className={NewsStyles.news_new} key={i}>
+                        <div className={NewsStyles.news_new_image}>
+                            <img src={newSlide.image} alt={newSlide.title}/>
                         </div>
-                        <p className='news__new--info'>{newSlide.text}</p>
+                        <p className={NewsStyles.news_new_info}>{newSlide.text}</p>
                     </div>
                 )
             })}
         </div>
-        <div className='news__btn'>
-            <button className='news__btn__see'>See More</button>
+        <div className={NewsStyles.news_btn}>
+            <button className={NewsStyles.news_btn_see}>See More</button>
         </div>
     </div>
   )

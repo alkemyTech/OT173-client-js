@@ -3,7 +3,7 @@
     text-align: center;
 }
 
-.hello-hand{
+.hello_hand{
     animation: saludar 2s 2s infinite;
     display: inline-block;
 }

@@ -1,26 +1,26 @@
 import { SocialIcon } from 'react-social-icons'
-import "./Footer.scss"
+import FooterStyles from "./Footer.module.css"
 
 const Footer = () => {
   return (
-    <div className='footer'>
-        <nav className='footer__nav'>
-            <ul className='footer__nav--links'>
+    <div className={FooterStyles.footer}>
+        <nav className={FooterStyles.footer_nav}>
+            <ul className={FooterStyles.footer_nav_links}>
                 <li>News</li>
                 <li>Activities</li>
                 <li>Donate</li>
             </ul>
-            <div className='footer__nav--logo'>
+            <div className={FooterStyles.footer_nav_logo}>
                 <img src="/images/assets/logo.png" alt="" />
             </div>
-            <ul className='footer__nav--links'>
+            <ul className={FooterStyles.footer_nav_links}>
                 <li>Testimonials</li>
                 <li>About Us</li>
                 <li>Contact</li>
             </ul>
         </nav>
-        <div className='footer__social'>
-            <ul className='footer__social--links'>
+        <div className={FooterStyles.footer_social}>
+            <ul className={FooterStyles.footer_social_links}>
                 <SocialIcon network='instagram' style={{ height: 40, width: 40 }} ></SocialIcon>
                 <SocialIcon network='facebook' style={{ height: 40, width: 40 }} ></SocialIcon>
                 <SocialIcon network='twitter' style={{ height: 40, width: 40 }} ></SocialIcon>
