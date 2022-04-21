@@ -5,7 +5,6 @@ import {
   loginSchema,
   logInHandleError,
 } from "../../helpers/loginFormSettings/loginFormValidation";
-import { loginRequest } from "../../helpers/loginFormSettings/loginRequest";
 import LoginStyles from "./Login.module.css";
 
 const Login = () => {
@@ -21,7 +20,7 @@ const Login = () => {
           <Formik
             initialValues={initialLoginValue}
             validationSchema={loginSchema}
-            onSubmit={(formValue) => loginRequest(formValue, setError)}
+            onSubmit={(formValue) => {}}
             validateOnChange={false}
             validateOnBlur={false}
             validateOnMount={false}
