@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-import { initialValuesSingUpForm } from './SingUpFormValues';
 import { singUpFormValidationSchema } from './SingUpFormValidation';
 import styles from './SingUp.module.css';
 
@@ -24,7 +23,12 @@ const SingUp = () => {
       <h1 className={styles.title}>Formulario de registro</h1>
 
       <Formik
-        initialValues={initialValuesSingUpForm}
+        initialValues={{
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+        }}
         validationSchema={singUpFormValidationSchema}
         onSubmit={handleSubmit}
       >
