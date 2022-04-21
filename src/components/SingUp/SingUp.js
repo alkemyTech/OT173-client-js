@@ -18,17 +18,19 @@ const SingUp = () => {
     }
   };
 
+  const initialValues = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  };
+
   return (
     <section className={styles.sing_up}>
       <h1 className={styles.title}>Formulario de registro</h1>
 
       <Formik
-        initialValues={{
-          firstName: '',
-          lastName: '',
-          email: '',
-          password: '',
-        }}
+        initialValues={initialValues}
         validationSchema={singUpFormValidationSchema}
         onSubmit={handleSubmit}
       >
