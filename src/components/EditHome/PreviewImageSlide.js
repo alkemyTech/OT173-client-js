@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SUPPORTED_IMAGE_FORMATS } from './EditHomeFormValidation';
 import styles from './PreviewImageSlide.module.css';
 
-const IMAGE_PLACEHOLDER = '/images/placeholder/470x340.png';
+import IMAGE_PLACEHOLDER from './slide-placeholder.png';
 
 const PreviewImageSlide = ({
   name,
