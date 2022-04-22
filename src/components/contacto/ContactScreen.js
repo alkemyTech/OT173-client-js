@@ -1,7 +1,8 @@
 import React from 'react'
-import { FormContacto } from './FormContacto'
+import { FormContact } from './FormContact'
 import screenContainerStyle from './styles.module.css'
-export const ContactoScreen = () => {
+
+export const ContactScreen = () => {
     return (
         <div className={screenContainerStyle.content}>
             <div className={screenContainerStyle.columText}>
@@ -18,8 +19,8 @@ export const ContactoScreen = () => {
                     dolorem eum fugiat quo voluptas nulla pariatur?"
                 </p>
             </div>
-            <div    >
-                <FormContacto />
+            <div>
+                <FormContact />
             </div>
         </div>
     )

@@ -7,7 +7,7 @@
     background: #FFFFFF;
 }
 
-.columText{
+.columText {
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -25,18 +25,17 @@
 }
 
 .formTitle {
-    margin: 50px;
-
+    margin: 50px 50px;
+    text-align: start;
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
 }
 
 .inputFirstName {
-    margin-left: 50px;
-    padding: 15px;
     width: 298px;
     height: 60px;
+    padding: 15px;
     box-sizing: border-box;
 
     font-size: 17px;
@@ -69,12 +68,11 @@
 
 .inputEmail {
     margin-top: 30px;
-    margin-left: 50px;
     width: 621px;
     height: 60px;
     padding: 15px;
     box-sizing: border-box;
-    
+
     font-size: 17px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     background: #FFFFFF;
@@ -86,7 +84,6 @@
 }
 
 .inputMessage {
-    margin-left: 50px;
     margin-top: 30px;
     width: 621px;
     height: 135px;
@@ -111,11 +108,16 @@
     letter-spacing: -0.015em;
 }
 
-.buttonSend {
+.containerBtnSend {
+    display: flex;
+    justify-content: flex-start;
     margin-left: 50px;
+}
+
+.buttonSend {
     margin-top: 20px;
     height: 60px;
-    width: 163px;
+    width: 162px;
     border-radius: 6px;
 
     font-size: 15px;

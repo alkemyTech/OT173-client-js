@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from './hooks/useForm'
 import formContactStyles from './styles.module.css'
-export const FormContacto = () => {
+
+export const FormContact = () => {
 
     const [{ firstName, lastName, email, message }, handleInputChange, reset] = useForm({
         firstName: '',
@@ -45,28 +46,30 @@ export const FormContacto = () => {
                             value={lastName}
                             autoComplete='off'
                         />
+                        <input
+                            className={formContactStyles.inputEmail}
+                            placeholder='Email'
+                            name='email'
+                            onChange={handleInputChange}
+                            value={email}
+                            autoComplete='off'
+                        />
+                        <textarea
+                            className={formContactStyles.inputMessage}
+                            placeholder='Escribe tu consulta...'
+                            name='message'
+                            onChange={handleInputChange}
+                            value={message}
+                        />
                     </div>
-                    <input
-                        className={formContactStyles.inputEmail}
-                        placeholder='Email'
-                        name='email'
-                        onChange={handleInputChange}
-                        value={email}
-                        autoComplete='off'
-                    />
-                    <textarea
-                        className={formContactStyles.inputMessage}
-                        placeholder='Escribe tu consulta...'
-                        name='message'
-                        onChange={handleInputChange}
-                        value={message}
-                    />
-                    <button
-                        type='submit'
-                        className={formContactStyles.buttonSend}
-                    >
-                        Enviar
-                    </button>
+                    <div className={formContactStyles.containerBtnSend}>
+                        <button
+                            type='submit'
+                            className={formContactStyles.buttonSend}
+                        >
+                            Enviar
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

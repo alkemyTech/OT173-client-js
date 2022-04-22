@@ -1,16 +1,15 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
-import { Home } from './components/Home';
 import { News } from './components/News';
+import { ContactScreen } from './components/contacto/ContactScreen';
 import './App.css';
-import { ContactoScreen } from './components/contacto/ContactoScreen';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route to exact path='/' element={<Home/>}/>
-        <Route to path='/news' element={<News/>}/>
+        <Route to exact path='/' element={<ContactScreen />} />
+        <Route to path='/news' element={<News />} />
       </Routes>
     </div>
   );
