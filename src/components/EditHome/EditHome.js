@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field, FieldArray, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 import { Loader } from '../loader/Loader';
-import PreviewImageSlide from './PreviewImageSlide';
+import EditSlides from './EditSlides';
 import { editHomeFormValidationSchema } from './EditHomeFormValidation';
 import styles from './EditHome.module.css';
 
@@ -41,7 +41,7 @@ const EditHome = () => {
         if (errorMessage) setErrorMessage('');
 
         // Replace all the following lines with the Fetch logic !
-        const dummyWelcomeText = 'Dummy welcome text for testing purposes';
+        const dummyWelcomeText = 'Texto de bienvenida de la home';
         const imageFile = await createFileFromImageURL(
           'https://picsum.photos/250/300'
         );
@@ -105,37 +105,12 @@ const EditHome = () => {
                 {error => <div className={styles.error}>{error}</div>}
               </ErrorMessage>
 
-              <fieldset className={styles.slide_list}>
-                <FieldArray
-                  name="slides"
-                  render={() =>
-                    values.slides.map((_, index) => (
-                      <div key={index} className={styles.slide}>
-                        <Field
-                          as={PreviewImageSlide}
-                          setFieldValue={setFieldValue}
-                          setFieldTouched={setFieldTouched}
-                          type="file"
-                          name={`slides.${index}.image`}
-                        />
-                        <ErrorMessage name={`slides[${index}].image`}>
-                          {error => <div className={styles.error}>{error}</div>}
-                        </ErrorMessage>
-
-                        <Field
-                          type="text"
-                          name={`slides.${index}.text`}
-                          placeholder="Texto de la slide"
-                          className={styles.slide_text}
-                        />
-                        <ErrorMessage name={`slides.${index}.text`}>
-                          {error => <div className={styles.error}>{error}</div>}
-                        </ErrorMessage>
-                      </div>
-                    ))
-                  }
-                />
-              </fieldset>
+              <EditSlides
+                values={values}
+                setFieldTouched={setFieldTouched}
+                setFieldValue={setFieldValue}
+                errorClassName={styles.error}
+              />
 
               {errorMessage && (
                 <div className={styles.error}>{errorMessage}</div>
