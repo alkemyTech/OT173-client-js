@@ -32,7 +32,7 @@ const Login = () => {
                     <span htmlFor="email">Email</span>
                     <Field
                       className={LoginStyles.login_form_field_input}
-                      placeholder="Enter email..."
+                      placeholder="Enter email...."
                       name="email"
                     />
                   </div>
