@@ -25,13 +25,14 @@
   width: 60px;
   height: 60px;
 }
-.cardButton {
-  margin-top: 20px;
+.cardButtonLink {
+  margin-top: 15px;
   background-color: #088c8a;
   color: #fff;
   border: none;
   padding: 10px;
   border-radius: 10px;
+  text-decoration: none;
 }
 .cardButton:hover {
   cursor: pointer;

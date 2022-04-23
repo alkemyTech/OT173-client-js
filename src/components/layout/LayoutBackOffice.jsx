@@ -3,6 +3,7 @@ import style from "./style.module.css";
 
 import { cardBackoffice } from "./../../mocks/layoutMock";
 import Header from "../Header/Header";
+import { Link } from "react-router-dom";
 
 export const LayoutBackOffice = () => {
   return (
@@ -13,7 +14,9 @@ export const LayoutBackOffice = () => {
         <div key={card.name} className={style.cardContainer}>
           <h2 className={style.cardTitle}>{card.name}</h2>
           <img src={card.icon} className={style.cardImg} alt={card.name} />
-          <button type="button" className={style.cardButton}>IR</button>
+          <Link to={card.link} className={style.cardButtonLink}>
+            Ir
+          </Link>          
         </div>
       ))}
     </div>
