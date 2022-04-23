@@ -2,9 +2,12 @@ import React from "react";
 import style from "./style.module.css";
 
 import { cardBackoffice } from "./../../mocks/layoutMock";
+import Header from "../Header/Header";
 
 export const LayoutBackOffice = () => {
   return (
+    <>
+    <Header logo={'logo'} menu={[]}/>
     <div className={style.gridContainer}>
       {cardBackoffice.map((card) => (
         <div key={card.name} className={style.cardContainer}>
@@ -14,5 +17,6 @@ export const LayoutBackOffice = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
