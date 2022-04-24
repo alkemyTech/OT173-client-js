@@ -1,13 +1,29 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import style from "./Footer.module.css";
-import { LOGO_INFO, LINKS_SOCIAL } from "../data/data";
+import mailIcon from "../data/icons/email.png";
+import facebookIcon from "../data/icons/facebook.png";
+import instagramIcon from "../data/icons/instagram.png";
+import phoneIcon from "../data/icons/phone-call.png";
 
 export default function Footer() {
+  const [info, setInfo] = useState([])
+
+  useEffect(()=>{
+  
+    const fetchInfo = async () => {
+      const result = await axios.get('/public/data')
+      setInfo(result.data)
+  }
+  fetchInfo();
+}, []);
+
   return (
     <div className={style.container}>
        <div className={style.sample_logo}>
-        {LOGO_INFO.map((item) => (
-          <img className={style.logo_ong} src={item.Image} alt={item.Text} />
+        {info.map((item) => (
+          <img className={style.logo_ong} src={item.image} alt="Logo ONG" />
         ))}
       </div>
       <hr className={style.rectangle_top} />
@@ -33,46 +49,46 @@ export default function Footer() {
       </div>
       <hr className={style.rectangle_bottom} />
       <div className={style.icons}>
-        {LINKS_SOCIAL.map((items) => (
+        {info.map((item) => (
           <div>
-            <a href={items.mail_info} target="_blank" rel="noopener noreferrer">
+            <a href={item.email} target="_blank" rel="noopener noreferrer">
               <img
-                src={items.mail_icon}
+                src={mailIcon}
                 className={style.icons_size}
-                alt={items.alt_text}
+                alt="Icono Mail"
               />
             </a>
             <a
-              href={items.instagram_info}
+              href={item.social_instagram}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src={items.instagram_icon}
+                src={instagramIcon}
                 className={style.icons_size}
-                alt={items.alt_text}
+                alt="Icono Instagram"
               />
             </a>
             <a
-              href={items.facebook_info}
+              href={item.social_facebook}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src={items.facebook_icon}
+                src={facebookIcon}
                 className={style.icons_size}
-                alt={items.alt_text}
+                alt="Icono Facebook"
               />
             </a>
             <a
-              href={items.phone_info}
+              href={item.phone}
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src={items.phone_icon}
+                src={phoneIcon}
                 className={style.icons_size}
-                alt={items.alt_text}
+                alt="Icono Telefono"
               />
             </a>
           </div>
