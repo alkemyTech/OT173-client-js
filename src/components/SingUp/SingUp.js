@@ -1,23 +1,15 @@
-import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import { useSelector,useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { registerRequest } from '../helpers/userRequests/registerRequest';
 import { singUpFormValidationSchema } from './SingUpFormValidation';
 import styles from './SingUp.module.css';
+import { useNavigate } from 'react-router';
 
 const SingUp = () => {
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleSubmit = async formData => {
-    const { firstName, lastName, email, password } = formData;
-
-    try {
-      if (errorMessage) setErrorMessage('');
-      // Add here the Fetch logic
-    } catch (err) {
-      setErrorMessage(err.message);
-    }
-  };
-
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {isFetching,error,isSuccess} = useSelector(state=>state.user)
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -32,7 +24,7 @@ const SingUp = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={singUpFormValidationSchema}
-        onSubmit={handleSubmit}
+        onSubmit={(formValue)=>registerRequest(dispatch,formValue)}
       >
         {({ isSubmitting }) => (
           <Form className={styles.form}>
@@ -56,7 +48,7 @@ const SingUp = () => {
               {error => <div className={styles.error}>{error}</div>}
             </ErrorMessage>
 
-            {errorMessage && <div className={styles.error}>{errorMessage}</div>}
+            {}
 
             <button
               type="submit"

@@ -1,9 +1,5 @@
-export const registerRequest = (dispatch,navigate,v,setError) =>{
-    dispatch()
-        .then(res=>{
-            navigate("/")
-        })
-        .catch(err=>{
-            setError(true)
-        })
+import { registerUser } from "../../../features/user/userSlice"
+export const registerRequest = (dispatch,formValue) =>{
+    dispatch(registerUser(formValue))
+
 }

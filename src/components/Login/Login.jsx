@@ -1,17 +1,42 @@
-import { Formik, Field, Form } from "formik";
-import { useState } from "react";
+import { Formik, Field, Form } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
 import {
   initialLoginValue,
   loginSchema,
   logInHandleError,
-} from "../../helpers/loginFormSettings/loginFormValidation";
-import LoginStyles from "./Login.module.css";
-
+} from '../../helpers/loginFormSettings/loginFormValidation';
+import {
+  loginRequest,
+  clearAlerts,
+} from '../helpers/userRequests/loginRequest';
+import LoginStyles from './Login.module.css';
+import { Loader } from '../loader/Loader';
 const Login = () => {
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { error, isFetching, isSuccess } = useSelector(state => state.user);
+  useEffect(() => {
+    return () => {
+      clearAlerts(dispatch);
+    };
+  }, [dispatch]);
+  useEffect(() => {
+    if (error) {
+      clearAlerts(dispatch);
+    }
+    if (isSuccess) {
+      navigate('/');
+      clearAlerts(dispatch);
+    }
+  }, [error, isSuccess, dispatch, navigate]);
   return (
     <>
-      {error && <div className={LoginStyles.error_tologin}>Error to login</div>}
+      <ToastContainer
+      />
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <div className={LoginStyles.login_img}>
@@ -20,7 +45,7 @@ const Login = () => {
           <Formik
             initialValues={initialLoginValue}
             validationSchema={loginSchema}
-            onSubmit={(formValue) => {}}
+            onSubmit={formValue => loginRequest(dispatch, toast, formValue)}
             validateOnChange={false}
             validateOnBlur={false}
             validateOnMount={false}
@@ -47,7 +72,8 @@ const Login = () => {
                   </div>
                   {logInHandleError(errors).password()}
                   <button type="submit">
-                    Log In
+                    <span>Log In</span>
+                    {isFetching ? <Loader height={20} width={20} /> : null}
                   </button>
                 </Form>
               );
