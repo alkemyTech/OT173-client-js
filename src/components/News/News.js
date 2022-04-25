@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 
 import { Loader } from '../loader/Loader';
+import styles from './News.module.css';
 
 const DUMMY_NEWS = [
   {
     name: 'Título de la primera noticia',
     image: 'https://picsum.photos/200/300',
     createdAt: '2022-04-25T00:10:01.257Z',
-    id: '', // I let it empty so that the Link does not lead to a non-existent page
+    id: '', // I leave it empty becouse if not the Link lead to a non-existent page
   },
   {
     name: 'Título de la segunda noticia pero un poco más largo',
@@ -56,16 +57,18 @@ const News = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <section>
-      <h1>Novedades</h1>
+    <section className={styles.news_section}>
+      <h1 className={styles.title}>Novedades</h1>
       {news.length ? (
-        <p>Estas son las últimas novedades que tenemos para mostrar</p>
+        <p className={styles.info}>
+          Estas son las últimas novedades que tenemos para mostrar
+        </p>
       ) : (
-        <p>No tenemos novedades para mostrar</p>
+        <p className={styles.info}>No tenemos novedades para mostrar</p>
       )}
-      <div>
+      <div className={styles.news_list}>
         {news.map(news => (
-          <div>{news.name}</div>
+          <div key={news.id}>{news.name}</div>
         ))}
       </div>
     </section>
