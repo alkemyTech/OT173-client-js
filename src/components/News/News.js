@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { Loader } from '../loader/Loader';
+import NewsCard from './NewsCard';
 import styles from './News.module.css';
 
 const DUMMY_NEWS = [
@@ -68,7 +69,7 @@ const News = () => {
       )}
       <div className={styles.news_list}>
         {news.map(news => (
-          <div key={news.id}>{news.name}</div>
+          <NewsCard key={news.id} news={news} />
         ))}
       </div>
     </section>
