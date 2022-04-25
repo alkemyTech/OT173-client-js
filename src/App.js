@@ -4,6 +4,7 @@ import { Home } from './components/Home';
 import { News } from './components/News';
 import './App.css';
 import Login from './components/Login/Login';
+import SingUp from './components/SingUp/SingUp';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route to exact path='/' element={<Home/>}/>
         <Route to path='/news' element={<News/>}/>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<SingUp/>}/>
       </Routes>
     </div>
   );

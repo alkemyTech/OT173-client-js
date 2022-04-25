@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import { useSelector,useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
+import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect } from 'react';
+import { signUpRequest } from '../helpers/userRequests/registerRequest';
+import { clearAlerts } from '../../helpers/userRequest/loginRequiest';
 import { singUpFormValidationSchema } from './SingUpFormValidation';
+import { Loader } from '../loader/Loader';
 import styles from './SingUp.module.css';
 
 const SingUp = () => {
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleSubmit = async formData => {
-    const { firstName, lastName, email, password } = formData;
-
-    try {
-      if (errorMessage) setErrorMessage('');
-      // Add here the Fetch logic
-    } catch (err) {
-      setErrorMessage(err.message);
-    }
-  };
-
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {isFetching,error,isSuccess} = useSelector(state=>state.user)
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -25,14 +21,34 @@ const SingUp = () => {
     password: '',
   };
 
+  useEffect(() => {
+    return () => {
+      clearAlerts(dispatch);
+    };
+  }, [dispatch]);
+  useEffect(() => {
+    if (error) {
+      toast.error('Error to SignUp ⚠️', {
+        position: "top-right",
+        autoClose: 5000
+        });
+      clearAlerts(dispatch);
+    }
+    if (isSuccess) {
+      navigate('/login');
+      clearAlerts(dispatch);
+    }
+  }, [error, isSuccess, dispatch, navigate]);
+
   return (
     <section className={styles.sing_up}>
+      <ToastContainer/>
       <h1 className={styles.title}>Formulario de registro</h1>
 
       <Formik
         initialValues={initialValues}
         validationSchema={singUpFormValidationSchema}
-        onSubmit={handleSubmit}
+        onSubmit={(formValue)=>signUpRequest(dispatch,formValue)}
       >
         {({ isSubmitting }) => (
           <Form className={styles.form}>
@@ -56,14 +72,15 @@ const SingUp = () => {
               {error => <div className={styles.error}>{error}</div>}
             </ErrorMessage>
 
-            {errorMessage && <div className={styles.error}>{errorMessage}</div>}
+            {}
 
             <button
               type="submit"
               className={styles.submit}
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Enviando...' : 'Registrarme'}
+              <span>Log In</span>
+                    {isFetching ? <Loader height={20} width={20} /> : null}
             </button>
           </Form>
         )}
