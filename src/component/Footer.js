@@ -13,7 +13,7 @@ export default function Footer() {
   useEffect(()=>{
   
     const fetchInfo = async () => {
-      const result = await axios.get('/public/data')
+      const result = await axios.get('/organizations/data')
       setInfo(result.data)
   }
   fetchInfo();
