@@ -1,1 +1,1 @@
-export * as DateUtils from './dateUtils';
+export * as dateUtils from './dateUtils';

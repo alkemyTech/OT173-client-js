@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { DateUtils } from '../../util';
+import { dateUtils } from '../../util';
 import styles from './NewsCard.module.css';
 
 const NewsCard = ({ news }) => {
   const { name, image, createdAt, id } = news;
 
-  const date = DateUtils.formatDate(createdAt);
+  const date = dateUtils.formatDate(createdAt);
 
   return (
     <Link to={`/news/${id}`} className={styles.news_card}>
