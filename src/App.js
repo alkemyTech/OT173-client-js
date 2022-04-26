@@ -3,15 +3,16 @@ import { Route, Routes } from 'react-router';
 import { Home } from './components/Home';
 import { News } from './components/News';
 import './App.css';
-import SelectedNew from './components/components/SelectedNew/SelectedNew';
-
+import Login from './components/Login/Login';
+import SelectedNew from './components/SelectedNew/SelectedNew';
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route to exact path='/' element={<Home/>}/>
         <Route to path='/news' element={<News/>}/>
-        <Route path='/novedad/:id' element={<SelectedNew/>}/>
+        <Route path='/news/:id' element={<SelectedNew></SelectedNew>}/>
+        <Route path='/login' element={<Login/>}/>
       </Routes>
     </div>
   );
