@@ -5,20 +5,38 @@ import {
   loginSchema,
   logInHandleError,
 } from "../../helpers/loginFormSettings/loginFormValidation";
-import { useDispatch } from 'react-redux'
 import { login } from "../../features/user/userSlice";
 import LoginStyles from "./Login.module.css";
+import { post } from "../../services/apiService";
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
+  const URL_POST = 'http://localhost:3000/users/auth/login';
 
-  const handleSubmit = ({ email, password }) => {
-    dispatch(login({
-      email,
-      password,
-      loggedIn: true
-    }));
+  const handleSubmit = async ({ email, password }) => {
+
+    try {
+      const response = await post(URL_POST, ({ email, password }));
+
+      if (!response.ok) {
+        setError("Error To Login")
+        setTimeout(() => {
+          setError(null)
+        }, 3000);
+        return;
+      }
+
+      dispatch(login({
+        email,
+        password,
+        loggedIn: true
+      }));
+
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
