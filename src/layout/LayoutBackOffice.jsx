@@ -1,9 +1,8 @@
 import React from "react";
 import style from "./style.module.css";
-
-import { cardBackoffice } from "./../../mocks/layoutMock";
-import Header from "../Header/Header";
+import Header from './../components/Header/Header';
 import { Link } from "react-router-dom";
+import { cardBackoffice } from "../constants/CardLayoutInfo";
 
 export const LayoutBackOffice = () => {
   return (
