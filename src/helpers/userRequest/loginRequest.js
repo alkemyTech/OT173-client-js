@@ -1,4 +1,4 @@
-import { fetchUser, clearState} from "../../../features/user/userSlice";
+import { fetchUser, clearState} from "../../features/user/userSlide";
 
 export const loginRequest = (dispatch, valueForm) => {
     dispatch(fetchUser(valueForm))

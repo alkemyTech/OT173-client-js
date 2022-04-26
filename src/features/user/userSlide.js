@@ -14,3 +14,5 @@ export const signUpUser = createAsyncThunk(
         post("/auth/signup",dispatch)
     }
 )
+
+

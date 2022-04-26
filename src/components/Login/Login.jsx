@@ -12,7 +12,7 @@ import {
 import {
   loginRequest,
   clearAlerts,
-} from '../helpers/userRequests/loginRequest';
+} from '../../helpers/userRequest/loginRequest';
 import LoginStyles from './Login.module.css';
 import { Loader } from '../loader/Loader';
 const Login = () => {
