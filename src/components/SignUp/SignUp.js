@@ -6,9 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import React, { useEffect } from 'react';
 import { signUpRequest } from '../../helpers/userRequest/signUpRequest';
 import { clearAlerts } from '../../helpers/userRequest/loginRequest';
-import { singUpFormValidationSchema } from './SingUpFormValidation';
+import { signUpFormValidationSchema } from './SignUpFormValidation';
 import { Loader } from '../loader/Loader';
-import styles from './SingUp.module.css';
+import styles from './SignUp.module.css';
 
 const SingUp = () => {
   const navigate = useNavigate()
@@ -47,7 +47,7 @@ const SingUp = () => {
 
       <Formik
         initialValues={initialValues}
-        validationSchema={singUpFormValidationSchema}
+        validationSchema={signUpFormValidationSchema}
         onSubmit={(formValue)=>signUpRequest(dispatch,formValue)}
       >
         {({ isSubmitting }) => (
