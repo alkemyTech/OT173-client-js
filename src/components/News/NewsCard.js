@@ -7,7 +7,7 @@ import styles from './NewsCard.module.css';
 const NewsCard = ({ news }) => {
   const { name, image, createdAt, id } = news;
 
-  const date = dateUtils.formatDate(createdAt);
+  const date = dateUtils.formatDateLong(createdAt);
 
   return (
     <Link to={`/news/${id}`} className={styles.news_card}>

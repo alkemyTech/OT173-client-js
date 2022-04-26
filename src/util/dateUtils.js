@@ -1,9 +1,7 @@
-const defaultConfig = {
-  dateStyle: 'long',
-};
-
-export const formatDate = (value, locale = 'es-ES', config = defaultConfig) => {
+export const formatDateLong = (value, locale = 'es-ES') => {
   const date = new Date(value);
-  const formatter = new Intl.DateTimeFormat(locale, config);
+  const formatter = new Intl.DateTimeFormat(locale, {
+    dateStyle: 'long',
+  });
   return formatter.format(date);
 };
