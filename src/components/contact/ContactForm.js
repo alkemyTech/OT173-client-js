@@ -1,8 +1,8 @@
 import React from 'react'
-import { useForm } from './hooks/useForm'
-import formContactStyles from './styles.module.css'
+import { useForm } from '../../hooks/useForm'
+import contactFormStyles from './styles.module.css'
 
-export const FormContact = () => {
+export const ContactForm = () => {
 
     const [{ firstName, lastName, email, message }, handleInputChange, reset] = useForm({
         firstName: '',
@@ -25,13 +25,13 @@ export const FormContact = () => {
     }
 
     return (
-        <div className={formContactStyles.container}>
+        <div className={contactFormStyles.container}>
             <div>
-                <h4 className={formContactStyles.formTitle}>Contacte con nosotros</h4>
+                <h4 className={contactFormStyles.formTitle}>Contacte con nosotros</h4>
                 <form onSubmit={handleSubmit}>
-                    <div >
+                    <div className={contactFormStyles.formContainer}>
                         <input
-                            className={formContactStyles.inputFirstName}
+                            className={contactFormStyles.inputFirstName}
                             placeholder='Nombre'
                             name='firstName'
                             value={firstName}
@@ -39,7 +39,7 @@ export const FormContact = () => {
                             autoComplete='off'
                         />
                         <input
-                            className={formContactStyles.inputLastName}
+                            className={contactFormStyles.inputLastName}
                             placeholder='Apellido'
                             name='lastName'
                             onChange={handleInputChange}
@@ -47,7 +47,7 @@ export const FormContact = () => {
                             autoComplete='off'
                         />
                         <input
-                            className={formContactStyles.inputEmail}
+                            className={contactFormStyles.inputEmail}
                             placeholder='Email'
                             name='email'
                             onChange={handleInputChange}
@@ -55,17 +55,17 @@ export const FormContact = () => {
                             autoComplete='off'
                         />
                         <textarea
-                            className={formContactStyles.inputMessage}
+                            className={contactFormStyles.inputMessage}
                             placeholder='Escribe tu consulta...'
                             name='message'
                             onChange={handleInputChange}
                             value={message}
                         />
                     </div>
-                    <div className={formContactStyles.containerBtnSend}>
+                    <div className={contactFormStyles.containerBtnSend}>
                         <button
                             type='submit'
-                            className={formContactStyles.buttonSend}
+                            className={contactFormStyles.buttonSend}
                         >
                             Enviar
                         </button>

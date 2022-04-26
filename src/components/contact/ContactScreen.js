@@ -1,5 +1,5 @@
 import React from 'react'
-import { FormContact } from './FormContact'
+import { ContactForm } from './ContactForm'
 import screenContainerStyle from './styles.module.css'
 
 export const ContactScreen = () => {
@@ -20,7 +20,7 @@ export const ContactScreen = () => {
                 </p>
             </div>
             <div>
-                <FormContact />
+                <ContactForm />
             </div>
         </div>
     )
