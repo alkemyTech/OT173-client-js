@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import FormikNews from './formNews/FormikNews';
 
 export const News = () => {
   return (
-    <div>News</div>
+    <div>
+      <FormikNews />
+    </div>
   )
 }
