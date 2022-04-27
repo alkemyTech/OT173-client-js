@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.26.1",
+    "formik": "^2.2.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-loader-spinner": "^6.0.0-0",
@@ -16,7 +17,8 @@
     "sweetalert2-react": "^0.8.3",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "5.0.1",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
