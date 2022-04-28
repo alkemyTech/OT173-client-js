@@ -9,7 +9,6 @@ import { selectUser } from './features/user/userSlice';
 
 function App() {
   const user = useSelector(selectUser);
-
   return (
     <div className="App">
       <Routes>

@@ -6,9 +6,9 @@ import {
   logInHandleError,
 } from "../../helpers/loginFormSettings/loginFormValidation";
 import { login } from "../../features/user/userSlice";
-import LoginStyles from "./Login.module.css";
 import { post } from "../../services/apiService";
 import { useDispatch } from 'react-redux';
+import LoginStyles from "./Login.module.css";
 
 const Login = () => {
   const URL_POST_LOGIN = `${process.env.REACT_APP_API_URI}/users/auth/login`;
@@ -16,7 +16,6 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = async ({ email, password }) => {
-
     try {
       const response = await post(URL_POST_LOGIN, ({ email, password }));
       if (!response.ok) {
