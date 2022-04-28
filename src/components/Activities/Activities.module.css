@@ -1,0 +1,56 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .tablecontent{
+      width: 80%;
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      background-color: #9ac9fb;
+      border-radius: 15px;
+  }
+
+  .tabledata{
+      border-top: 1px solid #7394b8;
+  }
+
+  .header1 {
+      width: 70%;
+  }
+
+  .button {
+    height: 5vh;
+    width: 8vw;
+    margin-right: 2vw;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .deletebutton {
+      background-color: #DB5752;
+      border: 1px solid #DB5752;
+  }
+
+  .editbutton {
+    background-color: #FAFA88;
+    border: 1px solid #FAFA88;
+}
+
+.savebutton {
+    background-color: #9bfa88;
+    border: 1px solid #9bfa88;
+}
