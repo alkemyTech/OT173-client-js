@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import { Home } from './components/Home';
-import './App.css';
 import Login from './components/Login/Login';
 import News from './components/News/News';
+import './App.css';
 
 function App() {
   return (
