@@ -11,17 +11,16 @@ import { post } from "../../services/apiService";
 import { useDispatch } from 'react-redux';
 
 const Login = () => {
+  const URL_POST_LOGIN = `${process.env.REACT_APP_API_URI}/users/auth/login`;
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
-  const URL_POST = 'http://localhost:3000/users/auth/login';
 
   const handleSubmit = async ({ email, password }) => {
 
     try {
-      const response = await post(URL_POST, ({ email, password }));
-
+      const response = await post(URL_POST_LOGIN, ({ email, password }));
       if (!response.ok) {
-        setError("Error To Login")
+        setError(response.error.response.data.msg)
         setTimeout(() => {
           setError(null)
         }, 3000);
@@ -30,7 +29,6 @@ const Login = () => {
 
       dispatch(login({
         email,
-        password,
         loggedIn: true
       }));
 
@@ -41,7 +39,7 @@ const Login = () => {
 
   return (
     <>
-      {error && <div className={LoginStyles.error_tologin}>Error to login</div>}
+      {error && <div className={LoginStyles.error_tologin}>{error}</div>}
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <div className={LoginStyles.login_img}>
