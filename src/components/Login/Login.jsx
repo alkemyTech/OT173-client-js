@@ -1,38 +1,18 @@
 import { Formik, Field, Form } from 'formik';
-import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect } from 'react';
 import {
   initialLoginValue,
   loginSchema,
   logInHandleError,
 } from '../../helpers/loginFormSettings/loginFormValidation';
 import {
-  loginRequest,
-  clearAlerts,
+  loginRequest
 } from '../../helpers/userRequest/loginRequest';
 import LoginStyles from './Login.module.css';
-import { Loader } from '../loader/Loader';
 const Login = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { error, isFetching, isSuccess } = useSelector(state => state.user);
-  useEffect(() => {
-    return () => {
-      clearAlerts(dispatch);
-    };
-  }, [dispatch]);
-  useEffect(() => {
-    if (error) {
-      clearAlerts(dispatch);
-    }
-    if (isSuccess) {
-      navigate('/');
-      clearAlerts(dispatch);
-    }
-  }, [error, isSuccess, dispatch, navigate]);
   return (
     <>
       <ToastContainer
@@ -45,7 +25,7 @@ const Login = () => {
           <Formik
             initialValues={initialLoginValue}
             validationSchema={loginSchema}
-            onSubmit={formValue => loginRequest(dispatch, toast, formValue)}
+            onSubmit={formValue => loginRequest( formValue,navigate,toast)}
             validateOnChange={false}
             validateOnBlur={false}
             validateOnMount={false}
@@ -72,8 +52,7 @@ const Login = () => {
                   </div>
                   {logInHandleError(errors).password()}
                   <button type="submit">
-                    <span>Log In</span>
-                    {isFetching ? <Loader height={20} width={20} /> : null}
+                    <span>Log In</span>                    
                   </button>
                 </Form>
               );

@@ -1,44 +1,19 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useSelector,useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useEffect } from 'react';
 import { signUpRequest } from '../../helpers/userRequest/signUpRequest';
-import { clearAlerts } from '../../helpers/userRequest/loginRequest';
 import { signUpFormValidationSchema } from './SignUpFormValidation';
-import { Loader } from '../loader/Loader';
 import styles from './SignUp.module.css';
 
 const SingUp = () => {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const {isFetching,error,isSuccess} = useSelector(state=>state.user)
   const initialValues = {
     firstName: '',
     lastName: '',
     email: '',
     password: '',
   };
-
-  useEffect(() => {
-    return () => {
-      clearAlerts(dispatch);
-    };
-  }, [dispatch]);
-  useEffect(() => {
-    if (error) {
-      toast.error('Error to SignUp ⚠️', {
-        position: "top-right",
-        autoClose: 5000
-        });
-      clearAlerts(dispatch);
-    }
-    if (isSuccess) {
-      navigate('/login');
-      clearAlerts(dispatch);
-    }
-  }, [error, isSuccess, dispatch, navigate]);
 
   return (
     <section className={styles.sing_up}>
@@ -48,7 +23,7 @@ const SingUp = () => {
       <Formik
         initialValues={initialValues}
         validationSchema={signUpFormValidationSchema}
-        onSubmit={(formValue)=>signUpRequest(dispatch,formValue)}
+        onSubmit={formValue=>signUpRequest(formValue,navigate,toast)}
       >
         {({ isSubmitting }) => (
           <Form className={styles.form}>
@@ -80,7 +55,6 @@ const SingUp = () => {
               disabled={isSubmitting}
             >
               <span>Log In</span>
-                    {isFetching ? <Loader height={20} width={20} /> : null}
             </button>
           </Form>
         )}
