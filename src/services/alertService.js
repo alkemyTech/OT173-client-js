@@ -3,11 +3,11 @@ import swal from "sweetalert";
 export const confirm = (data) => {
     return (swal({ ...data, icon: "warning", buttons: ["No", "Yes"] })
                 .then(response =>
-                    !response
+                    response
                     ?
-                    swal({ text: "Cancelled", icon: "info", buttons: false, timer: "1100" })
+                    true
                     :
-                    swal({ icon: "success", buttons: false, timer: "1100" })
+                    false
             ))
 }
 
