@@ -1,41 +1,15 @@
 import { Formik, Field, Form } from "formik";
-import { useState } from "react";
 import {
   initialLoginValue,
   loginSchema,
   logInHandleError,
 } from "../../helpers/loginFormSettings/loginFormValidation";
-import { login } from "../../features/user/userSlice";
-import { post } from "../../services/apiService";
-import { useDispatch } from 'react-redux';
 import LoginStyles from "./Login.module.css";
+import { useLogin } from "./useLogin";
 
 const Login = () => {
-  const URL_POST_LOGIN = `${process.env.REACT_APP_API_URI}/users/auth/login`;
-  const [error, setError] = useState(null);
-  const dispatch = useDispatch();
-
-  const handleSubmit = async ({ email, password }) => {
-    try {
-      const response = await post(URL_POST_LOGIN, ({ email, password }));
-      if (!response.ok) {
-        setError(response.error.response.data.msg)
-        setTimeout(() => {
-          setError(null)
-        }, 3000);
-        return;
-      }
-
-      dispatch(login({
-        email,
-        loggedIn: true
-      }));
-
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
+  const [error, handleSubmit ] = useLogin();
+  
   return (
     <>
       {error && <div className={LoginStyles.error_tologin}>{error}</div>}
