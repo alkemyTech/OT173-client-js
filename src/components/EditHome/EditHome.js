@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Loader } from '../loader/Loader';
 import { editHomeFormValidationSchema } from './EditHomeFormValidation';
 import styles from './EditHome.module.css';
+import Carousel from '../carousel/Carousel';
 
 const EditHome = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,6 +64,8 @@ const EditHome = () => {
               <ErrorMessage name="welcomeText">
                 {error => <div className={styles.error}>{error}</div>}
               </ErrorMessage>
+
+              <Carousel />
 
               {errorMessage && (
                 <div className={styles.error}>{errorMessage}</div>
