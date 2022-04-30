@@ -7,7 +7,7 @@ import { cardBackoffice } from "../constants/CardLayoutInfo";
 export const LayoutBackOffice = () => {
   return (
     <>
-    <Header logo={'logo'} menu={[]}/>
+    <Header logo={'https://i.ibb.co/7Qcvm6c/LOGO-SOMOS-MAS.png'} menu={[]}/>
     <div className={style.gridContainer}>
       {cardBackoffice.map((card) => (
         <div key={card.name} className={style.cardContainer}>

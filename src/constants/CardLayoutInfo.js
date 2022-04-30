@@ -22,7 +22,7 @@ export const cardBackoffice = [
     {
         name: 'Organizacion',
         icon: './images/backoffice/organization-chart.png',
-        link: '/edit-organization'
+        link: '/backoffice/edit-organization'
     },
     {
         name: 'Slides',
