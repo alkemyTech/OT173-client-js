@@ -1,0 +1,11 @@
+
+.container {
+    width: min-content;
+    margin: 0 auto;
+}
+.description {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    margin: 0;
+    padding: 2px 3px;
+}
