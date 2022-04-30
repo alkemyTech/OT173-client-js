@@ -1,7 +1,5 @@
 import { Formik, Field, Form } from 'formik';
 import { useNavigate } from 'react-router';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import {
   initialLoginValue,
   loginSchema,
@@ -15,8 +13,6 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     <>
-      <ToastContainer
-      />
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <div className={LoginStyles.login_img}>
@@ -25,7 +21,7 @@ const Login = () => {
           <Formik
             initialValues={initialLoginValue}
             validationSchema={loginSchema}
-            onSubmit={formValue => loginRequest( formValue,navigate,toast)}
+            onSubmit={formValue => loginRequest( formValue,navigate)}
             validateOnChange={false}
             validateOnBlur={false}
             validateOnMount={false}
