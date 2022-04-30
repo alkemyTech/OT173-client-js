@@ -1,7 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
-import 'react-toastify/dist/ReactToastify.css';
 import { signUpRequest } from '../../helpers/userRequest/signUpRequest';
 import { signUpFormValidationSchema } from './SignUpFormValidation';
 import styles from './SignUp.module.css';
@@ -17,13 +15,11 @@ const SingUp = () => {
 
   return (
     <section className={styles.sing_up}>
-      <ToastContainer/>
       <h1 className={styles.title}>Formulario de registro</h1>
-
       <Formik
         initialValues={initialValues}
         validationSchema={signUpFormValidationSchema}
-        onSubmit={formValue=>signUpRequest(formValue,navigate,toast)}
+        onSubmit={formValue=>signUpRequest(formValue,navigate)}
       >
         {({ isSubmitting }) => (
           <Form className={styles.form}>
