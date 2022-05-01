@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useNavigate } from 'react-router';
-import { signUpRequest } from '../../helpers/userRequest/signUpRequest';
+import { signUpRequest } from '../../services/authService';
 import { signUpFormValidationSchema } from './SignUpFormValidation';
 import styles from './SignUp.module.css';
 
@@ -42,15 +42,12 @@ const SingUp = () => {
             <ErrorMessage name="password">
               {error => <div className={styles.error}>{error}</div>}
             </ErrorMessage>
-
-            {}
-
             <button
               type="submit"
               className={styles.submit}
               disabled={isSubmitting}
             >
-              <span>Log In</span>
+              {isSubmitting ? 'Enviando...' : 'Registrarme'}
             </button>
           </Form>
         )}
