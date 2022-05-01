@@ -1,6 +1,5 @@
-import HelloUser from "./presentational/HelloUser/HelloUser"
-import News from "./presentational/News/News"
-import Testimonials from "./presentational/Testimonials/Testimonials"
+import HelloUser from "../HelloUser/HelloUser"
+import News from "../News/News"
 import Header from "../Header/Header"
 import Carousel from "../carousel/Carousel"
 import Footer from "../Footer/Footer"
@@ -10,9 +9,8 @@ const Home = () => {
     <>
       <Header logo={"/images/assets/logo1.png"} menu={HeaderLinks}/>
       <Carousel/>
-      <HelloUser/>
+      <HelloUser username={{}}/>
       <News/>
-      <Testimonials/>
       <Footer/>
     </>
   )
