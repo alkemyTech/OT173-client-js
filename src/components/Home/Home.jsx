@@ -1,16 +1,19 @@
-import NavBar from "./presentational/NavBar/NavBar"
 import HelloUser from "./presentational/HelloUser/HelloUser"
 import News from "./presentational/News/News"
 import Testimonials from "./presentational/Testimonials/Testimonials"
-import Footer from "./presentational/Footer/Footer"
+import Header from "../Header/Header"
+import Carousel from "../carousel/Carousel"
+import Footer from "../Footer/Footer"
+import { HeaderLinks } from "../../constants/HeaderLinks-Home"
 const Home = () => {
   return (
     <>
-      <NavBar></NavBar>
-      <HelloUser></HelloUser>
-      <News></News>
-      <Testimonials></Testimonials>
-      <Footer></Footer>
+      <Header logo={"/images/assets/logo1.png"} menu={HeaderLinks}/>
+      <Carousel/>
+      <HelloUser/>
+      <News/>
+      <Testimonials/>
+      <Footer/>
     </>
   )
 }
