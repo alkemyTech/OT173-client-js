@@ -5,9 +5,7 @@ import {
   loginSchema,
   logInHandleError,
 } from '../../helpers/loginFormSettings/loginFormValidation';
-import {
-  loginRequest
-} from '../../helpers/userRequest/loginRequest';
+import { loginRequest } from '../../services/authService';
 import LoginStyles from './Login.module.css';
 const Login = () => {
   const navigate = useNavigate();
