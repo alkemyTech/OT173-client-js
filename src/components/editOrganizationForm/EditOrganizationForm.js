@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Header from '../Header/Header';
-import LoginStyles from "./Login.module.css";
-import { Formik, Field, Form } from "formik";
-import { initialOrganizationValue, organizationSchema, organizationHandleError } from './../../helpers/editFormOrganization/EditFormOrganization';
+import LoginStyles from './Login.module.css';
+import { Formik, Field, Form } from 'formik';
+import {
+  initialOrganizationValue,
+  organizationSchema,
+  organizationHandleError,
+} from './../../helpers/editFormOrganization/EditFormOrganization';
 
 export const EditOrganizationForm = () => {
-    const [error, setError] = useState(null);
   return (
     <>
       <Header logo={'https://i.ibb.co/7Qcvm6c/LOGO-SOMOS-MAS.png'} menu={[]} />
-     
-   
-      {error && <div className={LoginStyles.error_tologin}>Error to login</div>}
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <div className={LoginStyles.login_img}>
@@ -20,7 +20,7 @@ export const EditOrganizationForm = () => {
           <Formik
             initialValues={initialOrganizationValue}
             validationSchema={organizationSchema}
-            onSubmit={(formValue) => {}}
+            onSubmit={formValue => {}}
             validateOnChange={false}
             validateOnBlur={false}
             validateOnMount={false}
@@ -41,23 +41,19 @@ export const EditOrganizationForm = () => {
                     <span>New Logo</span>
                     <Field
                       className={LoginStyles.login_form_field_input}
-                      placeholder='new logo'
-                      type='file'
-                      name="logo"                      
+                      placeholder="new logo"
+                      type="file"
+                      name="logo"
                     />
                   </div>
                   {organizationHandleError(errors).logo()}
-                  <button type="submit">
-                    Update
-                  </button>
+                  <button type="submit">Update</button>
                 </Form>
               );
             }}
           </Formik>
         </div>
       </div>
-   
-  );
     </>
   );
 };
