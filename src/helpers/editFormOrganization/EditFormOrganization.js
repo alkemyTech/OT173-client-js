@@ -8,7 +8,7 @@ export const initialOrganizationValue = {
 
 export const organizationSchema = Yup.object().shape({
   name: Yup.string().required("Name is Required"),
-  logo: Yup.mixed().required('A file is required')
+  logo: Yup.string().url('invalid url').required("url is Required"),
 });
 
 export const organizationHandleError = (errors) => {

@@ -42,7 +42,7 @@ export const EditOrganizationForm = () => {
                     <Field
                       className={LoginStyles.login_form_field_input}
                       placeholder="new logo"
-                      type="file"
+                      type="text"
                       name="logo"
                     />
                   </div>
