@@ -1,6 +1,9 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm'
 import contactFormStyles from './styles.module.css'
+import { post } from '../../services/apiService'
+
+
 
 export const ContactForm = () => {
 
@@ -11,15 +14,19 @@ export const ContactForm = () => {
         message: ''
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
 
         if (!firstName || !lastName || !email || !message) {
             alert("Debe completar los campos")
             return;
-        }
-        //replace for http.post 
-        localStorage.setItem("consulta", JSON.stringify({ firstName, lastName, email, message }));
+        }  
+
+        try {
+          await post('/contacts', { firstName, lastName, email, message })
+        } catch (error) {
+           console.log('error', error)
+        }   
 
         reset();
     };
