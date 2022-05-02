@@ -10,7 +10,7 @@ export default function News() {
 
     const loadValues = async () =>{
 
-        const response = await axios.get('http://localhost:3000/news').catch(err => console.log(err));
+        const response = await axios.get('/backoffice/news').catch(err => console.log(err));
         
         if(response){
             const information = response.data;
@@ -26,7 +26,6 @@ const newsColumns = useMemo(
     () =>
     values[0]
     ? Object.keys(values[0])
-    .filter((key) => key !== "rating")
     .map((key) => {
       return { Header: key, accessor: key };
     })
@@ -64,15 +63,6 @@ const tableEdit = (hooks) => {
     ]);
   };
 
-  const buttonDelete = async (id) =>{
-      try {
-        const result = await axios.delete(`http://localhost:3000/news${id}`);
-        setValues(values.filter((val) => val.id !== id));
-        setValues(result)
-      } catch (error) {
-        console.log(error);
-      }
-    };
   
       
 const tableInstance = useTable({ columns: newsColumns, data: newsData },
