@@ -5,6 +5,7 @@ import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import { Home } from './components/Home';
 import './App.css';
 import Login from './components/Login/Login';
+import { News } from './components/News';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route to exact path='/' element={<Home/>}/>
         <Route to path='/news' element={<News/>}/>
         <Route to path='/backoffice' element={<LayoutBackOffice/>}/>
+        <Route to path='/backoffice/news' element={<News/>}/>
         <Route path='/login' element={<Login/>}/>
       </Routes>
     </div>
