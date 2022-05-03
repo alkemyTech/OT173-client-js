@@ -1,38 +1,33 @@
-import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
-import { singUpFormValidationSchema } from './SingUpFormValidation';
-import styles from './SingUp.module.css';
+import { useNavigate } from 'react-router';
+import { signUpRequest } from '../../services/authService';
+import { error as popUpError } from '../../services/alertService';
+import { signUpFormValidationSchema } from './SignUpFormValidation';
+import styles from './SignUp.module.css';
 
 const SingUp = () => {
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const handleSubmit = async formData => {
-    const { firstName, lastName, email, password } = formData;
-
-    try {
-      if (errorMessage) setErrorMessage('');
-      // Add here the Fetch logic
-    } catch (err) {
-      setErrorMessage(err.message);
-    }
-  };
-
+  const navigate = useNavigate()
   const initialValues = {
     firstName: '',
     lastName: '',
     email: '',
     password: '',
   };
-
+  const signUpSubmit = async formvalue=>{
+    const {ok,error} = await signUpRequest(formvalue)
+    if(ok){
+      navigate("/")
+    }else{
+      popUpError({text:`${error.message}`})
+    }
+  }
   return (
     <section className={styles.sing_up}>
       <h1 className={styles.title}>Formulario de registro</h1>
-
       <Formik
         initialValues={initialValues}
-        validationSchema={singUpFormValidationSchema}
-        onSubmit={handleSubmit}
+        validationSchema={signUpFormValidationSchema}
+        onSubmit={signUpSubmit}
       >
         {({ isSubmitting }) => (
           <Form className={styles.form}>
@@ -55,9 +50,6 @@ const SingUp = () => {
             <ErrorMessage name="password">
               {error => <div className={styles.error}>{error}</div>}
             </ErrorMessage>
-
-            {errorMessage && <div className={styles.error}>{errorMessage}</div>}
-
             <button
               type="submit"
               className={styles.submit}
