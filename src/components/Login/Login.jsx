@@ -6,11 +6,20 @@ import {
   logInHandleError,
 } from '../../helpers/loginFormSettings/loginFormValidation';
 import { loginRequest } from '../../services/authService';
+import {error as popUpError} from "../../services/alertService"
 import LoginStyles from './Login.module.css';
 const Login = () => {
   const navigate = useNavigate();
+
+  const logInSubmit = async formvalue =>{
+    const {ok,error} = await loginRequest(formvalue)
+    if(ok){
+      navigate("/")
+    }else{
+      popUpError({text:`${error.message}`})
+    }
+  }
   return (
-    <>
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <div className={LoginStyles.login_img}>
@@ -19,7 +28,7 @@ const Login = () => {
           <Formik
             initialValues={initialLoginValue}
             validationSchema={loginSchema}
-            onSubmit={formValue => loginRequest( formValue,navigate)}
+            onSubmit={logInSubmit}
             validateOnChange={false}
             validateOnBlur={false}
             validateOnMount={false}
@@ -54,7 +63,6 @@ const Login = () => {
           </Formik>
         </div>
       </div>
-    </>
   );
 };
 

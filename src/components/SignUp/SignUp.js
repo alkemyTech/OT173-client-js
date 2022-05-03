@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useNavigate } from 'react-router';
 import { signUpRequest } from '../../services/authService';
+import { error as popUpError } from '../../services/alertService';
 import { signUpFormValidationSchema } from './SignUpFormValidation';
 import styles from './SignUp.module.css';
 
@@ -12,14 +13,21 @@ const SingUp = () => {
     email: '',
     password: '',
   };
-
+  const signUpSubmit = async formvalue=>{
+    const {ok,error} = await signUpRequest(formvalue)
+    if(ok){
+      navigate("/")
+    }else{
+      popUpError({text:`${error.message}`})
+    }
+  }
   return (
     <section className={styles.sing_up}>
       <h1 className={styles.title}>Formulario de registro</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={signUpFormValidationSchema}
-        onSubmit={formValue=>signUpRequest(formValue,navigate)}
+        onSubmit={signUpSubmit}
       >
         {({ isSubmitting }) => (
           <Form className={styles.form}>
