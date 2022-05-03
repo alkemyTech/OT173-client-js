@@ -74,6 +74,9 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.2s transform ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .login_form button[type="submit"]:hover {
