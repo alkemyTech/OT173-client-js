@@ -1,0 +1,41 @@
+.news_section {
+  padding: 4rem 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.info {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.news_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 992px) {
+  .news_section {
+    padding: 7.5rem 9rem;
+  }
+
+  .title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .info {
+    margin-bottom: 5rem;
+    font-size: 2.25rem;
+  }
+}
