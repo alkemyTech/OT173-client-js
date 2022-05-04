@@ -3,37 +3,26 @@ import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { useTable } from "react-table";
 
-
 export default function News() {
     
-    const [values, setValues] = useState([])
+  const [values, setValues] = useState([])
+  const newsData = useMemo(() => [...values], [values]);    
 
-    const loadValues = async () =>{
+  const loadValues = async () =>{
+    const response = await axios.get('/backoffice/news').catch(err => console.log(err));       
+      if(response){
+    const information = response.data;
+      setValues(information)
+    }
+  };
 
-        const response = await axios.get('/backoffice/news').catch(err => console.log(err));
-        
-        if(response){
-            const information = response.data;
-
-            setValues(information)
-        }
-    };
-
-
-const newsData = useMemo(() => [...values], [values]);
-
-const newsColumns = useMemo(
-    () =>
-    values[0]
-    ? Object.keys(values[0])
+  const newsColumns = useMemo(() => values[0] ? Object.keys(values[0])
     .map((key) => {
       return { Header: key, accessor: key };
-    })
-: [],
-[values]
-);
+    }) : [], [values]
+  );
 
-const tableEdit = (hooks) => {
+  const tableEdit = (hooks) => {
     hooks.visibleColumns.push((columns) => [
       ...columns,
       {
@@ -47,7 +36,6 @@ const tableEdit = (hooks) => {
       },
     ]);
   };
-
   const tableDelete = (hooks) => {
     hooks.visibleColumns.push((columns) => [
       ...columns,
@@ -61,50 +49,44 @@ const tableEdit = (hooks) => {
         ),
       },
     ]);
-  };
-
-  
-      
-const tableInstance = useTable({ columns: newsColumns, data: newsData },
-    tableDelete, tableEdit);
-
-const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
+  };    
+  const tableInstance = useTable({ columns: newsColumns, data: newsData },tableDelete, tableEdit);
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
     
-useEffect(() => {   
+  useEffect(() => {   
     loadValues()
-},[]);
+  },[]);
 
 return(
-    <>
-
+  <>
     <table {...getTableProps()}>
-    <thead>
+      <thead>
         {headerGroups.map((headerGroup) =>(
             <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                    <th 
+                  <th 
                     {...column.getHeaderProps()}>{column.render("Header")}
-                     </th>
+                  </th>
                 ))}
-                </tr>
+            </tr>
         ))}
-    </thead>
-    <tbody {...getTableBodyProps()} >
-            {rows.map((row) => {
-                prepareRow(row)
-                return (
-                    <tr {...row.getRowProps()}>
-                      {row.cells.map((cell) => (
-                        <td {...cell.getCellProps()}>
-                          {cell.render("Cell")}
-                        </td>
-                      ))}
-                    </tr>
-                  )
-                })}
-              </tbody>
+      </thead>
+      <tbody {...getTableBodyProps()} >
+        {rows.map((row) => {
+          prepareRow(row)
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => (
+                  <td {...cell.getCellProps()}>
+                    {cell.render("Cell")}
+                  </td>
+                  ))}
+              </tr>
+            )
+          })}
+      </tbody>
    </table>
-   </>
-);
+  </>
+  );
 }
 
