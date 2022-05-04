@@ -1,18 +1,25 @@
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form } from 'formik';
+import { useNavigate } from 'react-router';
 import {
   initialLoginValue,
   loginSchema,
   logInHandleError,
-} from "../../helpers/loginFormSettings/loginFormValidation";
-import LoginStyles from "./Login.module.css";
-import { useLogin } from "./useLogin";
-
+} from '../../helpers/loginFormSettings/loginFormValidation';
+import { loginRequest } from '../../services/authService';
+import {error as popUpError} from "../../services/alertService"
+import LoginStyles from './Login.module.css';
 const Login = () => {
-  const [error, handleSubmit ] = useLogin();
-  
+  const navigate = useNavigate();
+
+  const logInSubmit = async formvalue =>{
+    const {ok,error} = await loginRequest(formvalue)
+    if(ok){
+      navigate("/")
+    }else{
+      popUpError({text:`${error.message}`})
+    }
+  }
   return (
-    <>
-      {error && <div className={LoginStyles.error_tologin}>{error}</div>}
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <div className={LoginStyles.login_img}>
@@ -21,7 +28,7 @@ const Login = () => {
           <Formik
             initialValues={initialLoginValue}
             validationSchema={loginSchema}
-            onSubmit={handleSubmit}
+            onSubmit={logInSubmit}
             validateOnChange={false}
             validateOnBlur={false}
             validateOnMount={false}
@@ -48,7 +55,7 @@ const Login = () => {
                   </div>
                   {logInHandleError(errors).password()}
                   <button type="submit">
-                    Log In
+                    <span>Log In</span>                    
                   </button>
                 </Form>
               );
@@ -56,7 +63,6 @@ const Login = () => {
           </Formik>
         </div>
       </div>
-    </>
   );
 };
 
