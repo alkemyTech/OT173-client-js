@@ -19,7 +19,11 @@ export const info = (data) => {
     return swal({ ...data, icon: "info" })
 }
 
-export const willDelete = async (data) => {
-    const response = await swal({ ...data, icon: "warning", buttons: ["No", "Yes"] })
-        return (response) ? true : false
+export const success = (data) => {
+    return swal({ ...data, icon: "success" })
 }
+
+export const willDelete = async (data) => {
+    return await swal({ ...data, icon: "warning", buttons: ["No", "Yes"] })
+}
+
