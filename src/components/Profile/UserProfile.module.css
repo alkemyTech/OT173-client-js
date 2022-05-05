@@ -1,0 +1,69 @@
+.user_profile {
+  border: 1px solid black;
+  margin: 1rem auto;
+  padding: 2rem;
+  width: calc(100% - 2rem);
+  max-width: 1200px;
+  border-radius: 0.25rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.user_data {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.field {
+  display: flex;
+  flex-flow: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.field_name {
+  font-weight: 600;
+}
+
+.field_value {
+  font-weight: 400;
+}
+
+.options {
+  display: flex;
+  flex-flow: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.button {
+  margin-top: 1rem;
+  background-color: #9ac9fb;
+  border: 0;
+  outline: 0;
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  font-size: large;
+  width: fit-content;
+  min-width: 150px;
+  transition: transform 0.1s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.danger {
+  background-color: #db5752;
+  color: white;
+}
