@@ -5,17 +5,13 @@ export const News = () => {
 
   useEffect(() => {
     const getNews = async()=>{
-      const resp = await get('news')
+      const {data} = await get('news')
 
-      console.log('reso', resp)
+      console.log('reso', data)
     }
 
     getNews()
   }, [])
-  
-
-
-
   return (
     <div>News</div>
   )
