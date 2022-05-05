@@ -6,7 +6,7 @@ import {
   initialOrganizationValue,
   organizationSchema,
   organizationHandleError,
-} from './../../helpers/editFormOrganization/EditFormOrganization';
+} from '../../helpers/formValidations/FormValidations';
 
 export const EditOrganizationForm = () => {
   return (
