@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Activities.module.css';
+import Activity from './Activity';
 
 function Activities() {
-  const [isEditing, setIsEditing] = useState(false);
   const activities = [
-    'actividad1',
-    'actividad2',
-    'actividad3',
-    'actividad4',
-    'actividad5',
-    'actividad6',
-    'actividad7',
+    { name: 'actividad1', msg: 'asd', id: 1 },
+    { name: 'actividad2', msg: 'asd', id: 2 },
+    { name: 'actividad3', msg: 'asd', id: 3 },
+    { name: 'actividad4', msg: 'asd', id: 4 },
+    { name: 'actividad5', msg: 'asd', id: 5 },
+    { name: 'actividad6', msg: 'asd', id: 6 },
+    { name: 'actividad7', msg: 'asd', id: 7 },
   ];
+
   return (
     <div className={styles.container}>
       <div className={styles.tablecontent}>
@@ -21,38 +22,7 @@ function Activities() {
             <th>Acciones</th>
           </tr>
           {activities.map(act => (
-            <tr>
-              <td className={styles.tabledata}>{act}</td>
-              <td className={styles.tabledata}>
-                {isEditing ? (
-                  <>
-                    <button className={`${styles.button} ${styles.savebutton}`}>
-                      Guardar
-                    </button>
-                    <button
-                      className={`${styles.button} ${styles.deletebutton}`}
-                      onClick={() => setIsEditing(false)}
-                    >
-                      Cancelar
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <button
-                      className={`${styles.button} ${styles.editbutton}`}
-                      onClick={() => setIsEditing(true)}
-                    >
-                      Editar
-                    </button>
-                    <button
-                      className={`${styles.button} ${styles.deletebutton}`}
-                    >
-                      Eliminar
-                    </button>
-                  </>
-                )}
-              </td>
-            </tr>
+            <Activity name={act.name} content={act.msg} id={act.id} />
           ))}
         </table>
       </div>
