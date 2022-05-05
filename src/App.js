@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import News from './components/News/News';
 import './App.css';
+import BackofficeNews from './components/backoffice/news';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route to exact path="/" element={<Home />} />
         <Route to path="/news" element={<News />} />
         <Route to path="/backoffice" element={<LayoutBackOffice />} />
+        <Route to path="/backoffice/news" element={<BackofficeNews />} />
         <Route path="/login" element={<Login />} />
         <Route path='/signup' element={<SignUp/>}/>
       </Routes>
