@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Routes } from 'react-router';
 import Home from './components/Home/Home';
 import { LayoutBackOffice } from './layout/LayoutBackOffice';
-import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import NewsDetail from './components/NewsDetail/NewsDetail';
 import SignUp from './components/SignUp/SignUp';
