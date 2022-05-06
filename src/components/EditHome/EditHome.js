@@ -5,6 +5,7 @@ import { Loader } from '../loader/Loader';
 import { editHomeFormValidationSchema } from './EditHomeFormValidation';
 import styles from './EditHome.module.css';
 import Carousel from '../carousel/Carousel';
+import Header from '../Header/Header';
 
 const EditHome = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -41,48 +42,51 @@ const EditHome = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <section className={styles.edit_home}>
-      <h1 className={styles.title}>Editar página de inicio</h1>
-      <Formik
-        initialValues={{
-          welcomeText,
-        }}
-        validationSchema={editHomeFormValidationSchema}
-        onSubmit={handleSubmit}
-        enableReinitialize
-      >
-        {({ isSubmitting, errors }) => {
-          return (
-            <Form className={styles.form}>
-              <Field
-                className={styles.welcome_text}
-                type="text"
-                name="welcomeText"
-                placeholder="Texto de bienvenida"
-                component="textarea"
-              />
-              <ErrorMessage name="welcomeText">
-                {error => <div className={styles.error}>{error}</div>}
-              </ErrorMessage>
+    <>
+      <Header logo={"/images/assets/logo1.png"} menu={[]} />
+      <section className={styles.edit_home}>
+        <h1 className={styles.title}>Editar página de inicio</h1>
+        <Formik
+          initialValues={{
+            welcomeText,
+          }}
+          validationSchema={editHomeFormValidationSchema}
+          onSubmit={handleSubmit}
+          enableReinitialize
+        >
+          {({ isSubmitting, errors }) => {
+            return (
+              <Form className={styles.form}>
+                <Field
+                  className={styles.welcome_text}
+                  type="text"
+                  name="welcomeText"
+                  placeholder="Texto de bienvenida"
+                  component="textarea"
+                />
+                <ErrorMessage name="welcomeText">
+                  {error => <div className={styles.error}>{error}</div>}
+                </ErrorMessage>
 
-              <Carousel />
+                <Carousel />
 
-              {errorMessage && (
-                <div className={styles.error}>{errorMessage}</div>
-              )}
+                {errorMessage && (
+                  <div className={styles.error}>{errorMessage}</div>
+                )}
 
-              <button
-                className={styles.submit}
-                type="submit"
-                disabled={isSubmitting || Object.entries(errors).length}
-              >
-                {isSubmitting ? 'Guardando...' : 'Guardar'}
-              </button>
-            </Form>
-          );
-        }}
-      </Formik>
-    </section>
+                <button
+                  className={styles.submit}
+                  type="submit"
+                  disabled={isSubmitting || Object.entries(errors).length}
+                >
+                  {isSubmitting ? 'Guardando...' : 'Guardar'}
+                </button>
+              </Form>
+            );
+          }}
+        </Formik>
+      </section>
+    </>
   );
 };
 
