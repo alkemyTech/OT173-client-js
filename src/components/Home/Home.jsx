@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Carousel from '../carousel/Carousel';
 import Footer from '../Footer/Footer';
 import { HeaderLinks } from '../../constants/HeaderLinks-Home';
+
 const Home = () => {
   return (
     <>
@@ -13,7 +14,7 @@ const Home = () => {
         buttons={true}
       />
       <Carousel />
-      <HelloUser username="Guest" />
+      <HelloUser username={undefined} />
       <News />
       <Footer />
     </>

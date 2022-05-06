@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import style from "./Footer.module.css";
-import mailIcon from "../data/icons/email.png";
-import facebookIcon from "../data/icons/facebook.png";
-import instagramIcon from "../data/icons/instagram.png";
-import phoneIcon from "../data/icons/phone-call.png";
+import mailIcon from "../../data/icons/email.png";
+import facebookIcon from "../../data/icons/facebook.png";
+import instagramIcon from "../../data/icons/instagram.png";
+import phoneIcon from "../../data/icons/phone-call.png";
 
 export default function Footer() {
   const [info, setInfo] = useState([])
