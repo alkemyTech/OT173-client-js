@@ -8,7 +8,11 @@ import { HeaderLinks } from '../../constants/HeaderLinks-Home';
 const Home = () => {
   return (
     <>
-      <Header logo={'/images/assets/logo1.png'} menu={HeaderLinks} />
+      <Header
+        logo={'/images/assets/logo1.png'}
+        menu={HeaderLinks}
+        buttons={true}
+      />
       <Carousel />
       <HelloUser username={undefined} />
       <News />
