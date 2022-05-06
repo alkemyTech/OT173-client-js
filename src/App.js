@@ -8,6 +8,7 @@ import SignUp from './components/SignUp/SignUp';
 import News from './components/News/News';
 import ListUsers from './components/users/ListUsers';
 import './App.css';
+import BackofficeNews from './components/backoffice/news';
 import { ContactForm } from './components/contact/ContactForm';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
@@ -21,6 +22,7 @@ function App() {
         <Route to path="/news" element={<News />} />
         <Route path="/news/:id" element={<NewsDetail />} />
         <Route to path="/backoffice" element={<LayoutBackOffice />} />
+        <Route to path="/backoffice/news" element={<BackofficeNews />} />
         <Route to path="/backoffice/users" element={<ListUsers />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
