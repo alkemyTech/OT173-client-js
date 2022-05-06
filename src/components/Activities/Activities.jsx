@@ -24,7 +24,7 @@ function Activities() {
               <th className={styles.actions}>Acciones</th>
             </tr>
             {activities.map(act => (
-              <Activity name={act.name} content={act.content} image={act.image} id={act.id} />
+              <Activity name={act.name} id={act.id} />
             ))}
           </table>
         </div>
