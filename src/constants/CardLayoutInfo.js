@@ -32,7 +32,7 @@ export const cardBackoffice = [
     {
         name: 'Usuarios',
         icon: './images/backoffice/team.png',
-        link: '/'
+        link: 'users'
     },
     {
         name: 'Miebros',
