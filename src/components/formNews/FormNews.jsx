@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Basic from './Basic';
 import { Formik } from 'formik';
 import { formNewsValidationSchema } from './formNewsValidation';
+import { formPatchNewsValidationSchema } from './formPatchNewsValidation';
 import axios from "axios";
 import { error, info } from "../../services/alertService";
 
@@ -21,12 +22,14 @@ const FormNews = () => {
     }
     
     useEffect(async () => {
-        setInitValues(await fetchData(param.id))
+        if(param.id){
+            setInitValues(await fetchData(param.id))
+        }
     }, [])
     
-    const formikHandleSubmit = async (props, addNew, paramId) => {
+    const formikHandleSubmit = async (props, addNew, paramId = undefined) => {
 
-        if (props) {
+        if (paramId) {
             //update
             try {
                 const url = `http://localhost:3001/news/${paramId}`;
@@ -63,7 +66,7 @@ const FormNews = () => {
 
                 if (response?.status === 200) {
                     const data = {
-                        title: response.data.msg
+                        title: response.data.message
                     }
                     return info(data)
                 }
@@ -78,7 +81,7 @@ const FormNews = () => {
     return (
         <Formik
             initialValues={initValues}
-            validationSchema={!param && formNewsValidationSchema}
+            validationSchema={param.id ? formPatchNewsValidationSchema : formNewsValidationSchema}
             onSubmit={(values) => formikHandleSubmit(initValues, values, param.id)}
         >
             {props => {
