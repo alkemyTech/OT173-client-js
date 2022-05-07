@@ -4,33 +4,6 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 
-/* const categories = [
-    {
-        id: 2,
-        name: "Category 1"
-    },
-    {
-        id: 3,
-        name: "Category 2"
-    },
-    {
-        id: 4,
-        name: "Category 3"
-    },
-    {
-        id: 5,
-        name: "Category 4"
-    },
-    {
-        id: 6,
-        name: "Category 5"
-    },
-    {
-        id: 7,
-        name: "Category 6"
-    }
-] */
-
 const Basic = ({
     values,
     handleSubmit,
