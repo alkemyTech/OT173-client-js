@@ -7,6 +7,7 @@ import facebookIcon from "../data/icons/facebook.png";
 import instagramIcon from "../data/icons/instagram.png";
 import phoneIcon from "../data/icons/phone-call.png";
 
+
 export default function Footer() {
   const [info, setInfo] = useState([])
 
