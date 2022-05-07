@@ -1,60 +1,100 @@
-import React from 'react'
-import styles from "./formActivities.module.css";
-import { CKEditor, CKEditorContext } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import Basic from './Basic';
+import { Formik } from 'formik';
+import { formEditActivitiesValidationSchema } from './validationEditFormActivities';
+import { formActivitiesValidationSchema } from './validationFormActivities';
+import axios from 'axios';
+import { error, info } from "../../services/alertService";
 
-const formNews = ({ values, handleSubmit, handleChange, errors, setErrors }) => {
+const FormActivities = () => {
+    const [ activity, setActivity ] = useState({});
+    const { id } = useParams();
 
-    const handleCKEditorChange = (editor, values, errors, setErrors) => {
-        values.content = editor.data.get()
-        typeof values.content === "undefined" || values.content === ''
-            ?
-            setErrors({ ...errors, content: "El contenido es requerido." })
-            :
-            setErrors({ ...errors, content: '' })
+    const url = `http://localhost:3001/activities/${id}`;
+
+    useEffect( () => {
+        const fetchActivitiesData = async (url) => {
+
+            try {
+                const response = await axios.get(url)
+                if(response.status === 200) {
+                    setActivity(response.data)
+                }
+                
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        if( id ) {
+            fetchActivitiesData(url);
+        }
+    }, [])
+
+    const formikHandleSubmit = async (param = undefined, addNew) => {
+        console.log("PARAM ", param)
+        if (param) {
+            //update
+            console.log("update")
+            try {
+                const url = `http://localhost:3001/activities/${param}`;
+                let data = { ...addNew }
+
+                const response = await axios.put(url, data)
+                console.log(response)
+                if (response?.status === 200) {
+                    data = {
+                        title: response.data.msg
+                    }
+                    return info(data)
+                }
+
+                data = {
+                    title: "Failed. Try again."
+                }
+                return error(data)
+
+            } catch (err) {
+                const msg = {
+                    title: "An error occurred. Try again."
+                }
+                error(msg)
+                console.log(err)
+            }
+        } else {
+            //insert
+            try {
+
+                let response = await axios.post("http://localhost:3001/activities", {
+                    ...addNew
+                })
+
+                if (response?.status === 200) {
+                    const data = {
+                        title: response.data.message
+                    }
+                    return info(data)
+                }
+
+            } catch (err) {
+                console.log(err)
+                return error({ title: "An error occurred. Try again." })
+            }
+        }
     }
 
-    return (
-        <div className={styles.background}>
-            <form action="" onSubmit={handleSubmit}>
-                <div className={styles.container}>
-                    <h1 className={styles.title}>Formulario Actividad</h1>
-
-                    <div className={styles.itemContainer}>
-                        <label 
-                            className={styles.lbl}
-                            htmlFor="name">
-                                Name
-                        </label>
-                        <input 
-                            className={styles.input}
-                            type="text"
-                            name="name"
-                            id="name"
-                            value={values?.name}
-                            onChange={handleChange}
-                        />
-                        {errors?.name ? <span className={styles.error}>{errors.name}</span> : ""}
-                    </div>
-
-                    <div className={styles.ckEditorContainer}>
-                        <label className={styles.lbl} htmlFor="content">Content</label>
-                        <CKEditor
-                            name="content"
-                            onChange={(event, editor) => handleCKEditorChange(editor, values, errors, setErrors)}
-                            className={styles.ckeditor}
-                            editor={ClassicEditor}
-                            data={values?.content}
-                        />
-                        {errors?.content ? <span className={styles.error}>{errors.content}</span> : ""}
-                    </div>
-
-                    <button className={styles.submit} type='submit'>Submit</button>
-                </div>
-
-            </form>
-        </div>
-    )
+  return (
+    <Formik 
+        initialValues= { activity }
+        validationSchema={!id ? formActivitiesValidationSchema : formEditActivitiesValidationSchema}
+        onSubmit= {(values) => formikHandleSubmit(id, values)}
+    >
+        {props => {
+            return <Basic {...props} activity = { {...activity} } />
+            }}
+    </Formik>
+  )
 }
 
-export default formNews
+export default FormActivities
