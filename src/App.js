@@ -8,6 +8,7 @@ import SignUp from './components/SignUp/SignUp';
 import News from './components/News/News';
 import ListUsers from './components/users/ListUsers';
 import './App.css';
+import BackofficeNews from './components/backoffice/news';
 import { ContactForm } from './components/contact/ContactForm';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
