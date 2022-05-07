@@ -13,15 +13,12 @@ import { ContactForm } from './components/contact/ContactForm';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
-import { useSelector } from 'react-redux';
-import { selectUser } from './features/user/userSlice';
 
 function App() {
-  const user = useSelector(selectUser);
   return (
     <div className="App">
       <Routes>
-        <Route to exact path="/" element={user ? <Home /> : <Login />} />
+        <Route to exact path="/" element={<Home />} />
         <Route to path="/news" element={<News />} />
         <Route path="/news/:id" element={<NewsDetail />} />
         <Route to path="/backoffice" element={<LayoutBackOffice />} />
