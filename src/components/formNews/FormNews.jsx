@@ -11,22 +11,30 @@ const FormNews = () => {
 
     const param = useParams();
     let [initValues, setInitValues] = useState({})
-    
-    //Request novelty information to edit
-    const fetchData = async (param) => {
-        const response = await axios.get("http://localhost:3001/news/" + param)
-        
-        if (response.status === 200) {
-            return response.data
-        }
-    }
-    
+
+
+
     useEffect(async () => {
-        if(param.id){
-            setInitValues(await fetchData(param.id))
+
+        //Request novelty information to edit
+        async function fetchData (param) {
+
+            try {
+                const response = await axios.get("http://localhost:3001/news/" + param)
+    
+                if (response.status === 200) {
+                    setInitValues(response.data)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        
+        if (param.id) {
+            fetchData(param.id)
         }
     }, [])
-    
+
     const formikHandleSubmit = async (props, addNew, paramId = undefined) => {
 
         if (paramId) {
@@ -36,7 +44,7 @@ const FormNews = () => {
                 let data = { ...addNew }
 
                 const response = await axios.patch(url, data)
-                
+
                 if (response?.status === 200) {
                     data = {
                         title: response.data.msg
@@ -85,7 +93,7 @@ const FormNews = () => {
             onSubmit={(values) => formikHandleSubmit(initValues, values, param.id)}
         >
             {props => {
-                return <Basic {...props} initValues = {initValues} />
+                return <Basic {...props} initValues={initValues} />
             }}
         </Formik>
     )

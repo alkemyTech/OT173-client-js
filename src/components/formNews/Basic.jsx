@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from "./formNews.module.css";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import axios from "axios";
 
-const categories = [
+/* const categories = [
     {
         id: 2,
         name: "Category 1"
@@ -28,7 +29,7 @@ const categories = [
         id: 7,
         name: "Category 6"
     }
-]
+] */
 
 const Basic = ({
     values,
@@ -41,6 +42,24 @@ const Basic = ({
     touched,
     initValues
 }) => {
+
+    let [ categories, setCategories ] = useState({})
+
+    useEffect(()=> {
+        async function fetchCategories() {
+            try {
+                const response = await axios.get("http://localhost:3001/categories")
+                
+                if(response.status === 200) {
+                    setCategories(response.data)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+
+        }
+        fetchCategories()
+    }, [])
     
     const handleCKEditorChange = (
         editor,
@@ -107,7 +126,7 @@ const Basic = ({
                                 value="">
                                 Choose an option
                             </option>
-                            {categories?.map((category, index) => {
+                            {categories.length > 0 ? categories.map((category, index) => {
                                 return (
                                     <option
                                         key={index + 1}
@@ -117,7 +136,8 @@ const Basic = ({
                                         {category.name}
                                     </option>
                                 )
-                            })}
+                            })
+                            : <option>Loading...</option>}
                         </select>
                         {touched.category && errors?.category && <span className={styles.error}>{errors.category}</span>}
                     </div>
