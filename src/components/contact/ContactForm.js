@@ -3,8 +3,6 @@ import { useForm } from '../../hooks/useForm'
 import contactFormStyles from './styles.module.css'
 import { post } from '../../services/apiService'
 
-
-
 export const ContactForm = () => {
 
     const [{ firstName, lastName, email, message }, handleInputChange, reset] = useForm({
