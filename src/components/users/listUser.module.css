@@ -1,0 +1,15 @@
+.table {
+  margin: 0 auto;
+}
+.th {
+  padding: 1rem;
+}
+
+.td {
+  padding: 0.2rem 1rem;
+}
+.td button {
+  padding: 0.2rem;
+  margin: 0 0.5rem;
+  text-transform: uppercase;
+}

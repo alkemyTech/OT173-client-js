@@ -6,20 +6,23 @@ import {
   logInHandleError,
 } from '../../helpers/loginFormSettings/loginFormValidation';
 import { loginRequest } from '../../services/authService';
-import {error as popUpError} from "../../services/alertService"
+import { error as popUpError } from '../../services/alertService';
 import LoginStyles from './Login.module.css';
+import Header from '../Header/Header';
 const Login = () => {
   const navigate = useNavigate();
 
-  const logInSubmit = async formvalue =>{
-    const {ok,error} = await loginRequest(formvalue)
-    if(ok){
-      navigate("/")
-    }else{
-      popUpError({text:`${error.message}`})
+  const logInSubmit = async formvalue => {
+    const { ok, error } = await loginRequest(formvalue);
+    if (ok) {
+      navigate('/');
+    } else {
+      popUpError({ text: `${error.message}` });
     }
-  }
+  };
   return (
+    <>
+      <Header logo={'/images/assets/logo1.png'} menu={[]} />
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <div className={LoginStyles.login_img}>
@@ -55,7 +58,7 @@ const Login = () => {
                   </div>
                   {logInHandleError(errors).password()}
                   <button type="submit">
-                    <span>Log In</span>                    
+                    <span>Log In</span>
                   </button>
                 </Form>
               );
@@ -63,6 +66,7 @@ const Login = () => {
           </Formik>
         </div>
       </div>
+    </>
   );
 };
 
