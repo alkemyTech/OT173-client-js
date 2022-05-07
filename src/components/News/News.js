@@ -7,45 +7,6 @@ import Header from '../Header/Header';
 import { HeaderLinks } from '../../constants/HeaderLinks-Home';
 import { get } from './../../services/apiService';
 
-const DUMMY_NEWS = [
-  {
-    name: 'Título de la primera noticia',
-    image: 'https://picsum.photos/200/300',
-    createdAt: '2022-04-25T00:10:01.257Z',
-    id: '', // I leave it empty becouse if not the Link lead to a non-existent page
-  },
-  {
-    name: 'Título de la segunda noticia pero un poco más largo',
-    image: 'https://picsum.photos/250/300',
-    createdAt: '2022-04-25T00:10:01.257Z',
-    id: '',
-  },
-  {
-    name: 'Título corto',
-    image: 'https://picsum.photos/250/250',
-    createdAt: '2022-04-25T00:10:01.257Z',
-    id: '',
-  },
-  {
-    name: 'Cuarta noticia para mostrar',
-    image: 'https://picsum.photos/200/400',
-    createdAt: '2022-04-25T00:10:01.257Z',
-    id: '',
-  },
-  {
-    name: 'Quinta noticia',
-    image: 'https://picsum.photos/250/327',
-    createdAt: '2022-04-25T00:10:01.257Z',
-    id: '',
-  },
-  {
-    name: 'Título de la sexta noticia',
-    image: 'https://picsum.photos/100/290',
-    createdAt: '2022-04-25T00:10:01.257Z',
-    id: '',
-  },
-];
-
 const News = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [news, setNews] = useState([]);
