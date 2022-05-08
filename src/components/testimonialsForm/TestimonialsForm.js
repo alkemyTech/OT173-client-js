@@ -7,36 +7,39 @@ import { Loader } from '../loader/Loader';
 import { useNavigate } from 'react-router';
 import { saveNewTestimonial, toUpdateTestimonial } from './submitTestimonial';
 
-
-export const TestimonialsForm = React.memo(({ nombre = '', imagen = '', concepto = 'hola', id, isNew = true }) => {
+export const TestimonialsForm = React.memo(({ currentName = '', currentImagen = '', currentConcept = '', id, isNew = true }) => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false)
-    const [values, handleInputChange] = useForm({
-        name: nombre,
-        image: imagen
+    const [values, handleInputChange, reset] = useForm({
+        name: currentName,
+        image: currentImagen
     })
     const [concept, setConcept] = useState('')
     const { name, image } = values;
 
     const handleTestimonialsSubmit = (e) => {
         e.preventDefault();
-        setIsLoading(true)
-        isNew
-            ?
-            saveNewTestimonial({ name, concept, image }, navigate, setIsLoading)
-            :
-            toUpdateTestimonial(id, { name, concept, image }, setIsLoading)
+        if (isNew) {
+            saveNewTestimonial({ name, concept, image }, navigate, setIsLoading, resetValues)
+        } else {
+            toUpdateTestimonial(id, { name, concept, image }, setIsLoading, resetValues)
+        }
+    }
+
+    const resetValues = () => {
+        reset();
+        setConcept('');
     }
 
     useEffect(() => {
-        setConcept(concepto)
+        setConcept(currentConcept)
     }, [])
 
     return (
         <div>
             {isLoading
                 ?
-                <Loader heigth={1000} width={1000} />
+                <Loader heigth={500} width={500} />
                 :
                 <div>
                     <div className={testimonialsFormStyle.content}>
@@ -65,7 +68,7 @@ export const TestimonialsForm = React.memo(({ nombre = '', imagen = '', concepto
                                         <div className={testimonialsFormStyle.ckeditorContent}>
                                             <CKEditor
                                                 config={{ placeholder: 'Concepto' }}
-                                                data={concepto}
+                                                data={currentConcept}
                                                 editor={Editor}
                                                 placeholder="Concepto"
                                                 onChange={(event, editor) => {
