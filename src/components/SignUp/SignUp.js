@@ -6,7 +6,7 @@ import { signUpFormValidationSchema } from './SignUpFormValidation';
 import styles from './SignUp.module.css';
 import Header from '../Header/Header';
 
-const SingUp = () => {
+const SignUp = () => {
   const navigate = useNavigate();
 
   const signUpSubmit = async formvalue => {
@@ -83,4 +83,4 @@ const SingUp = () => {
   );
 };
 
-export default SingUp;
+export default SignUp;
