@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import Login from './components/Login/Login';
+import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import NewsDetail from './components/NewsDetail/NewsDetail';
 import SignUp from './components/SignUp/SignUp';
 import News from './components/News/News';
@@ -35,6 +36,8 @@ function App() {
             <Route path="edithome" element={<EditHome />} />
             <Route path="edituser" element={<EditUserForm />} />
             <Route path="user" element={<UserProfile />} />
+            <Route path="edit-organization" element={<EditOrganizationForm/>}/> 
+            <Route path="news" element={<BackofficeNews />} />
           </Route>
             {/* Menu de opciones BackOffice User */}
           <Route path="/backoffice/user" element={<UserProfile />} />
