@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router';
 import Home from './components/Home/Home';
 import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import Login from './components/Login/Login';
+import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import NewsDetail from './components/NewsDetail/NewsDetail';
 import SignUp from './components/SignUp/SignUp';
 import News from './components/News/News';
@@ -24,11 +25,12 @@ function App() {
         <Route path="/news/:id" element={<NewsDetail />} />
         <Route to path="/backoffice" element={<LayoutBackOffice />} />
         <Route to path="/backoffice/news" element={<BackofficeNews />} />
+        <Route to path='/backoffice/edit-organization' element={<EditOrganizationForm/>}/>        
         <Route to path="/backoffice/users" element={<ListUsers />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/admin/news" element={<FormNews />} />
-        <Route path="/admin/news/:id" element={<FormNews />} />
+        <Route path="/backoffice/news/create" element={<FormNews />} />
+        <Route path="/backoffice/news/update/:id" element={<FormNews />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/contact" element={<ContactForm />} />
         <Route path="/edithome" element={<EditHome />} />
