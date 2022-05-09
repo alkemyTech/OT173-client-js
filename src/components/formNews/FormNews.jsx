@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import Basic from './Basic';
+import Form from './Form';
 import { Formik } from 'formik';
 import { formNewsValidationSchema } from './formNewsValidation';
 import { formPatchNewsValidationSchema } from './formPatchNewsValidation';
@@ -11,8 +11,6 @@ const FormNews = () => {
 
     const param = useParams();
     let [initValues, setInitValues] = useState({})
-
-
 
     useEffect(async () => {
 
@@ -93,7 +91,7 @@ const FormNews = () => {
             onSubmit={(values) => formikHandleSubmit(initValues, values, param.id)}
         >
             {props => {
-                return <Basic {...props} initValues={initValues} />
+                return <Form {...props} initValues={initValues} />
             }}
         </Formik>
     )

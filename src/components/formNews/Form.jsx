@@ -4,7 +4,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import axios from "axios";
 
-const Basic = ({
+const Form = ({
     values,
     handleSubmit,
     handleChange,
@@ -166,4 +166,4 @@ const Basic = ({
     )
 }
 
-export default Basic
+export default Form
