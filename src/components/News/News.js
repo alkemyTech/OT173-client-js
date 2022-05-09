@@ -30,17 +30,19 @@ const News = () => {
       <section className={styles.news_section}>
         <h1 className={styles.title}>Novedades</h1>
         {news.length ? (
+          <>
           <p className={styles.info}>
             Estas son las últimas novedades que tenemos para mostrar
           </p>
+          <div className={styles.news_list}>
+            {news.map(news => (
+              <NewsCard key={news.id} news={news} />
+            ))}
+          </div>
+          </>
         ) : (
           <p className={styles.info}>No tenemos novedades para mostrar</p>
         )}
-        <div className={styles.news_list}>
-          {news.map(news => (
-            <NewsCard key={news.id} news={news} />
-          ))}
-        </div>
       </section>
     </>
   );
