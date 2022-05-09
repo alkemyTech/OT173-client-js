@@ -17,15 +17,15 @@ const Form = ({
     initValues
 }) => {
 
-    let [ categories, setCategories ] = useState({})
+    let [categories, setCategories] = useState({})
     const url = `${process.env.REACT_APP_API_URI}/categories`;
 
-    useEffect(()=> {
+    useEffect(() => {
         async function fetchCategories() {
             try {
                 const response = await get(url)
-                
-                if(response.status === 200) {
+
+                if (response.status === 200) {
                     setCategories(response.data)
                 }
             } catch (error) {
@@ -35,7 +35,7 @@ const Form = ({
         }
         fetchCategories()
     }, [])
-    
+
     const handleCKEditorChange = (
         editor,
         values,
@@ -44,15 +44,21 @@ const Form = ({
         setValues
     ) => {
 
-        setValues({ 
+        setValues({
             ...values,
-            content: editor.data.get() 
+            content: editor.data.get()
         })
+        
+        handleCKEditorErrors(values, errors, setErrors)
+    }
+
+    const handleCKEditorErrors = (values, errors, setErrors) => {
         typeof values.content === "undefined" || values.content === ''
             ?
             setErrors({ ...errors, content: "El contenido es requerido." })
             :
             setErrors({ ...errors, content: '' })
+
     }
 
     return (
@@ -112,7 +118,7 @@ const Form = ({
                                     </option>
                                 )
                             })
-                            : <option>Loading...</option>}
+                                : <option>Loading...</option>}
                         </select>
                         {touched.category && errors?.category && <span className={styles.error}>{errors.category}</span>}
                     </div>
