@@ -6,25 +6,28 @@ import { formNewsValidationSchema } from './formNewsValidation';
 import { formPatchNewsValidationSchema } from './formPatchNewsValidation';
 import axios from "axios";
 import { error, info } from "../../services/alertService";
+import { get } from "../../services/apiService";
 
 const FormNews = () => {
 
     const param = useParams();
-    let [initValues, setInitValues] = useState({})
-
+    let [initValues, setInitValues] = useState({});
+    
     useEffect(async () => {
-
+        
         //Request novelty information to edit
         async function fetchData (param) {
-
+            
             try {
-                const response = await axios.get("http://localhost:3001/news/" + param)
+                const url = `${process.env.REACT_APP_API_URI}/news/${param}`;
+
+                const response = await get(url);
     
                 if (response.status === 200) {
-                    setInitValues(response.data)
+                    setInitValues(response.data);
                 }
             } catch (error) {
-                console.log(error)
+                console.log(error);
             }
         }
         

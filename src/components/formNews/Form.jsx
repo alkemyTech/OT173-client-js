@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from "./formNews.module.css";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { get } from "../../services/apiService";
 import axios from "axios";
 
 const Form = ({
@@ -17,11 +18,12 @@ const Form = ({
 }) => {
 
     let [ categories, setCategories ] = useState({})
+    const url = `${process.env.REACT_APP_API_URI}/categories`;
 
     useEffect(()=> {
         async function fetchCategories() {
             try {
-                const response = await axios.get("http://localhost:3001/categories")
+                const response = await get(url)
                 
                 if(response.status === 200) {
                     setCategories(response.data)
