@@ -3,6 +3,7 @@ import { useForm } from '../../hooks/useForm'
 import Header from '../Header/Header';
 import contactFormStyles from './styles.module.css'
 import { post } from '../../services/apiService'
+import { error }  from '../../services/alertService'
 import { HeaderLinks } from '../../constants/HeaderLinks-Home';
 
 export const ContactForm = () => {
@@ -25,7 +26,7 @@ export const ContactForm = () => {
         try {
           await post('/contacts', { firstName, lastName, email, message })
         } catch (error) {
-           console.log('error', error)
+            error(error)
         }   
 
         reset();
