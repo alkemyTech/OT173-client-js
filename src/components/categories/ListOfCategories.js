@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import style from './categories.module.css';
+import style from './ListOfCategories.module.css';
 import { get } from '../../services/apiService';
 
 export const BackofficeCategories = () => {

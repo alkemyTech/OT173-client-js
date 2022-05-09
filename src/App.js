@@ -14,7 +14,7 @@ import { ContactForm } from './components/contact/ContactForm';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
-import { BackofficeCategories } from './components/backoffice/categories';
+import { BackofficeCategories } from './components/categories/ListOfCategories';
 
 function App() {
   return (
