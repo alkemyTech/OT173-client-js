@@ -9,12 +9,17 @@ import { loginRequest } from '../../services/authService';
 import { error as popUpError } from '../../services/alertService';
 import LoginStyles from './Login.module.css';
 import Header from '../Header/Header';
+import { useDispatch } from 'react-redux';
+import { login } from '../../features/user/userSlice';
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const logInSubmit = async formvalue => {
     const { ok, error } = await loginRequest(formvalue);
     if (ok) {
+      const {email} = formvalue;
+      dispatch(login({email}));
       navigate('/');
     } else {
       popUpError({ text: `${error.message}` });
