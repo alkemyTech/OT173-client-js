@@ -14,6 +14,7 @@ import { ContactForm } from './components/contact/ContactForm';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
+import { BackofficeCategories } from './components/backoffice/categories';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route to path="/backoffice/news" element={<BackofficeNews />} />
         <Route to path='/backoffice/edit-organization' element={<EditOrganizationForm/>}/>        
         <Route to path="/backoffice/users" element={<ListUsers />} />
+        <Route to path="/backoffice/categories" element={<BackofficeCategories />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/contact" element={<ContactForm />} />

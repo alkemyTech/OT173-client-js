@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.containerList {
+    display: flex;
+    justify-content: center;
+    padding: 30px 50px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.li {
+    padding: 5px 10px;
+    margin: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.buttonEdit {
+    margin: 5px 5px 5px 15px;
+    padding: 5px;
+    
+    border-radius: 6px;
+    font-weight: 27px;
+    border: none;
+    color: #ffffff;
+    background-color: #255a82;
+
+    cursor: pointer;
+}
+
+.buttonEdit:hover {
+    background-color: #255a829e;
+}
+
+.buttonDelete {
+    margin: 5px;
+    padding: 5px;
+    
+    font-weight: 27px;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #e10a19;
+
+    cursor: pointer;
+}
+
+.buttonDelete:hover {
+    background-color: #e10a18af;
+}
+
+.styleOne {
+    display: flex;
+    justify-content: center;
+    width: 900px;
+    margin: 0 auto;
+    border: 0;
+    height: 0;
+    margin-bottom: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
