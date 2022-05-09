@@ -42,7 +42,10 @@ const Activity = () => {
         src={activity.image}
         alt={activity.name}
       />
-      <p className={styles.activity_content}>{activity.content}</p>
+      <p
+        className={styles.activity_content}
+        dangerouslySetInnerHTML={{ __html: activity.content }}
+      />
     </section>
   );
 };
