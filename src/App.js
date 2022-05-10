@@ -15,6 +15,7 @@ import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
 import OutletLayout from './layout/OutletLayout';
+import ListContacts from "./components/ListContacts/ListContacts"
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           </Route>
             {/* Menu de opciones BackOffice User */}
           <Route path="/backoffice/user" element={<UserProfile />} />
+          <Route path="/backoffice/contacts" element={<ListContacts />} />
       </Routes>
     </div>
   );
