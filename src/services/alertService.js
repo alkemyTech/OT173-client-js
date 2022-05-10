@@ -18,3 +18,7 @@ export const error = (data) => {
 export const info = (data) => {
     return swal({ ...data, icon: "info" })
 }
+
+export const success = (data) => {
+    return swal({ ...data, icon: "success", dangerMode: true })
+}

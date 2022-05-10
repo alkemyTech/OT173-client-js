@@ -3,9 +3,9 @@ import { useForm } from '../../hooks/useForm';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import Editor from '@ckeditor/ckeditor5-build-classic'
 import testimonialsFormStyle from './testimonialsForm.module.css'
+import { createTestimonial, updateTestimonial } from '../../services/testimonialService';
 import { Loader } from '../loader/Loader';
 import { useNavigate } from 'react-router';
-import { saveNewTestimonial, toUpdateTestimonial } from './submitTestimonial';
 
 export const TestimonialsForm = React.memo(({ currentName = '', currentImagen = '', currentConcept = '', id, isNew = true }) => {
     const navigate = useNavigate();
@@ -17,12 +17,12 @@ export const TestimonialsForm = React.memo(({ currentName = '', currentImagen = 
     const [concept, setConcept] = useState('')
     const { name, image } = values;
 
-    const handleTestimonialsSubmit = (e) => {
+    const handleTestimonialsSubmit = async (e) => {
         e.preventDefault();
         if (isNew) {
-            saveNewTestimonial({ name, concept, image }, navigate, setIsLoading, resetValues)
+            await createTestimonial({ name, concept, image }, navigate, setIsLoading, resetValues);
         } else {
-            toUpdateTestimonial(id, { name, concept, image }, setIsLoading, resetValues)
+            await updateTestimonial(id, { name, concept, image }, setIsLoading, resetValues);
         }
     }
 
