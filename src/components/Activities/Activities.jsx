@@ -1,16 +1,18 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import styles from './Activities.module.css';
 import Activity from './Activity';
+import { get } from '../../services/apiService';
 
 function Activities() {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/activities').then(response => {
-      setActivities(response.data);
-    });
+    async function fetchData() {
+      const results = await get('http://localhost:3001/activities');
+      setActivities(results.data);
+    }
+    fetchData();
   }, []);
 
   return (

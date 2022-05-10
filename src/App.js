@@ -39,6 +39,7 @@ function App() {
             <Route path="user" element={<UserProfile />} />
             <Route path="edit-organization" element={<EditOrganizationForm/>}/> 
             <Route path="news" element={<BackofficeNews />} />
+            <Route path="activities" element={<Activities />} />
           </Route>
             {/* Menu de opciones BackOffice User */}
           <Route path="/backoffice/user" element={<UserProfile />} />
