@@ -1,51 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import Basic from './Basic';
+import Form from './Form';
 import { Formik } from 'formik';
 import { formEditActivitiesValidationSchema } from './validationEditFormActivities';
 import { formActivitiesValidationSchema } from './validationFormActivities';
-import axios from 'axios';
 import { error, info } from "../../services/alertService";
+import { get, post, put } from "../../services/apiService";
 
 const FormActivities = () => {
+
     const [ activity, setActivity ] = useState({});
     const { id } = useParams();
-
-    const url = `http://localhost:3001/activities/${id}`;
+    const errorMessage = {
+        title: "An error occurred. Try again."
+    }
+    let url = `http://localhost:3001/activities/`;
 
     useEffect( () => {
-        const fetchActivitiesData = async (url) => {
+        const fetchActivitiesData = async (url, param, errorMessage) => {
 
             try {
-                const response = await axios.get(url)
+                url += param
+                const response = await get(url)
                 if(response.status === 200) {
                     setActivity(response.data)
                 }
                 
             } catch (error) {
-                console.log(error)
+                return {error, ...errorMessage}
             }
         }
 
         if( id ) {
-            fetchActivitiesData(url);
+            fetchActivitiesData(url, id);
         }
     }, [])
 
-    const formikHandleSubmit = async (param = undefined, addNew) => {
-        console.log("PARAM ", param)
+    const formikHandleSubmit = async (url, param = undefined, addNew, errorMessage) => {
+        
         if (param) {
             //update
-            console.log("update")
             try {
-                const url = `http://localhost:3001/activities/${param}`;
+                url += param;
                 let data = { ...addNew }
 
-                const response = await axios.put(url, data)
-                console.log(response)
+                const response = await put(url, data)
+                
                 if (response?.status === 200) {
                     data = {
-                        title: response.data.msg
+                        title: response.data.msg || "Activity updated successfully."
                     }
                     return info(data)
                 }
@@ -56,30 +59,28 @@ const FormActivities = () => {
                 return error(data)
 
             } catch (err) {
-                const msg = {
-                    title: "An error occurred. Try again."
-                }
-                error(msg)
-                console.log(err)
+                
+                error(errorMessage)
+                return {err, ...errorMessage}
             }
         } else {
             //insert
             try {
 
-                let response = await axios.post("http://localhost:3001/activities", {
+                let response = await post(url, {
                     ...addNew
                 })
 
                 if (response?.status === 200) {
                     const data = {
-                        title: response.data.message
+                        title: response.data.msg
                     }
                     return info(data)
                 }
 
             } catch (err) {
-                console.log(err)
-                return error({ title: "An error occurred. Try again." })
+                error(errorMessage)
+                return {err, ...errorMessage}
             }
         }
     }
@@ -88,10 +89,10 @@ const FormActivities = () => {
     <Formik 
         initialValues= { activity }
         validationSchema={!id ? formActivitiesValidationSchema : formEditActivitiesValidationSchema}
-        onSubmit= {(values) => formikHandleSubmit(id, values)}
+        onSubmit= {(values) => formikHandleSubmit(url, id, values, errorMessage)}
     >
         {props => {
-            return <Basic {...props} activity = { {...activity} } />
+            return <Form {...props} activity = { {...activity} } />
             }}
     </Formik>
   )

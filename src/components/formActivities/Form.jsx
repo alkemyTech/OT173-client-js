@@ -3,7 +3,7 @@ import styles from "./formActivities.module.css";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
-const Basic = ({ 
+const Form = ({ 
     values,
     setValues, 
     handleSubmit, 
@@ -27,6 +27,10 @@ const Basic = ({
             ...values,
             content: editor.data.get() 
         })
+        handleCKEditorErrors(errors, setErrors)
+    }
+    
+    const handleCKEditorErrors = (errors, setErrors) => {
         typeof values.content === "undefined" || values.content === ''
             ?
             setErrors({ ...errors, content: "El contenido es requerido." })
@@ -95,4 +99,4 @@ const Basic = ({
     )
 }
 
-export default Basic
+export default Form
