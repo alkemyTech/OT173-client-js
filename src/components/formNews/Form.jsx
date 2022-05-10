@@ -3,7 +3,6 @@ import styles from "./formNews.module.css";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { get } from "../../services/apiService";
-import axios from "axios";
 
 const Form = ({
     values,
@@ -29,7 +28,7 @@ const Form = ({
                     setCategories(response.data)
                 }
             } catch (error) {
-                console.log(error)
+                return { title: "An error occurred. Try again.", error }
             }
 
         }

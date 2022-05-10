@@ -6,12 +6,13 @@ import { formNewsValidationSchema } from './formNewsValidation';
 import { formPatchNewsValidationSchema } from './formPatchNewsValidation';
 import axios from "axios";
 import { error, info } from "../../services/alertService";
-import { get } from "../../services/apiService";
+import { get, post, put } from "../../services/apiService";
 
 const FormNews = () => {
 
     const param = useParams();
     let [initValues, setInitValues] = useState({});
+    let url = `${process.env.REACT_APP_API_URI}/news/`;
     
     useEffect(async () => {
         
@@ -19,15 +20,14 @@ const FormNews = () => {
         async function fetchData (param) {
             
             try {
-                const url = `${process.env.REACT_APP_API_URI}/news/${param}`;
-
+                url += param;
                 const response = await get(url);
     
                 if (response.status === 200) {
                     setInitValues(response.data);
                 }
             } catch (error) {
-                console.log(error);
+                return { title: "An error occurred. Try again.", error }
             }
         }
         
@@ -41,10 +41,10 @@ const FormNews = () => {
         if (paramId) {
             //update
             try {
-                const url = `http://localhost:3001/news/${paramId}`;
+                url += paramId;
                 let data = { ...addNew }
 
-                const response = await axios.patch(url, data)
+                const response = await put(url, data)
 
                 if (response?.status === 200) {
                     data = {
@@ -63,13 +63,12 @@ const FormNews = () => {
                     title: "An error occurred. Try again."
                 }
                 error(msg)
-                console.log(err)
+                return { title: "An error occurred. Try again.", err }
             }
         } else {
             //insert
             try {
-
-                let response = await axios.post("http://localhost:3001/news", {
+                let response = await post(url, {
                     ...addNew
                 })
 
@@ -81,8 +80,7 @@ const FormNews = () => {
                 }
 
             } catch (err) {
-                console.log(err)
-                return error({ title: "An error occurred. Try again." })
+                return error({ title: "An error occurred. Try again.", err })
             }
         }
     }
