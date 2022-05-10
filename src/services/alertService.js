@@ -1,14 +1,7 @@
 import swal from "sweetalert";
 
-export const confirm = (data) => {
-    return (swal({ ...data, icon: "warning", buttons: ["No", "Yes"] })
-                .then(response =>
-                    !response
-                    ?
-                    swal({ text: "Cancelled", icon: "info", buttons: false, timer: "1100" })
-                    :
-                    swal({ icon: "success", buttons: false, timer: "1100" })
-            ))
+export const confirm = async (data) => {
+    return await swal({ ...data, icon: "warning", buttons: ["No", "Si"] })
 }
 
 export const error = (data) => {
@@ -22,8 +15,3 @@ export const info = (data) => {
 export const success = (data) => {
     return swal({ ...data, icon: "success" })
 }
-
-export const willDelete = async (data) => {
-    return await swal({ ...data, icon: "warning", buttons: ["No", "Yes"] })
-}
-

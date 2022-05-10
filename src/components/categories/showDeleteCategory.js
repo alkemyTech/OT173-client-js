@@ -1,12 +1,12 @@
-import { willDelete } from '../../services/alertService';
-import { deleteCategory } from './deleteCategoryService';
+import { confirm } from '../../services/alertService';
+import { deleteCategory } from '../../services/deleteCategoryService';
 
 export const showDeleteCategory = async (id, setIsLoading) => {
         //setIsLoading se utiliza para detectar cuando utilizar el Loader y cuando re renderizar la vista de las categorías,
     //ej: en el componente donde se utilice este helper, debe crear un [isLoading, setIsLoading] = useState(false),
     //tambien utilizarlo en el useEffect para volver a renderizar la lista de categories.
-    const response = await willDelete({ title: "¿Está seguro que desea eliminar esta categoría de forma permanente?" })
-   
+    const response = await confirm({ title: "¿Está seguro que desea eliminar esta categoría de forma permanente?" })
+    console.log(response)
     if (response) {
         await deleteCategory(id, setIsLoading);
     }

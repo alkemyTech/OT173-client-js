@@ -1,5 +1,5 @@
-import { success, error as popUpError } from "../../services/alertService"
-import { remove } from "../../services/apiService"
+import { success, error as popUpError } from "./alertService"
+import { remove } from "./apiService"
 
 export const deleteCategory = async (id, setIsLoading) => {
     setIsLoading(true);
