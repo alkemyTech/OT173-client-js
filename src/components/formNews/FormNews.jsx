@@ -48,7 +48,7 @@ const FormNews = () => {
 
                 if (response?.status === 200) {
                     data = {
-                        title: response.data.msg
+                        title: response.data.msg || "Updated successfully."
                     }
                     return info(data)
                 }
