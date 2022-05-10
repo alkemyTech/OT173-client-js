@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
 import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import Login from './components/Login/Login';
@@ -15,25 +15,33 @@ import { ContactForm } from './components/contact/ContactForm';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
+import OutletLayout from './layout/OutletLayout';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route to exact path="/" element={<Home />} />
-        <Route to path="/news" element={<News />} />
-        <Route path="/news/:id" element={<NewsDetail />} />
-        <Route to path="/backoffice" element={<LayoutBackOffice />} />
-        <Route to path="/backoffice/news" element={<BackofficeNews />} />
-        <Route to path='/backoffice/edit-organization' element={<EditOrganizationForm/>}/>        
-        <Route to path="/backoffice/users" element={<ListUsers />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/backoffice/activities" element={<Activities />} />
-        <Route path="/contact" element={<ContactForm />} />
-        <Route path="/edithome" element={<EditHome />} />
-        <Route path="/edituser" element={<EditUserForm />} />
-        <Route path="/user" element={<UserProfile />} />
+            {/* Rutas publicas */}
+          <Route path="/" element={<OutletLayout />}>
+            <Route index element={<Home />} />
+            <Route path="news" element={<News />} />
+            <Route path="news/:id" element={<NewsDetail />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="contact" element={<ContactForm />} />
+          </Route>
+            {/* Menu de opciones BackOffice Admin */}
+          <Route path="/backoffice" element={<OutletLayout />}>
+            <Route index element={<LayoutBackOffice />} />
+            <Route path="users" element={<ListUsers />} />
+            <Route path="edithome" element={<EditHome />} />
+            <Route path="edituser" element={<EditUserForm />} />
+            <Route path="user" element={<UserProfile />} />
+            <Route path="edit-organization" element={<EditOrganizationForm/>}/> 
+            <Route path="news" element={<BackofficeNews />} />
+          </Route>
+            {/* Menu de opciones BackOffice User */}
+          <Route path="/backoffice/user" element={<UserProfile />} />
       </Routes>
     </div>
   );
