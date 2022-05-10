@@ -1,5 +1,113 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --color-primary: #9ac9fb;
+  --color-primary-dk: #539ff1;
+  --color-primary-lt: #e5effa;
+  --color-secondary: #f8fc74;
+  --color-secondary-dk: #eaf045;
+  --color-secondary-lt: #f0f39a;
+
+  --color-text: #000;
+  --color-text-accent: #fff;
+
+  --color-danger: #db5752;
+  --color-danger-dk: #b3302c;
+  --color-danger-lt: #e97672;
+}
+
+:root {
+  --spacing-0: 0px; /* 0px */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-7: 1.75rem; /* 28px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-9: 2.5rem; /* 40px */
+  --spacing-10: 2.75rem; /* 44px */
+  --spacing-11: 3rem; /* 48px */
+  --spacing-12: 3.5rem; /* 56px */
+  --spacing-13: 4rem; /* 64px */
+  --spacing-14: 4.5rem; /* 72px */
+  --spacing-15: 5rem; /* 80px */
+  --spacing-16: 6rem; /* 96px */
+  --spacing-17: 7rem; /* 112px */
+  --spacing-18: 8rem; /* 128px */
+  --spacing-19: 9rem; /* 144px */
+  --spacing-20: 10rem; /* 160px */
+}
+
+:root {
+  --font-family: 'Montserrat', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-h1: 2.488rem;
+  --font-size-h2: 2.074rem;
+  --font-size-h3: 1.728rem;
+  --font-size-h4: 1.44rem;
+  --font-size-h5: 1.33rem;
+  --font-size-h6: 1.2rem;
+  --font-size-xl: 3rem;
+  --font-size-xxl: 4rem;
+  --font-size-sm: 0.85rem;
+  --font-size-xsm: 0.7rem;
+}
+
+:root {
+  --border-radius-discrete: 0.33rem;
+  --border-radius-round: 1rem;
+  --border-radius-max: 9999px;
+  --border-radius-circle: 50%;
+}
+
+:root {
+  --header-height: 100px;
+}
+
+:root {
+  --box-shadow-base: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  --box-shadow-input: var(--color-primary-dk) 0px 0px 3px 0px;
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h1);
+  font-family: var(--font-family);
+  font-weight: 500;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
 }
