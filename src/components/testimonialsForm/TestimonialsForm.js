@@ -20,9 +20,11 @@ export const TestimonialsForm = React.memo(({ currentName = '', currentImagen = 
     const handleTestimonialsSubmit = async (e) => {
         e.preventDefault();
         if (isNew) {
-            await createTestimonial({ name, concept, image }, navigate, setIsLoading, resetValues);
+            await createTestimonial({ name, concept, image }, navigate, setIsLoading);
+            resetValues()
         } else {
-            await updateTestimonial(id, { name, concept, image }, setIsLoading, resetValues);
+            await updateTestimonial(id, { name, concept, image }, setIsLoading);
+            resetValues()
         }
     }
 
