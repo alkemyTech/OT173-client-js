@@ -16,11 +16,12 @@ import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
 import OutletLayout from './layout/OutletLayout';
+import BackofficeTestimonials from './components/backoffice/testimonials';
 
 function App() {
   return (
     <div className="App">
-      <Routes> />
+      <Routes> 
         {/* Rutas publicas */}
         <Route path="/" element={<OutletLayout />}>
           <Route index element={<Home />} />
@@ -39,6 +40,7 @@ function App() {
           <Route path="user" element={<UserProfile />} />
           <Route path="edit-organization" element={<EditOrganizationForm />} />
           <Route path="news" element={<BackofficeNews />} />
+          <Route path="testimonials" element={<BackofficeTestimonials />} />
         </Route>
         {/* Menu de opciones BackOffice User */}
         <Route path="/backoffice/user" element={<UserProfile />} />
