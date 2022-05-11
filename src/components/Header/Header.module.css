@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 12vh;
+  height: var(--header-height);
 }
 
 .navlinks {
@@ -13,19 +13,19 @@
 
 .navlink {
   text-decoration: none;
-  color: #18a0fb;
-  margin-left: 2em;
+  color: var(--color-primary-dk);
+  margin-left: var(--spacing-8);
 }
 
 .navlink:hover {
-  color: #9ac9fb;
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
 .logo {
   width: 100px;
   height: 100px;
-  margin-left: 2em;
+  margin-left: var(--spacing-8);
 }
 
 .buttons {
@@ -34,36 +34,35 @@
 }
 
 .button {
-  height: 6vh;
-  width: 9vw;
-  margin-right: 2vw;
-  border-radius: 5px;
+  padding: var(--spacing-3) var(--spacing-4);
+  margin-right: var(--spacing-6);
+  border-radius: var(--border-radius-discrete);
   cursor: pointer;
 }
 
 .loginbtn {
-  color: #18a0fb;
-  border: 1px solid #18a0fb;
+  color: var(--color-primary-dk);
+  border: 1px solid currentColor;
   background-color: white;
 }
 
 .loginbtn:hover {
-  color: #9ac9fb;
-  border: 1px solid #9ac9fb;
+  color: var(--color-primary);
+  border: 1px solid currentColor;
 }
 
 .registerbtn {
-  color: white;
-  background-color: #18a0fb;
-  border: 1px solid #18a0fb;
+  color: var(--color-text-accent);
+  background-color: var(--color-primary-dk);
+  border: 1px solid currentColor;
 }
 
 .registerbtn:hover {
-  background-color: #9ac9fb;
-  border: 1px solid #9ac9fb;
+  background-color: var(--color-primary);
+  border: 1px solid currentColor;
 }
 
 .active {
-  color: #9ac9fb;
+  color: var(--color-primary);
   text-decoration: underline;
 }

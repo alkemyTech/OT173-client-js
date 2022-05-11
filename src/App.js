@@ -8,13 +8,14 @@ import NewsDetail from './components/NewsDetail/NewsDetail';
 import Activity from './components/Activity/Activity';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
+import FormNews from './components/formNews/FormNews';
 import { ContactForm } from './components/contact/ContactForm';
 
 import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import ListUsers from './components/users/ListUsers';
 import EditHome from './components/EditHome/EditHome';
-import UserProfile from './components/Profile/UserProfile';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
+import UserProfile from './components/Profile/UserProfile';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
 
@@ -39,13 +40,15 @@ function App() {
           <Route index element={<LayoutBackOffice />} />
           <Route path="users" element={<ListUsers />} />
           <Route path="edithome" element={<EditHome />} />
-          <Route path="user" element={<UserProfile />} />
           <Route path="edituser" element={<EditUserForm />} />
+          <Route path="user" element={<UserProfile />} />
           <Route path="edit-organization" element={<EditOrganizationForm />} />
           <Route path="news" element={<BackofficeNews />} />
         </Route>
         {/* Menu de opciones BackOffice User */}
         <Route path="/backoffice/user" element={<UserProfile />} />
+        <Route path="/backoffice/news/create" element={<FormNews />} />
+        <Route path="/backoffice/news/update/:id" element={<FormNews />} />
       </Routes>
     </div>
   );
