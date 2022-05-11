@@ -9,6 +9,7 @@ import SignUp from './components/SignUp/SignUp';
 import News from './components/News/News';
 import ListUsers from './components/users/ListUsers';
 import './App.css';
+import FormNews from './components/formNews/FormNews';
 import BackofficeNews from './components/backoffice/news';
 import { ContactForm } from './components/contact/ContactForm';
 import EditHome from './components/EditHome/EditHome';
@@ -19,28 +20,30 @@ import OutletLayout from './layout/OutletLayout';
 function App() {
   return (
     <div className="App">
-      <Routes>
-            {/* Rutas publicas */}
-          <Route path="/" element={<OutletLayout />}>
-            <Route index element={<Home />} />
-            <Route path="news" element={<News />} />
-            <Route path="news/:id" element={<NewsDetail />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<SignUp />} />
-            <Route path="contact" element={<ContactForm />} />
-          </Route>
-            {/* Menu de opciones BackOffice Admin */}
-          <Route path="/backoffice" element={<OutletLayout />}>
-            <Route index element={<LayoutBackOffice />} />
-            <Route path="users" element={<ListUsers />} />
-            <Route path="edithome" element={<EditHome />} />
-            <Route path="edituser" element={<EditUserForm />} />
-            <Route path="user" element={<UserProfile />} />
-            <Route path="edit-organization" element={<EditOrganizationForm/>}/> 
-            <Route path="news" element={<BackofficeNews />} />
-          </Route>
-            {/* Menu de opciones BackOffice User */}
-          <Route path="/backoffice/user" element={<UserProfile />} />
+      <Routes> />
+        {/* Rutas publicas */}
+        <Route path="/" element={<OutletLayout />}>
+          <Route index element={<Home />} />
+          <Route path="news" element={<News />} />
+          <Route path="news/:id" element={<NewsDetail />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="contact" element={<ContactForm />} />
+        </Route>
+        {/* Menu de opciones BackOffice Admin */}
+        <Route path="/backoffice" element={<OutletLayout />}>
+          <Route index element={<LayoutBackOffice />} />
+          <Route path="users" element={<ListUsers />} />
+          <Route path="edithome" element={<EditHome />} />
+          <Route path="edituser" element={<EditUserForm />} />
+          <Route path="user" element={<UserProfile />} />
+          <Route path="edit-organization" element={<EditOrganizationForm />} />
+          <Route path="news" element={<BackofficeNews />} />
+        </Route>
+        {/* Menu de opciones BackOffice User */}
+        <Route path="/backoffice/user" element={<UserProfile />} />
+        <Route path="/backoffice/news/create" element={<FormNews />} />
+        <Route path="/backoffice/news/update/:id" element={<FormNews />} />
       </Routes>
     </div>
   );

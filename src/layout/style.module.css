@@ -1,16 +1,16 @@
 .gridContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  background-color: #edf2f7;
-  min-height: calc(100vh - 12vh);
+  background-color: var(--color-primary-lt);
+  min-height: calc(100vh - var(--header-height));
   justify-items: center;
   box-sizing: border-box;
-  padding: 4rem;
+  padding: var(--spacing-13);
 }
 
 .cardContainer {
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: var(--border-radius-round);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +18,7 @@
   width: 200px;
 }
 .cardTitle {
-  color: #90b9f8;
+  color: var(--color-primary);
 }
 
 .cardImg {
@@ -26,12 +26,12 @@
   height: 60px;
 }
 .cardButtonLink {
-  margin-top: 15px;
+  margin-top: var(--spacing-4);
   background-color: #088c8a;
-  color: #fff;
+  color: var(--color-text-accent);
   border: none;
-  padding: 10px;
-  border-radius: 10px;
+  padding: var(--spacing-2);
+  border-radius: var(--border-radius-discrete);
   text-decoration: none;
 }
 .cardButton:hover {
