@@ -14,8 +14,7 @@ const Home = () => {
         buttons={true}
       />
       <Carousel />
-      <HelloUser username={undefined} />
-      <News />
+      <HelloUser username={undefined} />      
       <Footer />
     </>
   );
