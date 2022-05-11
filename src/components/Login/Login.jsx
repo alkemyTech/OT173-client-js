@@ -11,15 +11,16 @@ import LoginStyles from './Login.module.css';
 import Header from '../Header/Header';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/user/userSlice';
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const logInSubmit = async formvalue => {
-    const { ok, error } = await loginRequest(formvalue);
+    const { ok, error, data } = await loginRequest(formvalue);
     if (ok) {
-      const {email} = formvalue;
-      dispatch(login({email}));
+      const { email } = formvalue;
+      dispatch(login({ email, token: data.token }));
       navigate('/');
     } else {
       popUpError({ text: `${error.message}` });
@@ -30,8 +31,12 @@ const Login = () => {
       <Header logo={'/images/assets/logo1.png'} menu={[]} />
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
-          <div className={LoginStyles.login_img}>
-            <img src="https://i.ibb.co/7Qcvm6c/LOGO-SOMOS-MAS.png" alt="" />
+          <h1 className={LoginStyles.title}>Iniciar sesión</h1>
+          <div className={LoginStyles.login_img_container}>
+            <img
+              src="https://i.ibb.co/7Qcvm6c/LOGO-SOMOS-MAS.png"
+              alt="Iniciar sesión"
+            />
           </div>
           <Formik
             initialValues={initialLoginValue}
@@ -45,25 +50,34 @@ const Login = () => {
               return (
                 <Form className={LoginStyles.login_form}>
                   <div className={LoginStyles.login_form_field}>
-                    <span htmlFor="email">Email</span>
                     <Field
                       className={LoginStyles.login_form_field_input}
-                      placeholder="Enter email...."
+                      placeholder="E-mail"
                       name="email"
                     />
+                    {errors.email && (
+                      <span className={LoginStyles.login_form_error}>
+                        {logInHandleError(errors).email()}
+                      </span>
+                    )}
                   </div>
-                  {logInHandleError(errors).email()}
+
                   <div className={LoginStyles.login_form_field}>
-                    <span>Password</span>
                     <Field
                       className={LoginStyles.login_form_field_input}
                       name="password"
+                      placeholder="Contraseña"
                       type="password"
                     />
+                    {errors.password && (
+                      <span className={LoginStyles.login_form_error}>
+                        {logInHandleError(errors).password()}
+                      </span>
+                    )}
                   </div>
-                  {logInHandleError(errors).password()}
-                  <button type="submit">
-                    <span>Log In</span>
+
+                  <button className={LoginStyles.submit} type="submit">
+                    <span>Iniciar sesión</span>
                   </button>
                 </Form>
               );

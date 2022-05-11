@@ -1,6 +1,6 @@
 .news_card {
   width: 100%;
-  border: 1px solid black;
+  box-shadow: var(--box-shadow-base);
   display: flex;
   flex-flow: column;
   text-decoration: none;
@@ -21,23 +21,24 @@
 }
 
 .news_card_title {
-  padding: 1rem;
+  font-size: var(--font-size-h3);
+  padding: var(--spacing-4);
 }
 
 .news_card_date {
-  padding: 1rem;
+  padding: var(--spacing-4);
   padding-top: 0;
   margin-top: auto;
 }
 
 @media (min-width: 576px) {
   .news_card {
-    width: calc(50% - 1rem);
+    width: calc(50% - var(--spacing-4));
   }
 }
 
 @media (min-width: 992px) {
   .news_card {
-    width: calc(100% / 3 - 1rem);
+    width: calc(100% / 3 - var(--spacing-4));
   }
 }
