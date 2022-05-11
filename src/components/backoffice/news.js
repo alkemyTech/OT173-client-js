@@ -3,14 +3,19 @@ import Header from '../Header/Header';
 import styles from './News.module.css';
 import NewsRow from './NewsRow';
 import { get } from '../../services/apiService';
+import { error as serviceError } from '../../services/alertService';
 
 function BackofficeNews() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const results = await get('http://localhost:3001/news');
-      setNews(results.data);
+      const { data, ok, error } = await get('http://localhost:3001/news');
+      if (ok) {
+        setNews(data);
+      } else {
+        serviceError(error.message);
+      }
     }
     fetchData();
   }, []);

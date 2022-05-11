@@ -19,13 +19,13 @@ function NewsRow({ name, image, createdAt, id }) {
   return (
     <tr>
       <td className={styles.tabledata}>
-        <h2>{name}</h2>
+        <p>{name}</p>
       </td>
       <td className={styles.tabledata}>
-        <h2>{image}</h2>
+        <p>{image}</p>
       </td>
       <td className={styles.tabledata}>
-        <h2>{createdAt}</h2>
+        <p>{createdAt}</p>
       </td>
       <td className={styles.tabledata}>
         <div className={styles.actionbuttons}>

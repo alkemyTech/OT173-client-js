@@ -20,7 +20,7 @@ import OutletLayout from './layout/OutletLayout';
 function App() {
   return (
     <div className="App">
-      <Routes> />
+      <Routes>
         {/* Rutas publicas */}
         <Route path="/" element={<OutletLayout />}>
           <Route index element={<Home />} />
