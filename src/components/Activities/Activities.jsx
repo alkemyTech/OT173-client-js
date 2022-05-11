@@ -3,14 +3,19 @@ import Header from '../Header/Header';
 import styles from './Activities.module.css';
 import Activity from './Activity';
 import { get } from '../../services/apiService';
+import { error as serviceError } from '../../services/alertService';
 
 function Activities() {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const results = await get('http://localhost:3001/activities');
-      setActivities(results.data);
+      const { ok, data, error } = await get('http://localhost:3001/activities');
+      if (ok) {
+        setActivities(data);
+      } else {
+        serviceError(error.message);
+      }
     }
     fetchData();
   }, []);
