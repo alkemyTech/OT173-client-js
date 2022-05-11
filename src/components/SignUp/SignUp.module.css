@@ -1,56 +1,84 @@
-.sing_up {
-  border: 1px solid black;
-  margin: 1rem auto;
-  padding: 2rem;
-  max-width: 600px;
-  border-radius: 0.25rem;
+.sign_up_wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.sign_up {
+  align-items: center;
+  background-color: white;
+  border-radius: var(--border-radius-discrete);
+  box-shadow: var(--box-shadow-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  justify-content: center;
+  margin: var(--spacing-4);
+  max-width: 500px;
+  padding: var(--spacing-8) var(--spacing-6);
+  width: 90%;
 }
 
 .title {
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-  font-size: xx-large;
+  font-size: var(--font-size-h2);
+  text-align: center;
+}
+
+.image_container {
+  height: 100px;
+  width: 100px;
+}
+
+.image_container img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
 }
 
 .form {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  gap: var(--spacing-4);
+  width: 100%;
 }
 
 .form input {
+  padding: var(--spacing-3);
   width: 100%;
-  padding: 0.5rem;
 }
 
 .error {
-  color: #db5752;
+  align-self: center;
+  color: var(--color-danger);
   font-weight: 700;
+  text-align: center;
 }
 
 .submit {
-  margin-top: 1rem;
-  background-color: #9ac9fb;
-  border: 0;
-  outline: 0;
-  border-radius: 1rem;
-  cursor: pointer;
-  padding: 0.75rem;
-  font-size: large;
-  width: fit-content;
-  min-width: 150px;
-  transition: transform 0.1s ease-in-out;
-  display: inline-flex;
   align-items: center;
-  gap: 5px;
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-discrete);
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-3);
+  transition: 0.1s transform ease-in-out;
 }
 
 .submit[disabled] {
-  opacity: 0.5;
   cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .submit:hover:not([disabled]) {
   transform: scale(1.05);
+}
+
+@media (min-width: 576px) {
+  .sign_up {
+    padding: var(--spacing-11);
+  }
 }
