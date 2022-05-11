@@ -29,7 +29,7 @@ function NewsRow({ name, image, createdAt, id }) {
       </td>
       <td className={styles.tabledata}>
         <div className={styles.actionbuttons}>
-          <Link to={`/editnews/${id}`}>
+          <Link to={`/backoffice/news/update/${id}`}>
             <button className={`${styles.button} ${styles.editbutton}`}>
               Editar
             </button>
