@@ -13,7 +13,7 @@ const NewsDetail = () => {
   const [isFetching, setIsFetching] = useState(true);
   useEffect(() => {
     const fetchNew = async () => {
-      const { data, ok, error } = await get(`http://localhost:3001/news/${id}`);
+      const { data, ok, error } = await get(`/news/${id}`);
       if (ok) {
         setSelectedNew(data);
       } else {
