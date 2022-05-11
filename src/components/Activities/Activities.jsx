@@ -21,13 +21,17 @@ function Activities() {
       <div className={styles.container}>
         <div className={styles.tablecontent}>
           <table>
-            <tr>
-              <th className={styles.header}>Actividad</th>
-              <th className={styles.actions}>Acciones</th>
-            </tr>
-            {activities.map(act => (
-              <Activity name={act.name} id={act.id} />
-            ))}
+            <thead>
+              <tr>
+                <th className={styles.header}>Actividad</th>
+                <th className={styles.actions}>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {activities.map(act => (
+                <Activity key={act.id} name={act.name} id={act.id} />
+              ))}
+            </tbody>
           </table>
         </div>
       </div>

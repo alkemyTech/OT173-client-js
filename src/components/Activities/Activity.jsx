@@ -1,12 +1,19 @@
 import React from 'react';
 import styles from './Activities.module.css';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { destroy } from '../../services/apiService';
+import { confirm } from '../../services/alertService';
 
 function Activity({ name, id }) {
-  const destroy = function () {
-    axios.delete(`http://localhost:3001/activities/${id}`);
-    window.location.reload();
+  const handleDelete = async () => {
+    const confirmation = await confirm();
+    if (confirmation.success) {
+      const remove = function () {
+        destroy(`http://localhost:3001/activities/${id}`);
+        window.location.reload();
+      };
+      setTimeout(remove, 1100);
+    }
   };
 
   return (
@@ -23,7 +30,7 @@ function Activity({ name, id }) {
           </Link>
           <button
             className={`${styles.button} ${styles.deletebutton}`}
-            onClick={destroy}
+            onClick={() => handleDelete()}
           >
             Eliminar
           </button>

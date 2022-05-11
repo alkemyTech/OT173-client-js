@@ -49,20 +49,6 @@ td {
   border: 1px solid #fafa88;
 }
 
-.savebutton {
-  background-color: #9bfa88;
-  border: 1px solid #9bfa88;
-}
-
-.inputcontainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.input {
-  width: 10vw;
-}
-
 .actions {
   text-align: center;
 }
