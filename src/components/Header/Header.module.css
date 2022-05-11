@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 12vh;
+  height: var(--header-height);
 }
 
 .navlinks {
@@ -13,19 +13,19 @@
 
 .navlink {
   text-decoration: none;
-  color: #18a0fb;
-  margin-left: 2em;
+  color: var(--color-primary-dk);
+  margin-left: var(--spacing-8);
 }
 
 .navlink:hover {
-  color: #9ac9fb;
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
 .logo {
   width: 100px;
   height: 100px;
-  margin-left: 2em;
+  margin-left: var(--spacing-8);
 }
 
 .buttons {
@@ -34,194 +34,35 @@
 }
 
 .button {
-  height: 6vh;
-  width: 9vw;
-  margin-right: 2vw;
-  border-radius: 5px;
+  padding: var(--spacing-3) var(--spacing-4);
+  margin-right: var(--spacing-6);
+  border-radius: var(--border-radius-discrete);
   cursor: pointer;
 }
 
 .loginbtn {
-  color: #18a0fb;
-  border: 1px solid #18a0fb;
+  color: var(--color-primary-dk);
+  border: 1px solid currentColor;
   background-color: white;
 }
 
 .loginbtn:hover {
-  color: #9ac9fb;
-  border: 1px solid #9ac9fb;
+  color: var(--color-primary);
+  border: 1px solid currentColor;
 }
 
 .registerbtn {
-  color: white;
-  background-color: #18a0fb;
-  border: 1px solid #18a0fb;
+  color: var(--color-text-accent);
+  background-color: var(--color-primary-dk);
+  border: 1px solid currentColor;
 }
 
 .registerbtn:hover {
-  background-color: #9ac9fb;
-  border: 1px solid #9ac9fb;
+  background-color: var(--color-primary);
+  border: 1px solid currentColor;
 }
 
 .active {
-  color: #9ac9fb;
+  color: var(--color-primary);
   text-decoration: underline;
-}
-
-.containerButtonMenu {
-  display: flex;
-  align-items: center;
-  display: none;
-}
-
-
-
-@media screen and (max-width: 1110px) {
-  body {
-    /* background-color: blue; */
-  }
-  .navbar {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    /* display: none; */
-  }
-
-  .navlinks {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #dc3545;
-    width: 100%;
-  }
-
-  .navlink {
-    margin: 0;
-    padding: 5px 0 5px 15px;
-
-    color: white;
-    font-size: 1.3rem;
-    background-color: #dc3545;
-    width: 100%;
-    text-align: start;
-    /* display: none; aca agregarlo con JS */
-  }
-
-  .navlinkNone {
-    margin: 0;
-    padding: 5px 0 5px 15px;
-
-    color: white;
-    font-size: 1.3rem;
-    background-color: #dc3545;
-    width: 100%;
-    text-align: start;
-    /* display: none; aca agregarlo con JS */
-    display: none;
-  }
-
-  .containerHeaderResponsive {
-    display: flex;
-    width: 100%;
-  }
-
-  .containerButtonMenu {
-    display: flex;
-    margin-left: auto;
-  }
-
-  .menuBtn {
-    color: white;
-    font-size: 1rem;
-    background-color: #db0909;
-    border: none;
-    width: 100px;
-  }
-
-  .menuBtn:hover {
-    background-color: #db090994;
-  }
-
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-
-    box-sizing: border-box;
-    background-color: #dc3545;
-
-    width: 100%;
-    padding: 5px 0 5px 15px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-    /* display: none; aca agregarlo con JS */
-  }
-
-  .buttonsNone {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-    box-sizing: border-box;
-    background-color: #dc3545;
-
-    width: 100%;
-    padding: 5px 0 5px 15px;
-    margin-right: auto;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-    /* display: none; aca agregarlo con JS */
-    display: none;
-  }
-
-
-  .loginbtn {
-    margin: 0;
-    height: 0;
-    width: 100%;
-    border: none;
-    background: none;
-    text-decoration: none;
-    color: white;
-    font-size: 1.3rem;
-    text-align: start;
-  }
-
-  .loginbtn:hover {
-    margin: 0;
-    padding: 0;
-    border: none;
-    background: none;
-    color: white;
-    text-decoration: underline;
-  }
-
-  .registerbtn {
-    margin: 0;
-    height: 0;
-    padding: 10px 0;
-    width: 120vh;
-    border: none;
-    background: none;
-    text-decoration: none;
-    /* color: #18a0fb; */
-    color: white;
-
-    font-size: 1.3rem;
-    text-align: start;
-  }
-
-  .registerbtn:hover {
-    margin: 0;
-    border: none;
-    background: none;
-    /* color: #9ac9fb; */
-    color: white;
-
-    text-decoration: underline;
-  }
-
 }
