@@ -30,6 +30,7 @@ function Header({ logo, menu, buttons }) {
             }
             `}
             to={menuItem.link}
+            key={menuItem.name}
           >
             {menuItem.name}
           </Link>

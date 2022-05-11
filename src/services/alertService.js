@@ -5,7 +5,7 @@ export const confirm = async (data) => {
 }
 
 export const error = (data) => {
-    return swal({ ...data, icon: "error", dangerMode: true })
+    return swal({text: data, icon: "error", dangerMode: true })
 }
 
 export const info = (data) => {
