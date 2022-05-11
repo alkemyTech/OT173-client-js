@@ -1,0 +1,80 @@
+.error_toedit_organization {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: var(--spacing-5) 0;
+  font-weight: 600;
+  background-color: var(--color-danger);
+}
+
+.edit_organization_wrapper {
+  display: flex;
+  height: calc(100vh - var(--header-height));
+  align-items: center;
+  justify-content: center;
+}
+
+.edit_organization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-11);
+  min-height: 500px;
+  background-color: #fff;
+  border-radius: var(--border-radius-discrete);
+  box-shadow: var(--box-shadow-base);
+}
+
+.edit_organization_img {
+  width: 100px;
+  height: 100px;
+}
+
+.edit_organization_img img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.edit_organization_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 30px 0 0 0;
+}
+
+.edit_organization_form_error {
+  color: var(--color-text-accent);
+  font-weight: 600;
+  background-color: var(--color-danger);
+  width: 100%;
+  text-align: center;
+  padding: var(--spacing-1);
+  border-radius: var(--border-radius-discrete);
+}
+
+.edit_organization_form_field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.edit_organization_form_field_input {
+  width: 300px;
+  padding: var(--spacing-3);
+}
+
+.edit_organization_form button[type='submit'] {
+  padding: var(--spacing-3) var(--spacing-8);
+  border: none;
+  border-radius: var(--border-radius-discrete);
+  background-color: var(--color-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.1s transform ease-in-out;
+}
+
+.edit_organization_form button[type='submit']:hover {
+  transform: scale(1.05);
+}
