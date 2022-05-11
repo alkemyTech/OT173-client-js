@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import { useLocation } from 'react-router';
@@ -12,22 +12,29 @@ function Header({ logo, menu, buttons }) {
   const { user } = useSelector(state => state.user);
   const { pathname } = location;
 
-  const handleLogOut = ()=>{
+  const [menuToggle, setMenuToggle] = useState(false)
+
+  const handleLogOut = () => {
     dispatch(logout());
   }
 
   return (
     <header className={styles.navbar}>
       <nav className={styles.navlinks}>
-        <Link to="/">
-          <img className={styles.logo} src={logo} alt="Logo" />
-        </Link>
+        <div className={styles.containerHeaderResponsive}>
+          <Link to="/">
+            <img className={styles.logo} src={logo} alt="Logo" />
+          </Link>
+          <div className={styles.containerButtonMenu}>
+            <button className={`${styles.button} ${styles.menuBtn}`} onClick={() => setMenuToggle(!menuToggle)}>
+              Menu
+            </button>
+          </div>
+        </div>
         {menu.map(menuItem => (
           <Link
             className={`
-              ${pathname === menuItem.link ? styles.active : {}} ${
-              styles.navlink
-            }
+              ${pathname === menuItem.link ? styles.active : {}} ${!menuToggle ? styles.navlinkNone : styles.navlink}
             `}
             to={menuItem.link}
           >
@@ -36,7 +43,7 @@ function Header({ logo, menu, buttons }) {
         ))}
       </nav>
       {buttons === true && !user ? (
-        <div className={styles.buttons}>
+        <div className={!menuToggle ? styles.buttonsNone : styles.buttons}>
           <Link to="/login">
             <button className={`${styles.button} ${styles.loginbtn}`}>
               Log in
