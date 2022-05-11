@@ -2,28 +2,34 @@ import React from 'react'
 import { useForm } from '../../hooks/useForm'
 import Header from '../Header/Header';
 import contactFormStyles from './styles.module.css'
+import { post } from '../../services/apiService'
+import { error, info }  from '../../services/alertService'
 import { HeaderLinks } from '../../constants/HeaderLinks-Home';
 
 export const ContactForm = () => {
 
-    const [{ firstName, lastName, email, message }, handleInputChange, reset] = useForm({
-        firstName: '',
-        lastName: '',
+    const [{ name, phone, email, message }, handleInputChange, reset] = useForm({
+        name: '',
+        phone: '',
         email: '',
         message: ''
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
 
-        if (!firstName || !lastName || !email || !message) {
-            alert("Debe completar los campos")
+        if (!name || !phone || !email || !message) {
+            info("Debe completar los campos")
             return;
-        }
-        //replace for http.post 
-        localStorage.setItem("consulta", JSON.stringify({ firstName, lastName, email, message }));
+        }  
 
-        reset();
+        try {
+            await post('/contacts', { name, phone, email, message })
+            info('Contacto agregado con exito')
+            reset();
+        } catch (error) {
+            error(error)
+        }   
     };
 
     return (
@@ -39,17 +45,17 @@ export const ContactForm = () => {
                                 <input
                                     className={contactFormStyles.input}
                                     placeholder='Nombre'
-                                    name='firstName'
-                                    value={firstName}
+                                    name='name'
+                                    value={name}
                                     onChange={handleInputChange}
                                     autoComplete='off'
                                 />
                                 <input
                                     className={contactFormStyles.input}
-                                    placeholder='Apellido'
-                                    name='lastName'
+                                    placeholder='Telefono'
+                                    name='phone'
                                     onChange={handleInputChange}
-                                    value={lastName}
+                                    value={phone}
                                     autoComplete='off'
                                 />
                                 <input

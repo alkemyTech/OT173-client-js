@@ -22,7 +22,7 @@ const News = () => {
     fetchNews();
   }, []);
 
-  if (isLoading) return <Loader />;
+  if (isLoading) return <Loader width={200} height={200} />;
 
   return (
     <>

@@ -17,10 +17,10 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const logInSubmit = async formvalue => {
-    const { ok, error } = await loginRequest(formvalue);
+    const { ok, error, data } = await loginRequest(formvalue);
     if (ok) {
       const { email } = formvalue;
-      dispatch(login({ email }));
+      dispatch(login({ email, token: data.token }));
       navigate('/');
     } else {
       popUpError({ text: `${error.message}` });

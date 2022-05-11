@@ -12,9 +12,9 @@ export const confirm = (data) => {
 }
 
 export const error = (data) => {
-    return swal({ ...data, icon: "error", dangerMode: true })
+    return swal({text: data, icon: "error", dangerMode: true })
 }
 
 export const info = (data) => {
-    return swal({ ...data, icon: "info" })
+    return swal({text: data, icon: "info", timer: 1000, buttons: false})
 }

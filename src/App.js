@@ -10,6 +10,7 @@ import SignUp from './components/SignUp/SignUp';
 import News from './components/News/News';
 import ListUsers from './components/users/ListUsers';
 import './App.css';
+import FormNews from './components/formNews/FormNews';
 import BackofficeNews from './components/backoffice/news';
 import { ContactForm } from './components/contact/ContactForm';
 import EditHome from './components/EditHome/EditHome';
@@ -44,6 +45,8 @@ function App() {
         <Route path="/backoffice/user" element={<UserProfile />} />
         <Route path="/backoffice/activities/create" element={<FormActivities />} />
         <Route path="/backoffice/activities/update/:id" element={<FormActivities />} />
+        <Route path="/backoffice/news/create" element={<FormNews />} />
+        <Route path="/backoffice/news/update/:id" element={<FormNews />} />
       </Routes>
     </div>
   );
