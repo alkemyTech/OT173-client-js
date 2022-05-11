@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../Header/Header';
-import LoginStyles from './Login.module.css';
+import EditOrganization from './EditOrganization.module.css';
 import { Formik, Field, Form } from 'formik';
 import {
   initialOrganizationValue,
@@ -12,9 +12,9 @@ export const EditOrganizationForm = () => {
   return (
     <>
       <Header logo={'https://i.ibb.co/7Qcvm6c/LOGO-SOMOS-MAS.png'} menu={[]} />
-      <div className={LoginStyles.login_wrapper}>
-        <div className={LoginStyles.login}>
-          <div className={LoginStyles.login_img}>
+      <div className={EditOrganization.edit_organization_wrapper}>
+        <div className={EditOrganization.edit_organization}>
+          <div className={EditOrganization.edit_organization_img}>
             <img src="https://i.ibb.co/7Qcvm6c/LOGO-SOMOS-MAS.png" alt="" />
           </div>
           <Formik
@@ -27,20 +27,28 @@ export const EditOrganizationForm = () => {
           >
             {({ errors }) => {
               return (
-                <Form className={LoginStyles.login_form}>
-                  <div className={LoginStyles.login_form_field}>
+                <Form className={EditOrganization.edit_organization_form}>
+                  <div
+                    className={EditOrganization.edit_organization_form_field}
+                  >
                     <span htmlFor="name">Name Organization</span>
                     <Field
-                      className={LoginStyles.login_form_field_input}
+                      className={
+                        EditOrganization.edit_organization_form_field_input
+                      }
                       placeholder="new name"
                       name="name"
                     />
                   </div>
                   {organizationHandleError(errors).name()}
-                  <div className={LoginStyles.login_form_field}>
+                  <div
+                    className={EditOrganization.edit_organization_form_field}
+                  >
                     <span>New Logo</span>
                     <Field
-                      className={LoginStyles.login_form_field_input}
+                      className={
+                        EditOrganization.edit_organization_form_field_input
+                      }
                       placeholder="new logo"
                       type="text"
                       name="logo"
