@@ -14,7 +14,6 @@ import Activities from './components/Activities/Activities';
 import FormNews from './components/formNews/FormNews';
 import { ContactForm } from './components/contact/ContactForm';
 import { LayoutBackOffice } from './layout/LayoutBackOffice';
-import ListUsers from './components/users/ListUsers';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';

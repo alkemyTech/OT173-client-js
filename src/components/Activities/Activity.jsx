@@ -9,7 +9,7 @@ function Activity({ name, id }) {
     const confirmation = await confirm();
     if (confirmation.success) {
       const remove = function () {
-        destroy(`http://localhost:3001/activities/${id}`);
+        destroy(`${process.env.REACT_APP_API_URI}/activities/${id}`);
         window.location.reload();
       };
       setTimeout(remove, 1100);

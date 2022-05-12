@@ -10,7 +10,7 @@ function Activities() {
 
   useEffect(() => {
     async function fetchData() {
-      const { ok, data, error } = await get('http://localhost:3001/activities');
+      const { ok, data, error } = await get(`${process.env.REACT_APP_API_URI}/activities`);
       if (ok) {
         setActivities(data);
       } else {
