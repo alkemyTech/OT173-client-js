@@ -9,7 +9,7 @@ function NewsRow({ name, image, createdAt, id }) {
     const confirmation = await confirm();
     if (confirmation.success) {
       const remove = function () {
-        destroy(`http://localhost:3001/news/${id}`);
+        destroy(`${process.env.REACT_APP_API_URI}/news/${id}`);
         window.location.reload();
       };
       setTimeout(remove, 1100);

@@ -10,7 +10,7 @@ function BackofficeNews() {
 
   useEffect(() => {
     async function fetchData() {
-      const { data, ok, error } = await get('http://localhost:3001/news');
+      const { data, ok, error } = await get(`${process.env.REACT_APP_API_URI}/news`);
       if (ok) {
         setNews(data);
       } else {
