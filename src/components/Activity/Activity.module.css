@@ -1,0 +1,33 @@
+.activity,
+.error {
+  display: flex;
+  flex-flow: column;
+  padding: var(--spacing-4);
+  max-width: 800px;
+  width: calc(100% - var(--spacing-8));
+  margin: var(--spacing-4) auto;
+}
+
+.error {
+  background-color: var(--color-danger-lt);
+  text-align: center;
+  border-radius: var(--spacing-2);
+}
+
+.activity_name,
+.error h1 {
+  font-size: var(--spacing-8);
+  margin-bottom: var(--spacing-4);
+  font-weight: 600;
+  font-family: var(--font-family);
+  text-align: center;
+}
+
+.activity_image {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.activity_content {
+  margin: var(--spacing-4) 0;
+}

@@ -25,8 +25,6 @@ const Members = () => {
         fetchMembers(url)
     }, [])
 
-    console.log(members)
-
     return (
         <div className={Styles.container}>
 
