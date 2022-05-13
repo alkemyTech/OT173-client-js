@@ -29,3 +29,33 @@ export const post = async (url, body) => {
     return { ok: false, error: err, status: 500 };
   }
 };
+
+export const put = async (url, body) => {
+  const headers = getHeaders();
+  try {
+    const { data, status } = await axios.put(url, body, { headers });
+    return { ok: true, data, status };
+  } catch (err) {
+    return { ok: false, error: err, status: 500 };
+  }
+};
+
+export const patch = async (url, body) => {
+  const headers = getHeaders();
+  try {
+    const { data, status } = await axios.patch(url, body, { headers });
+    return { ok: true, data, status };
+  } catch (err) {
+    return { ok: false, error: err, status: 500 };
+  }
+};
+
+export const remove = async url => {
+  const headers = getHeaders();
+  try {
+    const { data, status } = await axios.delete(url, { headers });
+    return { ok: true, data, status };
+  } catch (err) {
+    return { ok: false, error: err, status: 500 };
+  }
+};
