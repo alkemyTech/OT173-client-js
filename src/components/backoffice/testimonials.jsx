@@ -2,16 +2,18 @@ import React from 'react';
 import { useState, useEffect, useMemo } from 'react';
 import { useTable } from 'react-table';
 import { get } from '../../services/apiService';
+import { error as serviceError } from '../../services/alertService';
 
 export default function BackofficeTestimonials() {
   const [values, setValues] = useState([]);
   const testimonialData = useMemo(() => [...values], [values]);
 
   const loadValues = async () => {
-    const response = await get('/testimonials');
-    if (response) {
-      const information = response.data;
-      setValues(information);
+    const {ok,data,error} = await get(`${process.env.REACT_APP_API_URI}/testimonials`);
+    if (ok) {
+      setValues(data);
+    } else {
+      serviceError(error.message)
     }
   };
 

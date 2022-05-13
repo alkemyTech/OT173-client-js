@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-
 import OutletLayout from './layout/OutletLayout';
 import Home from './components/Home/Home';
 import News from './components/News/News';
@@ -17,7 +16,6 @@ import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
-import OutletLayout from './layout/OutletLayout';
 import BackofficeTestimonials from './components/backoffice/testimonials';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
@@ -52,8 +50,7 @@ function App() {
         </Route>
         {/* Menu de opciones BackOffice User */}
         <Route path="/backoffice/user" element={<UserProfile />} />
-        <Route path="/backoffice/news/create" element={<FormNews />} />
-        <Route path="/backoffice/news/update/:id" element={<FormNews />} />
+       
       </Routes>
     </div>
   );
