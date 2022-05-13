@@ -8,11 +8,12 @@ import NewsDetail from './components/NewsDetail/NewsDetail';
 import Activity from './components/Activity/Activity';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
+import ListUsers from './components/users/ListUsers';
+import './App.css';
+import Activities from './components/Activities/Activities';
 import FormNews from './components/formNews/FormNews';
 import { ContactForm } from './components/contact/ContactForm';
-
 import { LayoutBackOffice } from './layout/LayoutBackOffice';
-import ListUsers from './components/users/ListUsers';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
@@ -47,6 +48,7 @@ function App() {
           <Route path="edit-organization" element={<EditOrganizationForm />} />
           <Route path="news" element={<BackofficeNews />} />
           <Route path="testimonials" element={<BackofficeTestimonials />} />
+          <Route path="activities" element={<Activities />} />
         </Route>
         {/* Menu de opciones BackOffice User */}
         <Route path="/backoffice/user" element={<UserProfile />} />
