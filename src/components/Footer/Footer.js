@@ -6,61 +6,60 @@ import mailIcon from "../../data/icons/email.png";
 import facebookIcon from "../../data/icons/facebook.png";
 import instagramIcon from "../../data/icons/instagram.png";
 import phoneIcon from "../../data/icons/phone-call.png";
+import { Link } from "react-router-dom";
 
 
 export default function Footer() {
   const [info, setInfo] = useState([])
+  info.map(console.log)
+  useEffect(() => {
 
-  useEffect(()=>{
-  
     const fetchInfo = async () => {
       const result = await axios.get('/organizations/data')
       setInfo(result.data)
-  }
-  fetchInfo();
-}, []);
+    }
+    fetchInfo();
+  }, []);
 
   return (
     <div className={style.container}>
-       <div className={style.sample_logo}>
-        {info.map((item) => (
-          <img className={style.logo_ong} src={item.image} alt="Logo ONG" />
-        ))}
-      </div>
-      <hr className={style.rectangle_top} />
       <div className={style.footer_navigation}>
-        <p className={style.information}>
-          <a href="/information">Noticias</a>
-        </p>
-        <p className={style.activities}>
-          <a href="/activities">Actividades</a>
-        </p>
-        <p className={style.news}>
-          <a href="/news">Novedades</a>
-        </p>
-        <p className={style.testimonial}>
-          <a href="/testimonial">Testimonios</a>
-        </p>
-        <p className={style.us}>
-          <a href="/us">Nosotros</a>
-        </p>
-        <p className={style.contact}>
-          <a href="/contact">Contacto</a>
-        </p>
+        <Link to='/' className={style.sample_logo}>
+          <img className={style.logo_ong} src={'/images/assets/logo1.png'} alt="Logo ONG" />
+        </Link>
+        <Link to='/information' className={style.navLink}>
+          Noticias
+        </Link>
+        <Link to='/activities' className={style.navLink}>
+          Actividades
+        </Link>
+        <Link to='/news' className={style.navLink}>
+          Novedades
+        </Link>
+        <Link to='/testimonial' className={style.navLink}>
+          Testimonios
+        </Link>
+        <Link to='/us' className={style.navLink}>
+          Nosotros
+        </Link>
+        <Link to='/contact' className={style.navLink}>
+          Contacto
+        </Link>
       </div>
-      <hr className={style.rectangle_bottom} />
       <div className={style.icons}>
         {info.map((item) => (
           <div>
-            <a href={item.email} target="_blank" rel="noopener noreferrer">
+            <Link
+              to={`/${item?.email}`}
+              rel="noopener noreferrer">
               <img
                 src={mailIcon}
                 className={style.icons_size}
                 alt="Icono Mail"
               />
-            </a>
-            <a
-              href={item.social_instagram}
+            </Link>
+            <Link
+              to={`/${item?.social_instagram}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -69,9 +68,9 @@ export default function Footer() {
                 className={style.icons_size}
                 alt="Icono Instagram"
               />
-            </a>
-            <a
-              href={item.social_facebook}
+            </Link>
+            <Link
+              to={`/${item?.social_facebook}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,9 +79,9 @@ export default function Footer() {
                 className={style.icons_size}
                 alt="Icono Facebook"
               />
-            </a>
-            <a
-              href={item.phone}
+            </Link>
+            <Link
+              to={`/${item?.phone}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -91,13 +90,13 @@ export default function Footer() {
                 className={style.icons_size}
                 alt="Icono Telefono"
               />
-            </a>
+            </Link>
           </div>
         ))}
       </div>
       <span className={style.info_alkemy}>
         2022 by Alkemy. All Rights Reserved.
       </span>
-    </div>
+    </div >
   );
 }

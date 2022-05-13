@@ -12,22 +12,32 @@ function Header({ logo, menu, buttons }) {
   const { user } = useSelector(state => state.user);
   const { pathname } = location;
 
-  const handleLogOut = ()=>{
+  const handleLogOut = () => {
     dispatch(logout());
   }
 
   return (
     <header className={styles.navbar}>
+      <input type={'checkbox'} className={styles.expandToggle} id={'expand-toggle'}></input>
       <nav className={styles.navlinks}>
-        <Link to="/">
-          <img className={styles.logo} src={logo} alt="Logo" />
-        </Link>
+        <div className={styles.containerHeaderResponsive}>
+          <Link to="/">
+            <img className={styles.logo} src={logo} alt="Logo" />
+          </Link>
+          <div className={styles.containerButtonMenu}>
+            <label
+              htmlFor="expand-toggle"
+              id="expand-btn"
+              className={`${styles.button} ${styles.menuBtn} ${styles.expandBtn}`}
+            >
+              Menu
+            </label>
+          </div>
+        </div>
         {menu.map(menuItem => (
           <Link
             className={`
-              ${pathname === menuItem.link ? styles.active : {}} ${
-              styles.navlink
-            }
+              ${pathname === menuItem.link ? styles.active : {}} ${styles.navlink} ${styles.expandable}
             `}
             to={menuItem.link}
             key={menuItem.name}
@@ -37,28 +47,33 @@ function Header({ logo, menu, buttons }) {
         ))}
       </nav>
       {buttons === true && !user ? (
-        <div className={styles.buttons}>
-          <Link to="/login">
-            <button className={`${styles.button} ${styles.loginbtn}`}>
-              Log in
-            </button>
-          </Link>
-          <Link to="/signup">
-            <button className={`${styles.button} ${styles.registerbtn}`}>
-              Registrate
-            </button>
-          </Link>
+        <div className={styles.buttonsContent}>
+          <div className={`${styles.buttons} ${styles.expandable}`}>
+            <Link to="/login">
+              <button className={`${styles.button} ${styles.loginbtn}`}>
+                Log in
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className={`${styles.button} ${styles.registerbtn}`}>
+                Registrate
+              </button>
+            </Link>
+          </div>
         </div>
       ) : (
-        <div className={styles.buttons}>
-          <Link to="/">
-            <button className={`${styles.button} ${styles.registerbtn}`} onClick={handleLogOut}>
-              Cerrar Sesion
-            </button>
-          </Link>
+        <div className={styles.buttonsContent}>
+          <div className={`${styles.buttons} ${styles.expandable}`}>
+            <Link to="/">
+              <button className={`${styles.button} ${styles.registerbtn}`} onClick={handleLogOut}>
+                Cerrar Sesion
+              </button>
+            </Link>
+          </div>
         </div>
-      )}
-    </header>
+      )
+      }
+    </header >
   );
 }
 

@@ -1,5 +1,4 @@
 import HelloUser from '../HelloUser/HelloUser';
-import News from '../News/News';
 import Header from '../Header/Header';
 import Carousel from '../carousel/Carousel';
 import Footer from '../Footer/Footer';
