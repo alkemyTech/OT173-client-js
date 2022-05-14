@@ -39,6 +39,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="contact" element={<ContactForm />} />
         </Route>
+
         {/* Menu de opciones BackOffice Admin */}
         <Route path="/backoffice" element={<OutletLayout />}>
           <Route index element={<LayoutBackOffice />} />
@@ -50,6 +51,7 @@ function App() {
           <Route path="activities" element={<Activities />} />
           <Route path="news/create" element={<FormNews />} />
           <Route path="news/update/:id" element={<FormNews />} />
+
           {/* Menu de opciones BackOffice User */}
           <Route path="user" element={<UserProfile />} />
           <Route path="edituser" element={<EditUserForm />} />
