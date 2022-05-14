@@ -12,9 +12,9 @@ const CategoryForm = ({ category = {} }) => {
   const isAdding = Object.keys(category).length === 0;
 
   const submitCategory = async formValue => {
-    const { data, ok, error } = isAdding
+    const {data,error,ok} = (isAdding
       ? await post('/categories', formValue)
-      : await patch('/categories', formValue);
+      : await patch('/categories', formValue))
     ok ? info(data.msg || "Se creo exitosamente") : errorAlert(error.message || data.msg );
   };
 
