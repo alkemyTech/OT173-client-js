@@ -6,6 +6,7 @@ import mailIcon from "../../data/icons/email.png";
 import facebookIcon from "../../data/icons/facebook.png";
 import instagramIcon from "../../data/icons/instagram.png";
 import phoneIcon from "../../data/icons/phone-call.png";
+import linkedinIcon from "../../data/icons/linke.png";
 
 
 export default function Footer() {
@@ -14,7 +15,7 @@ export default function Footer() {
   useEffect(()=>{
   
     const fetchInfo = async () => {
-      const result = await axios.get('/organizations/data')
+      const result = await axios.get('/organizations/public')
       setInfo(result.data)
   }
   fetchInfo();
@@ -60,7 +61,7 @@ export default function Footer() {
               />
             </a>
             <a
-              href={item.social_instagram}
+              href={item.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -71,7 +72,7 @@ export default function Footer() {
               />
             </a>
             <a
-              href={item.social_facebook}
+              href={item.facebook}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -79,6 +80,17 @@ export default function Footer() {
                 src={facebookIcon}
                 className={style.icons_size}
                 alt="Icono Facebook"
+              />
+            </a>
+            <a
+              href={item.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={linkedinIcon}
+                className={style.icons_size}
+                alt="Icono linkedin"
               />
             </a>
             <a
