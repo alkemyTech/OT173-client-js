@@ -39,6 +39,7 @@ export const destroy = async (url) => {
     return { ok: false, error: err, status: 500 };
   }
 }
+
 export const put = async (url, body) => {
   const headers = getHeaders();
   try {
