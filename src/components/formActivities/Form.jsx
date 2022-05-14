@@ -2,17 +2,19 @@ import React from 'react'
 import styles from "./formActivities.module.css";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { organizationHandleError } from '../../helpers/formValidations/FormValidations';
 
-const Form = ({ 
+const Form = ({
     values,
-    setValues, 
-    handleSubmit, 
-    handleChange, 
-    handleBlur, 
-    errors, 
-    setErrors, 
-    activity, 
-    touched 
+    setValues,
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    errors,
+    setErrors,
+    activity,
+    touched,
+    param
 }) => {
 
     const handleCKEditorChange = (
@@ -23,14 +25,14 @@ const Form = ({
         setValues
     ) => {
 
-        setValues({ 
+        setValues({
             ...values,
-            content: editor.data.get() 
+            content: editor.data.get()
         })
-        handleCKEditorErrors(errors, setErrors)
+        handleCKEditorErrors(errors, setErrors, values)
     }
-    
-    const handleCKEditorErrors = (errors, setErrors) => {
+
+    const handleCKEditorErrors = (errors, setErrors, values) => {
         typeof values.content === "undefined" || values.content === ''
             ?
             setErrors({ ...errors, content: "El contenido es requerido." })
@@ -45,12 +47,12 @@ const Form = ({
                     <h1 className={styles.title}>Formulario Actividad</h1>
 
                     <div className={styles.itemContainer}>
-                        <label 
+                        <label
                             className={styles.lbl}
                             htmlFor="name">
-                                Name
+                            Name
                         </label>
-                        <input 
+                        <input
                             className={styles.input}
                             type="text"
                             name="name"
@@ -59,25 +61,27 @@ const Form = ({
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-                        {touched.name && errors?.name ? <span className={styles.error}>{errors.name}</span> : ""}
+                        {touched.name && organizationHandleError(errors).name()}
                     </div>
 
                     <div className={styles.itemContainer}>
-                        <label 
+                        <label
                             className={styles.lbl}
-                            htmlFor="image">
-                                Image
+                            htmlFor="logo">
+                            Image
                         </label>
-                        <input 
+                        <input
                             className={styles.input}
                             type="text"
-                            name="image"
-                            id="image"
+                            name={(param && "image") ?? "logo"}
+                            id="logo"
                             defaultValue={activity?.image}
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-                        {touched.image && errors?.image ? <span className={styles.error}>{errors.image}</span> : ""}
+                        {(!param && touched.logo && <span className={styles.error}> {organizationHandleError(errors).logo()}</span>)
+                            ??
+                         (touched.image && errors?.image && <span className={styles.error}>{errors.image}</span>)}
                     </div>
 
                     <div className={styles.ckEditorContainer}>
@@ -88,7 +92,7 @@ const Form = ({
                             editor={ClassicEditor}
                             data={activity?.content}
                         />
-                        {errors?.content ? <span className={styles.error}>{errors.content}</span> : ""}
+                        {touched.name && organizationHandleError(errors).content()}
                     </div>
 
                     <button className={styles.submit} type='submit'>Submit</button>

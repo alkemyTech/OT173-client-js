@@ -3,7 +3,8 @@ import { useParams } from 'react-router';
 import Form from './Form';
 import { Formik } from 'formik';
 import { formEditActivitiesValidationSchema } from './validationEditFormActivities';
-import { formActivitiesValidationSchema } from './validationFormActivities';
+//import { formActivitiesValidationSchema } from './validationFormActivities';
+import { organizationSchema } from "../../helpers/formValidations/FormValidations"
 import { error, info } from "../../services/alertService";
 import { get, post, put } from "../../services/apiService";
 
@@ -14,7 +15,7 @@ const FormActivities = () => {
     const errorMessage = {
         title: "An error occurred. Try again."
     }
-    let url = `http://localhost:3001/activities/`;
+    let url = `/activities/`;
 
     useEffect( () => {
         const fetchActivitiesData = async (url, param, errorMessage) => {
@@ -88,11 +89,12 @@ const FormActivities = () => {
   return (
     <Formik 
         initialValues= { activity }
-        validationSchema={!id ? formActivitiesValidationSchema : formEditActivitiesValidationSchema}
+        validationSchema={!id ? organizationSchema : formEditActivitiesValidationSchema}
         onSubmit= {(values) => formikHandleSubmit(url, id, values, errorMessage)}
     >
         {props => {
-            return <Form {...props} activity = { {...activity} } />
+            console.log(props)
+            return <Form {...props} activity = { {...activity} } param = { id } />
             }}
     </Formik>
   )
