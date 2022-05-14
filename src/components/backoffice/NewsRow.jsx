@@ -6,7 +6,7 @@ import { destroy } from '../../services/apiService';
 
 function NewsRow({ name, image, createdAt, id }) {
   const handleDelete = async () => {
-    const confirmation = await confirm();
+    const confirmation = await confirm({text: "Seguro que quieres eliminarlo?"});
     if (confirmation.success) {
       const remove = function () {
         destroy(`${process.env.REACT_APP_API_URI}/news/${id}`);
