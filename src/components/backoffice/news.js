@@ -22,7 +22,6 @@ function BackofficeNews() {
 
   return (
     <>
-      <Header logo={'/images/assets/logo1.png'} menu={[]} buttons={false} />
       <div className={styles.container}>
         <div className={styles.tablecontent}>
           <table>
