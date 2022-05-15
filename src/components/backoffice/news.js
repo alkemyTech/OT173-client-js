@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../Header/Header';
 import styles from './News.module.css';
 import NewsRow from './NewsRow';
 import { get } from '../../services/apiService';
