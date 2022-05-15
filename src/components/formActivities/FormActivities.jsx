@@ -3,8 +3,7 @@ import { useParams } from 'react-router';
 import Form from './Form';
 import { Formik } from 'formik';
 import { formEditActivitiesValidationSchema } from './validationEditFormActivities';
-//import { formActivitiesValidationSchema } from './validationFormActivities';
-import { organizationSchema } from "../../helpers/formValidations/FormValidations"
+import { formActivitiesValidationSchema } from './validationFormActivities';
 import { error, info } from "../../services/alertService";
 import { get, post, put } from "../../services/apiService";
 
@@ -51,7 +50,8 @@ const FormActivities = () => {
                     data = {
                         title: response.data.msg || "Activity updated successfully."
                     }
-                    return info(data)
+                    info(data.title)
+                    return
                 }
 
                 data = {
@@ -74,7 +74,7 @@ const FormActivities = () => {
 
                 if (response?.status === 200) {
                     const data = {
-                        title: response.data.msg
+                        text: response.data.msg
                     }
                     return info(data)
                 }
@@ -89,7 +89,7 @@ const FormActivities = () => {
   return (
     <Formik 
         initialValues= { activity }
-        validationSchema={!id ? organizationSchema : formEditActivitiesValidationSchema}
+        validationSchema={!id ? formActivitiesValidationSchema : formEditActivitiesValidationSchema}
         onSubmit= {(values) => formikHandleSubmit(url, id, values, errorMessage)}
     >
         {props => {

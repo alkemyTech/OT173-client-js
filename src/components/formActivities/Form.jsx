@@ -2,7 +2,6 @@ import React from 'react'
 import styles from "./formActivities.module.css";
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { organizationHandleError } from '../../helpers/formValidations/FormValidations';
 
 const Form = ({
     values,
@@ -13,8 +12,7 @@ const Form = ({
     errors,
     setErrors,
     activity,
-    touched,
-    param
+    touched
 }) => {
 
     const handleCKEditorChange = (
@@ -33,6 +31,7 @@ const Form = ({
     }
 
     const handleCKEditorErrors = (errors, setErrors, values) => {
+
         typeof values.content === "undefined" || values.content === ''
             ?
             setErrors({ ...errors, content: "El contenido es requerido." })
@@ -61,27 +60,25 @@ const Form = ({
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-                        {touched.name && organizationHandleError(errors).name()}
+                        {touched.name && <span className={styles.error}>{errors.name}</span>}
                     </div>
 
                     <div className={styles.itemContainer}>
                         <label
                             className={styles.lbl}
-                            htmlFor="logo">
+                            htmlFor="image">
                             Image
                         </label>
                         <input
                             className={styles.input}
                             type="text"
-                            name={(param && "image") ?? "logo"}
-                            id="logo"
+                            name="image"
+                            id="image"
                             defaultValue={activity?.image}
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-                        {(!param && touched.logo && <span className={styles.error}> {organizationHandleError(errors).logo()}</span>)
-                            ??
-                         (touched.image && errors?.image && <span className={styles.error}>{errors.image}</span>)}
+                        {(touched.image && <span className={styles.error}> {errors.image}</span>)}
                     </div>
 
                     <div className={styles.ckEditorContainer}>
@@ -92,7 +89,7 @@ const Form = ({
                             editor={ClassicEditor}
                             data={activity?.content}
                         />
-                        {touched.name && organizationHandleError(errors).content()}
+                        {touched.name && <span className={styles.error}>{errors.content}</span>}
                     </div>
 
                     <button className={styles.submit} type='submit'>Submit</button>
