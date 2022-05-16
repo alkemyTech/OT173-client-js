@@ -1,7 +1,14 @@
 import swal from "sweetalert";
 
-export const confirm = async (data) => {
-    return await swal({ ...data, icon: "warning", buttons: ["No", "Si"] })
+export const confirm = (data) => {
+    return (swal({ ...data, icon: "warning", buttons: ["No", "Yes"] })
+        .then(response =>
+            !response
+                ?
+                { alert: swal({ text: "Cancelled", icon: "info", buttons: false, timer: "1100" }), success: false }
+                :
+                { alert: swal({ icon: "success", buttons: false, timer: "1100" }), success: true }
+        ))
 }
 
 export const error = (data) => {
