@@ -20,6 +20,7 @@ import { EditOrganizationForm } from './components/editOrganizationForm/EditOrga
 import BackofficeNews from './components/backoffice/news';
 
 import './App.css';
+import { TestimonialsForm } from './components/testimonialsForm/TestimonialsForm';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
       <Routes>
         {/* Rutas publicas */}
         <Route path="/" element={<OutletLayout />}>
-          <Route index element={<Home />} />
+          <Route index element={<TestimonialsForm />} />
           <Route path="news" element={<News />} />
           <Route path="news/:id" element={<NewsDetail />} />
           <Route path="activities/:id" element={<Activity />} />
