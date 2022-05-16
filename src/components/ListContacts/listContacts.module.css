@@ -1,0 +1,43 @@
+.tableContainer {
+    align-items: center;
+    background-color: #FAFA88;
+    display: block;
+    justify-content: center;
+    padding: 40px;
+    overflow-x:scroll;
+}
+
+.title {
+    padding: 20px;
+    text-align: center;
+}
+
+.table {
+    border-collapse: collapse;
+}
+
+.trTable {
+    background-color: #9AC9FB;
+}
+
+th {
+    color: white;
+    padding: 20px 0;
+}
+
+.thName {
+    border-top-left-radius: 10px;
+}
+
+.thMsg {
+    border-top-right-radius: 10px;
+}
+
+.trBody {
+    background-color: gainsboro;
+}
+
+td {
+    border-bottom: solid 1px #FAFA88;
+    padding: 10px;
+}
