@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import OutletLayout from './layout/OutletLayout';
 import Home from './components/Home/Home';
 import FormActivities from './components/formActivities/FormActivities';
 import News from './components/News/News';
