@@ -12,7 +12,7 @@ export const cardBackoffice = [
     {
         name: 'Categorias',
         icon: './images/backoffice/menu.png',
-        link: '/'
+        link: '/backoffice/category'
     },
     {
         name: 'Testimonios',
