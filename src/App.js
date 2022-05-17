@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import OutletLayout from './layout/OutletLayout';
 import Home from './components/Home/Home';
+import FormActivities from './components/formActivities/FormActivities';
 import News from './components/News/News';
 import NewsDetail from './components/NewsDetail/NewsDetail';
 import Activity from './components/Activity/Activity';
@@ -17,6 +18,8 @@ import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
+import OutletLayout from './layout/OutletLayout';
+import ListContacts from "./components/ListContacts/ListContacts"
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
 import CategoryForm from './components/CategoryForm/CategoryForm';
@@ -50,8 +53,11 @@ function App() {
         </Route>
         {/* Menu de opciones BackOffice User */}
         <Route path="/backoffice/user" element={<UserProfile />} />
+        <Route path="/backoffice/activities/create" element={<FormActivities />} />
+        <Route path="/backoffice/activities/update/:id" element={<FormActivities />} />
         <Route path="/backoffice/news/create" element={<FormNews />} />
         <Route path="/backoffice/news/update/:id" element={<FormNews />} />
+        <Route path="/backoffice/contacts" element={<ListContacts />} />
       </Routes>
     </div>
   );
