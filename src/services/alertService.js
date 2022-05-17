@@ -5,9 +5,9 @@ export const confirm = (data) => {
         .then(response =>
             !response
                 ?
-                swal({ text: "Cancelled", icon: "info", buttons: false, timer: "1100" })
+                { alert: swal({ text: "Cancelled", icon: "info", buttons: false, timer: "1100" }), success: false }
                 :
-                swal({ icon: "success", buttons: false, timer: "1100" })
+                { alert: swal({ icon: "success", buttons: false, timer: "1100" }), success: true }
         ))
 }
 
