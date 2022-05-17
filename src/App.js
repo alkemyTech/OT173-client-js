@@ -22,7 +22,7 @@ import OutletLayout from './layout/OutletLayout';
 import ListContacts from "./components/ListContacts/ListContacts"
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
-
+import CategoryForm from './components/CategoryForm/CategoryForm';
 import './App.css';
 
 function App() {
@@ -49,6 +49,7 @@ function App() {
           <Route path="edit-organization" element={<EditOrganizationForm />} />
           <Route path="news" element={<BackofficeNews />} />
           <Route path="activities" element={<Activities />} />
+          <Route path='category' element={<CategoryForm />}/>
         </Route>
         {/* Menu de opciones BackOffice User */}
         <Route path="/backoffice/user" element={<UserProfile />} />
