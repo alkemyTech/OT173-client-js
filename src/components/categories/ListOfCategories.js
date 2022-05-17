@@ -25,8 +25,10 @@ export const BackofficeCategories = () => {
                         {
                             categories.map(({ name }, index) => (
                                 <li key={index} className={style.li}>{name}
-                                    <button className={style.buttonEdit}>Editar</button>
-                                    <button className={style.buttonDelete}>Eliminar</button>
+                                    <div className={style.buttonContent}>
+                                        <button className={style.buttonEdit}>Editar</button>
+                                        <button className={style.buttonDelete}>Eliminar</button>
+                                    </div>
                                 </li>
                             ))
                         }
