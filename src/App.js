@@ -50,7 +50,8 @@ function App() {
         </Route>
         {/* Menu de opciones BackOffice User */}
         <Route path="/backoffice/user" element={<UserProfile />} />
-       
+        <Route path="/backoffice/news/create" element={<FormNews />} />
+        <Route path="/backoffice/news/update/:id" element={<FormNews />} />
       </Routes>
     </div>
   );
