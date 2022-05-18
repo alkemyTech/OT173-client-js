@@ -1,4 +1,5 @@
 import { Formik, Form, Field } from 'formik';
+import { useParams } from 'react-router-dom';
 import { patch, post } from '../../services/apiService';
 import { info, error as errorAlert } from '../../services/alertService';
 import {
@@ -9,12 +10,12 @@ import {
 import CategoryStyles from './CategoryForm.module.css';
 
 const CategoryForm = ({ category = {} }) => {
-  const isAdding = Object.keys(category).length === 0;
-
+    const isAdding = Object.keys(category).length === 0;
+    const {categoryId} = useParams()
   const submitCategory = async formValue => {
     const {data,error,ok} = (isAdding
       ? await post('/categories', formValue)
-      : await patch('/categories', formValue))
+      : await patch(`/categories/${categoryId}`, formValue))
     ok ? info(data.msg || "Se creo exitosamente") : errorAlert(error.message || data.msg );
   };
 
