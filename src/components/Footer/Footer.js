@@ -7,15 +7,15 @@ import facebookIcon from "../../data/icons/facebook.png";
 import instagramIcon from "../../data/icons/instagram.png";
 import phoneIcon from "../../data/icons/phone-call.png";
 import { Link } from "react-router-dom";
+import linkedinIcon from "../../data/icons/linke.png";
 
 
 export default function Footer() {
   const [info, setInfo] = useState([])
-  info.map(console.log)
-  useEffect(() => {
 
+  useEffect(() => {
     const fetchInfo = async () => {
-      const result = await axios.get('/organizations/data')
+      const result = await axios.get('/organizations/public')
       setInfo(result.data)
     }
     fetchInfo();
@@ -47,52 +47,61 @@ export default function Footer() {
         </Link>
       </div>
       <div className={style.icons}>
-        {info.map((item) => (
-          <div>
-            <Link
-              to={`/${item?.email}`}
-              rel="noopener noreferrer">
-              <img
-                src={mailIcon}
-                className={style.icons_size}
-                alt="Icono Mail"
-              />
-            </Link>
-            <Link
-              to={`/${item?.social_instagram}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={instagramIcon}
-                className={style.icons_size}
-                alt="Icono Instagram"
-              />
-            </Link>
-            <Link
-              to={`/${item?.social_facebook}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={facebookIcon}
-                className={style.icons_size}
-                alt="Icono Facebook"
-              />
-            </Link>
-            <Link
-              to={`/${item?.phone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src={phoneIcon}
-                className={style.icons_size}
-                alt="Icono Telefono"
-              />
-            </Link>
-          </div>
-        ))}
+        <div className={style.icons_list}>
+          <Link
+            to={`/${info?.email}`}
+            rel="noopener noreferrer">
+            <img
+              src={mailIcon}
+              className={style.icons_size}
+              alt="Icono Mail"
+            />
+          </Link>
+          <Link
+            to={`/${info?.social_instagram}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={instagramIcon}
+              className={style.icons_size}
+              alt="Icono Instagram"
+            />
+          </Link>
+          <Link
+            to={`/${info?.social_facebook}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={facebookIcon}
+              className={style.icons_size}
+              alt="Icono Facebook"
+            />
+          </Link>
+          <Link
+            to={`/${info?.linkedin}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={linkedinIcon}
+              className={style.icons_size}
+              alt="Icono linkedin"
+            />
+          </Link>
+          <Link
+            to={`/${info?.phone}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={phoneIcon}
+              className={style.icons_size}
+              alt="Icono Telefono"
+            />
+          </Link>
+        </div>
       </div>
       <span className={style.info_alkemy}>
         2022 by Alkemy. All Rights Reserved.
