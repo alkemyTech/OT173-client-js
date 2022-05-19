@@ -22,6 +22,7 @@ import UserProfile from './components/Profile/UserProfile';
 import ListContacts from './components/ListContacts/ListContacts';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
+import { BackofficeCategories } from './components/categories/ListOfCategories';
 import CategoryForm from './components/CategoryForm/CategoryForm';
 
 import './App.css';
@@ -51,6 +52,7 @@ function App() {
           <Route path="user" element={<UserProfile />} />
           <Route path="edit-organization" element={<EditOrganizationForm />} />
           <Route path="news" element={<BackofficeNews />} />
+          <Route path="categories" element={<BackofficeCategories />} />
           <Route path="activities" element={<Activities />} />
           <Route path="activities/create" element={<FormActivities />} />
           <Route path="activities/update/:id" element={<FormActivities />} />
