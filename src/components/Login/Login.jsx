@@ -20,7 +20,7 @@ const Login = () => {
     const { ok, error, data } = await loginRequest(formvalue);
     if (ok) {
       const { email } = formvalue;
-      dispatch(login({ email, token: data.token }));
+      dispatch(login({ email, roleId: data.user.roleId, token: data.token }));
       navigate('/');
     } else {
       popUpError({ text: `${error.message}` });
