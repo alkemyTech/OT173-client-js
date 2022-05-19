@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-
 import OutletLayout from './layout/OutletLayout';
 import Home from './components/Home/Home';
 import FormActivities from './components/formActivities/FormActivities';
@@ -19,11 +18,16 @@ import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
 import ListContacts from "./components/ListContacts/ListContacts"
+import BackofficeTestimonials from './components/backoffice/testimonials';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
+import OutletLayout from './layout/OutletLayout';
+import ListContacts from "./components/ListContacts/ListContacts"
+import { BackofficeCategories } from './components/categories/ListOfCategories';
 import CategoryForm from './components/CategoryForm/CategoryForm';
 import ProtectedAdminRoutes from './components/Routes/ProtectedAdminRoutes';
 import ProtectedUserRoute from './components/Routes/ProtectedUserRoute';
+
 
 
 function App() {
@@ -41,6 +45,7 @@ function App() {
           <Route path="contact" element={<ContactForm />} />
         </Route>
         {/* Menu de opciones BackOffice Admin */}
+
         <Route path="/backoffice" element={<ProtectedAdminRoutes />}>
           <Route index element={<LayoutBackOffice />}/>
           <Route path="users" element={<ListUsers />}/>
@@ -50,6 +55,8 @@ function App() {
           <Route path="edit-organization" element={<EditOrganizationForm />}/>
           <Route path="news" element={<BackofficeNews />}/>
           <Route path="activities" element={<Activities />}/>
+          <Route path="testimonials" element={<BackofficeTestimonials />} />
+          <Route path="categories" element={<BackofficeCategories />} />
           <Route path='category' element={<CategoryForm />}/>
           <Route path="activities/create" element={<FormActivities />} />
           <Route path="activities/update/:id" element={<FormActivities />} />
