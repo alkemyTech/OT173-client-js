@@ -22,6 +22,7 @@ import { EditOrganizationForm } from './components/editOrganizationForm/EditOrga
 import BackofficeNews from './components/backoffice/news';
 import OutletLayout from './layout/OutletLayout';
 import ListContacts from "./components/ListContacts/ListContacts"
+import { BackofficeCategories } from './components/categories/ListOfCategories';
 import CategoryForm from './components/CategoryForm/CategoryForm';
 import './App.css';
 
@@ -50,6 +51,7 @@ function App() {
           <Route path="edit-organization" element={<EditOrganizationForm />} />
           <Route path="news" element={<BackofficeNews />} />
           <Route path="testimonials" element={<BackofficeTestimonials />} />
+          <Route path="categories" element={<BackofficeCategories />} />
           <Route path="activities" element={<Activities />} />
           <Route path='category' element={<CategoryForm />}/>
         </Route>

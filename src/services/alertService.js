@@ -16,5 +16,9 @@ export const error = (data) => {
 }
 
 export const info = (data) => {
-    return swal({text: data, icon: "info", timer: 1000, buttons: false})
+    return swal({ text: data, icon: "info", timer: 1000, buttons: false })
+}
+
+export const success = (data) => {
+    return swal({ ...data, icon: "success" })
 }
