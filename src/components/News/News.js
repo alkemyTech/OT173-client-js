@@ -5,11 +5,12 @@ import NewsCard from './NewsCard';
 import styles from './News.module.css';
 import Header from '../Header/Header';
 import { HeaderLinks } from '../../constants/HeaderLinks-Home';
-import { get } from './../../services/apiService';
+import { get } from '../../services/apiService';
 
 const News = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [news, setNews] = useState([]);
+  
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -23,10 +24,9 @@ const News = () => {
   }, []);
 
   if (isLoading) return <Loader width={200} height={200} />;
-
   return (
     <>
-      <Header logo={"/images/assets/logo1.png"} menu={HeaderLinks} buttons={true} />
+    <Header logo={"/images/assets/logo1.png"} menu={HeaderLinks} buttons={true} />
       <section className={styles.news_section}>
         <h1 className={styles.title}>Novedades</h1>
         {news.length ? (
