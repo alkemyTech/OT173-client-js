@@ -20,5 +20,5 @@ export const info = (data) => {
 }
 
 export const success = (data) => {
-    return swal({ ...data, icon: "success", dangerMode: true })
+    return swal({ ...data, icon: "success" })
 }
