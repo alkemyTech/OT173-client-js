@@ -18,6 +18,7 @@ import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
 import ListContacts from "./components/ListContacts/ListContacts"
+import BackofficeTestimonials from './components/backoffice/testimonials';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
 import { BackofficeCategories } from './components/categories/ListOfCategories';
