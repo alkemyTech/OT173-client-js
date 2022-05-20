@@ -17,11 +17,10 @@ import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
+import ListContacts from "./components/ListContacts/ListContacts"
 import BackofficeTestimonials from './components/backoffice/testimonials';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
-import OutletLayout from './layout/OutletLayout';
-import ListContacts from "./components/ListContacts/ListContacts"
 import { BackofficeCategories } from './components/categories/ListOfCategories';
 import CategoryForm from './components/CategoryForm/CategoryForm';
 import './App.css';
