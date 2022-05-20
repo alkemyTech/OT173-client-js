@@ -21,8 +21,6 @@ import ListContacts from "./components/ListContacts/ListContacts"
 import BackofficeTestimonials from './components/backoffice/testimonials';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
-import OutletLayout from './layout/OutletLayout';
-import ListContacts from "./components/ListContacts/ListContacts"
 import { BackofficeCategories } from './components/categories/ListOfCategories';
 import CategoryForm from './components/CategoryForm/CategoryForm';
 import ProtectedAdminRoutes from './components/Routes/ProtectedAdminRoutes';
