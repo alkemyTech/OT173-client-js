@@ -66,3 +66,199 @@
   color: var(--color-primary);
   text-decoration: underline;
 }
+
+.dropdownmenu {
+  display: none;
+  width: 130px;
+  position: absolute;
+  top: 60px;
+  list-style: none;
+  text-align: center;
+  left: 70%;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.iconmenu {
+  position: absolute;
+  left: 70%;
+  top: 30px;
+  text-align: start;
+  width: 130px;
+  height: 30px;
+  display: none;
+}
+
+.iconclicked {
+  display: none;
+  position: absolute;
+  left: 70%;
+  top: 30px;
+  text-align: start;
+  width: 130px;
+  background-color: #1888ff;
+  height: 30px;
+  opacity: 0.8;
+}
+
+.dropdownmenu li {
+  display: none;
+  background: #1888ff;
+  cursor: pointer;
+}
+
+.dropdownmenu li:hover {
+  background: #ff5c5c;
+}
+
+.ddmenuclicked {
+  display: none;
+}
+
+.dropdownlink {
+  display: none;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #fff;
+  padding: 16px;
+}
+
+/* COMIENZA MEDIA QUERY ENTRE 760PX HASTA  1060PX */
+
+@media (min-width: 760px) and (max-width: 1060px) {
+
+
+  .buttons {
+    position: absolute;
+    right: 40%;
+    top: 30px;
+  }
+
+  .navlink {
+    display: none;
+  }
+
+  .dropdownmenu {
+    display: block;
+  }
+
+  .iconmenu {
+    display: flex;
+
+  }
+
+  .iconclicked {
+
+    display: block;
+  }
+
+  .dropdownmenu li {
+
+    display: block;
+  }
+
+  .dropdownlink {
+    display: block;
+
+  }
+}
+
+/* COMIENZA MEDIA QUERY DESDE 425PX A 759PX*/
+
+@media (min-width: 425px) and (max-width: 759px){
+
+  .buttons {
+    position: absolute;
+    right: 30%;
+    top: 30px;
+  }
+
+  .button {
+    padding: var(--spacing-2) var(--spacing-2);
+    margin-right: var(--spacing-2);
+  }
+
+  .navlink {
+    text-decoration: none;
+    display: none;
+  }
+
+  .dropdownmenu {
+    display: block;
+  }
+
+  .iconmenu {
+    display: flex;
+
+  }
+
+  .iconclicked {
+    display: block;
+  }
+
+  .dropdownmenu li {
+    display: block;
+  }
+
+  .ddmenuclicked {
+    display: none;
+  }
+
+  .dropdownlink {
+    display: block;
+  }
+}
+
+@media (max-width: 424px) {
+
+  .buttons {
+    position: absolute;
+    right: 20%;
+    top: 30px;
+  }
+
+  .button {
+    padding: var(--spacing-2) var(--spacing-2);
+    margin-right: var(--spacing-1);
+  }
+  
+  .logo {
+    margin-left: var(--spacing-1);
+  }
+  
+  .navlink {
+    text-decoration: none;
+    display: none;
+  }
+
+  .dropdownmenu {
+    display: block;
+    left: 80%;
+    width: 100px;
+    text-align: end;
+  }
+
+  .iconmenu {
+    display: flex;
+    left: 80%;
+
+  }
+  .iconclicked {
+    display: block;
+    left: 80%;
+    width: 100px
+  }
+
+  .dropdownmenu li {
+    display: block;
+  }
+
+  .ddmenuclicked {
+    display: none;
+  }
+
+  .dropdownlink {
+    display: block;
+  }
+}
