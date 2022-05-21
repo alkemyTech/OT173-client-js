@@ -5,13 +5,18 @@ import { error as popUpError } from '../../services/alertService';
 import { signUpFormValidationSchema } from './SignUpFormValidation';
 import styles from './SignUp.module.css';
 import Header from '../Header/Header';
+import { useDispatch } from 'react-redux';
+import { login } from '../../features/user/userSlice';
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signUpSubmit = async formvalue => {
-    const { ok, error } = await signUpRequest(formvalue);
+    const { ok, error, data } = await signUpRequest(formvalue);
     if (ok) {
+      const { email } = formvalue;
+      dispatch(login({ email, roleId: data.user.roleId, token: data.token }));
       navigate('/');
     } else {
       popUpError({ text: `${error.message}` });
