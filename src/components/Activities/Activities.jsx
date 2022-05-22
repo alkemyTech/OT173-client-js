@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../Header/Header';
 import styles from './Activities.module.css';
 import Activity from './Activity';
 import { get } from '../../services/apiService';
@@ -22,7 +21,6 @@ function Activities() {
 
   return (
     <>
-      <Header logo={'/images/assets/logo1.png'} menu={[]} />
       <div className={styles.container}>
         <div className={styles.tablecontent}>
           <table>

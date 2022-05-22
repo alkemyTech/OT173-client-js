@@ -8,7 +8,6 @@ import {
 import { loginRequest } from '../../services/authService';
 import { error as popUpError } from '../../services/alertService';
 import LoginStyles from './Login.module.css';
-import Header from '../Header/Header';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/user/userSlice';
 
@@ -28,7 +27,6 @@ const Login = () => {
   };
   return (
     <>
-      <Header logo={'/images/assets/logo1.png'} menu={[]} />
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <h1 className={LoginStyles.title}>Iniciar sesión</h1>

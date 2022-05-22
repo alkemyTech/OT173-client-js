@@ -1,15 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
-import { HeaderLinks } from '../constants/HeaderLinks-Home';
 
-const OutletLayout = () => {
+const OutletLayoutSecondary = () => {
 
     return (
         <>
             <Header
                 logo={'/images/assets/logo1.png'}
-                menu={HeaderLinks}
-                buttons={true}
+                menu={[]}
             />
             <Outlet />
         </>
@@ -17,4 +15,4 @@ const OutletLayout = () => {
 
 }
 
-export default OutletLayout
+export default OutletLayoutSecondary

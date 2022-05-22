@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header/Header';
 
 import styles from './UserProfile.module.css';
 
@@ -12,7 +11,6 @@ const DUMMY_USER = {
 const UserProfile = () => {
   return (
     <>
-      <Header logo={"/images/assets/logo1.png"} menu={[]} buttons={true} />
       <section className={styles.user_profile}>
         <h1 className={styles.title}>Mi perfil</h1>
 
