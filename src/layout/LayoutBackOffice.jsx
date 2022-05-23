@@ -1,13 +1,11 @@
 import React from 'react';
 import style from './style.module.css';
-import Header from './../components/Header/Header';
 import { Link } from 'react-router-dom';
 import { cardBackoffice } from '../constants/CardLayoutInfo';
 
 export const LayoutBackOffice = () => {
   return (
     <>
-      <Header logo={'/images/assets/logo1.png'} menu={[]} />
       <div className={style.gridContainer}>
         {cardBackoffice.map(card => (
           <div key={card.name} className={style.cardContainer}>

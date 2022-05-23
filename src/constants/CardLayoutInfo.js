@@ -2,12 +2,12 @@ export const cardBackoffice = [
     {
         name: 'Novedades',
         icon: './images/backoffice/news.png',
-        link: '/'
+        link: '/backoffice/news'
     },
     {
         name: 'Actividades',
         icon: './images/backoffice/activities.png',
-        link: '/'
+        link: '/backoffice/activities'
     },
     {
         name: 'Categorias',

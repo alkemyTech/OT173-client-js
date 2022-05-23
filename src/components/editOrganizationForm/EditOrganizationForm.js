@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../Header/Header';
 import EditOrganization from './EditOrganization.module.css';
 import { Formik, Field, Form } from 'formik';
 import {
@@ -11,7 +10,6 @@ import {
 export const EditOrganizationForm = () => {
   return (
     <>
-      <Header logo={'https://i.ibb.co/7Qcvm6c/LOGO-SOMOS-MAS.png'} menu={[]} />
       <div className={EditOrganization.edit_organization_wrapper}>
         <div className={EditOrganization.edit_organization}>
           <div className={EditOrganization.edit_organization_img}>
@@ -20,7 +18,7 @@ export const EditOrganizationForm = () => {
           <Formik
             initialValues={initialOrganizationValue}
             validationSchema={organizationSchema}
-            onSubmit={formValue => {}}
+            onSubmit={formValue => { }}
             validateOnChange={false}
             validateOnBlur={false}
             validateOnMount={false}
