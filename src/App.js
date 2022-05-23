@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-
 import OutletLayout from './layout/OutletLayout';
 import Home from './components/Home/Home';
 import FormActivities from './components/formActivities/FormActivities';
@@ -18,12 +17,15 @@ import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
-import ListContacts from "./components/ListContacts/ListContacts"
+import BackofficeTestimonials from './components/backoffice/testimonials';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
+import ListContacts from "./components/ListContacts/ListContacts"
+import { BackofficeCategories } from './components/categories/ListOfCategories';
 import CategoryForm from './components/CategoryForm/CategoryForm';
-import './App.css';
 import { TestimonialsForm } from './components/testimonialsForm/TestimonialsForm';
+import './App.css';
+
 
 function App() {
   return (
@@ -31,7 +33,7 @@ function App() {
       <Routes>
         {/* Rutas publicas */}
         <Route path="/" element={<OutletLayout />}>
-          <Route index element={<TestimonialsForm />} />
+          <Route index element={<Home />} />
           <Route path="news" element={<News />} />
           <Route path="news/:id" element={<NewsDetail />} />
           <Route path="activities/:id" element={<Activity />} />
@@ -48,6 +50,8 @@ function App() {
           <Route path="user" element={<UserProfile />} />
           <Route path="edit-organization" element={<EditOrganizationForm />} />
           <Route path="news" element={<BackofficeNews />} />
+          <Route path="testimonials" element={<BackofficeTestimonials />} />
+          <Route path="categories" element={<BackofficeCategories />} />
           <Route path="activities" element={<Activities />} />
           <Route path='category' element={<CategoryForm />}/>
         </Route>
