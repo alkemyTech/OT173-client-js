@@ -21,15 +21,14 @@ export default function Footer() {
 
   return (
     <div className={style.container}>
-      <div className={style.sample_logo}>
-        <img
-          className={style.logo_ong}
-          src={'/images/assets/logo1.png'}
-          alt="Logo ONG"
-        />
-      </div>
-      <hr className={style.rectangle_top} />
       <div className={style.footer_navigation}>
+        <div className={style.sample_logo}>
+          <img
+            className={style.logo_ong}
+            src={'/images/assets/logo1.png'}
+            alt="Logo ONG"
+          />
+        </div>
         <p className={style.information}>
           <a href="/">Inicio</a>
         </p>
@@ -49,7 +48,6 @@ export default function Footer() {
           <a href="/contact">Contacto</a>
         </p>
       </div>
-      <hr className={style.rectangle_bottom} />
       <div className={style.icons}>
         {info
           .filter(val => val.id === 8)

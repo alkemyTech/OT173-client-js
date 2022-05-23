@@ -69,12 +69,12 @@
 
 .dropdownmenu {
   display: none;
-  width: 130px;
+  min-width: 130px;
   position: absolute;
   top: 60px;
   list-style: none;
   text-align: center;
-  right: 0;
+  right: var(--spacing-4);
   opacity: 0.8;
   z-index: 2;
 }
@@ -95,19 +95,21 @@
   position: absolute;
   right: 0;
   top: 30px;
+  right: var(--spacing-4);
   text-align: start;
-  width: 130px;
+  width: 100px;
   height: 30px;
   display: none;
+  cursor: pointer;
 }
 
 .iconclicked {
   display: none;
   position: absolute;
-  right: 0;
+  right: var(--spacing-4);
   top: 30px;
   text-align: start;
-  width: 130px;
+  width: 100px;
   background-color: #1888ff;
   height: 30px;
   opacity: 0.8;
@@ -281,18 +283,15 @@
 
   .dropdownmenu {
     display: block;
-    left: 80%;
-    width: 100px;
-    text-align: end;
+    min-width: 100px;
   }
 
   .iconmenu {
     display: flex;
-    left: 80%;
+    width: 100px;
   }
   .iconclicked {
     display: block;
-    left: 80%;
     width: 100px;
   }
 
