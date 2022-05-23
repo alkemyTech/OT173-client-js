@@ -1,13 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
+
+import PageTransition from '../components/PageTransition/PageTransition';
 
 const OutletLayout = () => {
+  return (
+    <PageTransition>
+      <Outlet />
+    </PageTransition>
+  );
+};
 
-    return(
-        <>
-            <Outlet />
-        </>
-    )
-
-}
-
-export default OutletLayout
+export default OutletLayout;
