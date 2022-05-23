@@ -49,7 +49,16 @@ function Header({ logo, menu, buttons }) {
         <>
           {user ? (
             <div className={styles.usermenu}>
-              <FaUserCircle onClick={handleClick} className={styles.usericon} />
+              {user.image ? (
+                <button onClick={handleClick} className={styles.usericonbutton}>
+                  <img src={user.image} className={styles.usericon} />
+                </button>
+              ) : (
+                <FaUserCircle
+                  onClick={handleClick}
+                  className={styles.usericon}
+                />
+              )}
               <ul
                 className={
                   click
