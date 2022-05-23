@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
 import OutletLayout from './layout/OutletLayout';
 import Home from './components/Home/Home';
 import FormActivities from './components/formActivities/FormActivities';
@@ -9,7 +11,7 @@ import Activity from './components/Activity/Activity';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import ListUsers from './components/users/ListUsers';
-import './App.css';
+
 import Activities from './components/Activities/Activities';
 import FormNews from './components/formNews/FormNews';
 import { ContactForm } from './components/contact/ContactForm';
@@ -17,7 +19,7 @@ import { LayoutBackOffice } from './layout/LayoutBackOffice';
 import EditHome from './components/EditHome/EditHome';
 import { EditUserForm } from './components/editUserForm/EditUserForm';
 import UserProfile from './components/Profile/UserProfile';
-import ListContacts from "./components/ListContacts/ListContacts"
+import ListContacts from './components/ListContacts/ListContacts';
 import BackofficeTestimonials from './components/backoffice/testimonials';
 import { EditOrganizationForm } from './components/editOrganizationForm/EditOrganizationForm';
 import BackofficeNews from './components/backoffice/news';
@@ -27,12 +29,14 @@ import ProtectedAdminRoutes from './components/Routes/ProtectedAdminRoutes';
 import ProtectedUserRoute from './components/Routes/ProtectedUserRoute';
 import OutletLayoutSecondary from './layout/OutletLayoutSecondary';
 
-
+import './App.css';
 
 function App() {
+  const location = useLocation();
+
   return (
-    <div className="App">
-      <Routes>
+    <AnimatePresence exitBeforeEnter>
+      <Routes key={location.pathname} location={location}>
         {/* Rutas publicas */}
         <Route path="/" element={<OutletLayout />}>
           <Route index element={<Home />} />
@@ -41,6 +45,7 @@ function App() {
           <Route path="activities/:id" element={<Activity />} />
           <Route path="contact" element={<ContactForm />} />
         </Route>
+
         {/* Menu de opciones BackOffice Admin */}
 
         <Route path="/backoffice" element={<OutletLayoutSecondary />}>
@@ -70,7 +75,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
         </Route>
       </Routes>
-    </div>
+    </AnimatePresence>
   );
 }
 
