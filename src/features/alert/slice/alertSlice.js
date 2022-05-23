@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-//import { get, post, put, patch, destroy } from "../../../services/apiService";
-
 
 export const alertSlice = createSlice({
     name: "alert",
