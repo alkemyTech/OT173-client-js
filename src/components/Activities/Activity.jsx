@@ -23,7 +23,7 @@ function Activity({ name, id }) {
       </td>
       <td className={styles.tabledata}>
         <div className={styles.actionbuttons}>
-          <Link to={`/editactivity/${id}`}>
+          <Link to={`/backoffice/activities/update/${id}`}>
             <button className={`${styles.button} ${styles.editbutton}`}>
               Editar
             </button>
