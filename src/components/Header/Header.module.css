@@ -69,33 +69,47 @@
 
 .dropdownmenu {
   display: none;
-  width: 130px;
+  min-width: 130px;
   position: absolute;
   top: 60px;
   list-style: none;
   text-align: center;
-  left: 70%;
+  right: var(--spacing-4);
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.userdropdownmenu {
+  display: block;
+  width: 145px;
+  position: absolute;
+  top: 70px;
+  list-style: none;
+  text-align: center;
+  right: 0;
   opacity: 0.8;
   z-index: 2;
 }
 
 .iconmenu {
   position: absolute;
-  left: 70%;
+  right: 0;
   top: 30px;
+  right: var(--spacing-4);
   text-align: start;
-  width: 130px;
+  width: 100px;
   height: 30px;
   display: none;
+  cursor: pointer;
 }
 
 .iconclicked {
   display: none;
   position: absolute;
-  left: 70%;
+  right: var(--spacing-4);
   top: 30px;
   text-align: start;
-  width: 130px;
+  width: 100px;
   background-color: #1888ff;
   height: 30px;
   opacity: 0.8;
@@ -108,6 +122,16 @@
 }
 
 .dropdownmenu li:hover {
+  background: #ff5c5c;
+}
+
+.userdropdownmenu li {
+  display: block;
+  background: #1888ff;
+  cursor: pointer;
+}
+
+.userdropdownmenu li:hover {
   background: #ff5c5c;
 }
 
@@ -124,15 +148,43 @@
   padding: 16px;
 }
 
+.userdropdownlink {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: #fff;
+  padding: 16px;
+}
+
+.dropdownbutton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: inherit;
+}
+
+.usericon {
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+}
+
+.usermenu {
+  display: flex;
+  align-items: center;
+  margin-right: var(--spacing-12);
+}
+
 /* COMIENZA MEDIA QUERY ENTRE 760PX HASTA  1060PX */
 
 @media (min-width: 760px) and (max-width: 1060px) {
-
-
   .buttons {
-    position: absolute;
-    right: 40%;
-    top: 30px;
+    display: none;
+  }
+
+  .usermenu {
+    display: none;
   }
 
   .navlink {
@@ -145,33 +197,30 @@
 
   .iconmenu {
     display: flex;
-
   }
 
   .iconclicked {
-
     display: block;
   }
 
   .dropdownmenu li {
-
     display: block;
   }
 
   .dropdownlink {
     display: block;
-
   }
 }
 
 /* COMIENZA MEDIA QUERY DESDE 425PX A 759PX*/
 
-@media (min-width: 425px) and (max-width: 759px){
-
+@media (min-width: 425px) and (max-width: 759px) {
   .buttons {
-    position: absolute;
-    right: 30%;
-    top: 30px;
+    display: none;
+  }
+
+  .usermenu {
+    display: none;
   }
 
   .button {
@@ -190,7 +239,6 @@
 
   .iconmenu {
     display: flex;
-
   }
 
   .iconclicked {
@@ -211,22 +259,23 @@
 }
 
 @media (max-width: 424px) {
-
   .buttons {
-    position: absolute;
-    right: 20%;
-    top: 30px;
+    display: none;
+  }
+
+  .usermenu {
+    display: none;
   }
 
   .button {
     padding: var(--spacing-2) var(--spacing-2);
     margin-right: var(--spacing-1);
   }
-  
+
   .logo {
     margin-left: var(--spacing-1);
   }
-  
+
   .navlink {
     text-decoration: none;
     display: none;
@@ -234,20 +283,16 @@
 
   .dropdownmenu {
     display: block;
-    left: 80%;
-    width: 100px;
-    text-align: end;
+    min-width: 100px;
   }
 
   .iconmenu {
     display: flex;
-    left: 80%;
-
+    width: 100px;
   }
   .iconclicked {
     display: block;
-    left: 80%;
-    width: 100px
+    width: 100px;
   }
 
   .dropdownmenu li {

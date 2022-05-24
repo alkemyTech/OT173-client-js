@@ -1,27 +1,26 @@
 import React from "react";
-import {Navigate} from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { ROLES } from "../../constants/Roles";
-import { LayoutBackOffice } from "../../layout/LayoutBackOffice";
 
-const isAdmin =  () => {
+const isAdmin = () => {
     const roleId = localStorage.getItem('roleId');
-  
+
     return roleId === ROLES.ADMIN;
-    
+
 }
 
 const useAuth = () => {
-   
+
     return {
         auth: isAdmin()
     };
-   
+
 }
 
-const ProtectedAdminRoutes = () => {
-   const {auth} = useAuth()
+const ProtectedAdminRoutes = (component) => {
+    const { auth } = useAuth()
 
-   return auth ? <LayoutBackOffice /> : <Navigate to="/" />
+    return auth ? component : <Navigate to="/" />
 }
 
 export default ProtectedAdminRoutes;
