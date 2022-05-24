@@ -9,7 +9,7 @@ export const userSlice = createSlice({
   },
   reducers: {
     login: (state, action) => {
-      state.user = action.payload.email
+      state.user = action.payload.user
       state.roleId = action.payload.roleId
       state.token = action.payload.token
       localStorage.setItem('token', action.payload.token);

@@ -18,8 +18,19 @@ const Login = () => {
   const logInSubmit = async formvalue => {
     const { ok, error, data } = await loginRequest(formvalue);
     if (ok) {
-      const { email } = formvalue;
-      dispatch(login({ email, roleId: data.user.roleId, token: data.token }));
+      dispatch(
+        login({
+          user: {
+            id: data.user.id,
+            firstName: data.user.firstName,
+            lastName: data.user.lastName,
+            image: data.user.image,
+            email: data.user.email,
+          },
+          roleId: data.user.roleId,
+          token: data.token,
+        })
+      );
       navigate('/');
     } else {
       popUpError({ text: `${error.message}` });
