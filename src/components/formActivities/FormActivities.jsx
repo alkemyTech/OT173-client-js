@@ -32,7 +32,7 @@ const FormActivities = () => {
     if (id) {
       fetchActivitiesData(url, id);
     }
-  }, []);
+  }, [id, url]);
 
   const formikHandleSubmit = async (
     url,
