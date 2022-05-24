@@ -19,7 +19,9 @@ function Activity({ name, id }) {
   return (
     <tr>
       <td className={styles.tabledata}>
-        <h2>{name}</h2>
+        <h2>
+          <Link to={`/activities/${id}`}>{name}</Link>
+        </h2>
       </td>
       <td className={styles.tabledata}>
         <div className={styles.actionbuttons}>

@@ -48,6 +48,15 @@ td {
   border-top: 1px solid #7394b8;
 }
 
+.tabledata a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tabledata a:hover {
+  text-decoration: underline;
+}
+
 .header {
   width: 70%;
 }
