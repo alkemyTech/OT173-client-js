@@ -5,6 +5,7 @@ import contactFormStyles from './styles.module.css'
 import { post } from '../../services/apiService'
 import { error, info }  from '../../services/alertService'
 import { HeaderLinks } from '../../constants/HeaderLinks-Home';
+import Members from "../members/Members";
 
 export const ContactForm = () => {
 
@@ -86,6 +87,7 @@ export const ContactForm = () => {
                     </div>
                 </div>
             </div>
+            <Members />
         </>
     )
 }
