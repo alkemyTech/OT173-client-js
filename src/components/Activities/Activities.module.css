@@ -12,7 +12,27 @@ td {
 .container {
   width: 100%;
   display: flex;
+  flex-flow: wrap;
   justify-content: center;
+}
+
+.activities_header {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activities_title {
+  font-size: xx-large;
+}
+
+.activities_create {
+  background-color: var(--color-primary);
+  padding: var(--spacing-4);
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--border-radius-discrete);
 }
 
 .tablecontent {
@@ -57,4 +77,3 @@ td {
   display: flex;
   justify-content: space-evenly;
 }
-
