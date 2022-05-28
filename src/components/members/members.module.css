@@ -1,0 +1,35 @@
+.container {
+    align-items: center;
+    background-color: var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    margin: var(--spacing-11);
+}
+
+.table {
+    border-collapse: collapse;
+    margin: var(--spacing-11);
+    width: 70%;
+}
+
+.thead {
+    background-color: var(--color-primary-dk);
+    color: white;
+}
+
+.thead tr th {
+    padding: 20px;
+}
+
+.tbody {
+    background-color: var(--color-primary-lt);
+}
+
+.tbody tr td {
+    padding: 10px 20px;
+}

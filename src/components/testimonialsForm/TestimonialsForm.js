@@ -3,7 +3,7 @@ import { useForm } from '../../hooks/useForm';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import Editor from '@ckeditor/ckeditor5-build-classic'
 import testimonialsFormStyle from './testimonialsForm.module.css'
-// import { createTestimonial, updateTestimonial } from '../../services/testimonialService';
+import { createTestimonial, updateTestimonial } from '../../services/testimonialService';
 import { Loader } from '../loader/Loader';
 import { useNavigate } from 'react-router';
 
@@ -17,16 +17,16 @@ export const TestimonialsForm = React.memo(({ currentName = '', currentImagen = 
     const [concept, setConcept] = useState('')
     const { name, image } = values;
 
-    // const handleTestimonialsSubmit = async (e) => {
-    //     e.preventDefault();
-    //     if (isNew) {
-    //         await createTestimonial({ name, concept, image }, navigate, setIsLoading);
-    //         resetValues()
-    //     } else {
-    //         await updateTestimonial(id, { name, concept, image }, setIsLoading);
-    //         resetValues()
-    //     }
-    // }
+    const handleTestimonialsSubmit = async (e) => {
+        e.preventDefault();
+        if (isNew) {
+            await createTestimonial({ name, concept, image }, navigate, setIsLoading);
+            resetValues()
+        } else {
+            await updateTestimonial(id, { name, concept, image }, setIsLoading);
+            resetValues()
+        }
+    }
 
     const resetValues = () => {
         reset();
@@ -49,7 +49,7 @@ export const TestimonialsForm = React.memo(({ currentName = '', currentImagen = 
                             <div className={testimonialsFormStyle.formContainer}>
                                 <h4 className={testimonialsFormStyle.formTitle}>{isNew ? 'Crear' : 'Editar'} Testimonio</h4>
                                 <hr className={testimonialsFormStyle.styleOne} />
-                                <form >
+                                <form onSubmit={handleTestimonialsSubmit}>
                                     <div >
                                         <input
                                             className={testimonialsFormStyle.input}

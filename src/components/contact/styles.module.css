@@ -6,35 +6,38 @@
 }
 
 .content {
+  background-color: #FAFA88;
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  bottom: 1px;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  bottom: 0;
 }
 
 .container {
-  width: 600px;
-  height: 550px;
+  background-color: #f0f8ff;
   box-sizing: border-box;
   margin: var(--spacing-11);
+  max-width: 500px;
 
   border-radius: var(--border-radius-discrete);
   box-shadow: var(--box-shadow-base);
 }
 
 .formContainer {
-  margin: var(--spacing-11);
+  margin: var(--spacing-4);
 }
 
 .formTitle {
   font-size: var(--font-size-h3);
   margin: var(--spacing-7) 0;
+  text-align: center;
 }
 
 .containerButton {
-  margin-top: var(--spacing-6);
+  align-items: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .buttonSend {

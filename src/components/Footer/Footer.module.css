@@ -1,188 +1,92 @@
 .container {
-    position: relative;
-    width: 1680px;
-    height: 501px;
-    background-color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
 }
 
 /* Rectangle */
-.rectangle_top {
-    position: absolute;
-    width: 1680px;
-    height: 3px;
-    left: 0px;
-    top: 37px;
-    background: rgba(0, 0, 0, 0.5);
+
+.footer_navigation {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
 }
 
-.footer_navigation p a {
-    text-decoration: none;
-    color: inherit;
+.footer_navigation a {
+  text-decoration: none;
+  font-weight: 700;
+  color: inherit;
 }
 
-/* Contacto */
-.contact {
-    position: absolute;
-    width: 173px;
-    height: 24px;
-    left: 1427px;
-    top: 120px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 24px;
-    text-align: right;
-    letter-spacing: -0.015em;
-    color: #000000;
+.footer_navigation a:hover {
+  text-decoration: underline;
 }
 
-/* Nosotros */
-.us {
-    position: absolute;
-    width: 173px;
-    height: 24px;
-    left: 1236px;
-    top: 120px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 24px;
-    text-align: right;
-    letter-spacing: -0.015em;
-    color: #000000;
-}
-
-/* Testimonios */
-.testimonial {
-    position: absolute;
-    width: 173px;
-    height: 24px;
-    left: 1043px;
-    top: 120px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 24px;
-    text-align: right;
-    letter-spacing: -0.015em;
-    color: #000000;
-}
-
-/* Novedades */
-.news {
-    position: absolute;
-    width: 173px;
-    height: 24px;
-    left: 464px;
-    top: 120px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 24px;
-    letter-spacing: -0.015em;
-    color: #000000;
-}
-
-/* Actividades */
-.activities {
-    position: absolute;
-    width: 173px;
-    height: 24px;
-    left: 273px;
-    top: 120px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 24px;
-    letter-spacing: -0.015em;
-    color: #000000;
-}
-
-/* Noticias */
 .information {
-    position: absolute;
-    width: 173px;
-    height: 24px;
-    left: 80px;
-    top: 120px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 24px;
-    letter-spacing: -0.015em;
-    color: #000000;
+  order: 1;
 }
 
-/* Sample Logo */
+.activities {
+  order: 2;
+}
+
+.news {
+  order: 3;
+}
+
 .sample_logo {
-    position: absolute;
-    width: 122.07px;
-    height: 32px;
-    left: 728px;
-    top: 120px;
+  order: 0;
+  width: 100%;
+  text-align: center;
 }
 
-/* LOGO ONG */
-.logo_ong {
-    position: absolute;
-    right: -80%;
-    top: -250%;
-    font-family: 'Comfortaa';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 28.4444px;
-    line-height: 32px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: -0.015em;
-    color: #000000;
+.testimonial {
+  order: 5;
 }
 
-/* Rectangle Bottom */
-.rectangle_bottom {
-    position: absolute;
-    width: 1520px;
-    height: 1px;
-    left: 80px;
-    top: 192px;
-    background: rgba(0, 0, 0, 0.5);
+.us {
+  order: 6;
 }
 
-/* 2022 by Alkemy. All Rights Reserved. */
-.info_alkemy {
-    position: absolute;
-    width: 301px;
-    height: 24px;
-    left: 690px;
-    top: 357px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: -0.015em;
-    color: rgba(0, 0, 0, 0.8);
+.contact {
+  order: 7;
 }
 
 /* Iconos y tamaños */
 .icons {
-    position: absolute;
-    top: 279px;
-    left: 705px;
+  top: 279px;
+  left: 670px;
 }
 .icons a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .icons_size {
-    height: 44px;
-    width: 44px;
-    margin-left: 21px;
+  height: 44px;
+  width: 44px;
+  margin-left: 21px;
+}
+
+.info_alkemy {
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .footer_navigation {
+    gap: var(--spacing-10);
+  }
+
+  .sample_logo {
+    order: 4;
+    width: auto;
+  }
 }
