@@ -1,20 +1,13 @@
 import HelloUser from '../HelloUser/HelloUser';
-import Header from '../Header/Header';
 import Carousel from '../carousel/Carousel';
-import Footer from '../Footer/Footer';
-import { HeaderLinks } from '../../constants/HeaderLinks-Home';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+  const { user } = useSelector(state => state.user);
   return (
     <>
-      <Header
-        logo={'/images/assets/logo1.png'}
-        menu={HeaderLinks}
-        buttons={true}
-      />
       <Carousel />
-      <HelloUser username={undefined} />      
-      <Footer />
+      <HelloUser username={user ? user.firstName : 'Guest'} />
     </>
   );
 };

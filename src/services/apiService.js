@@ -59,4 +59,3 @@ export const patch = async (url, body) => {
     return { ok: false, error: err, status: 500 };
   }
 };
-

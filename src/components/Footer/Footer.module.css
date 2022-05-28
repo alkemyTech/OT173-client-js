@@ -1,259 +1,94 @@
-@media screen and (min-width: 1110px) and (max-width: 100vw) {
 
-    .container {
-        position: relative;
-        width: 100vw;
-        background-color: #ffffff;
-        padding: 0 24px;
-    }
-
-    .footer_navigation {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #373636;
-        border-bottom: 1px solid #373636;
-        padding: 5% 15px;
-    }
-
-    .navLink {
-        color: #000000;
-        font-family: 'Montserrat';
-        font-weight: 700;
-        text-decoration: none;
-        font-size: 15px;
-        line-height: 24px;
-        letter-spacing: -0.015em;
-    }
-
-    .navLink:hover {
-        color: #00000051;
-        text-decoration: none;
-        text-decoration: underline;
-    }
-
-    /* Sample Logo */
-    .sample_logo {
-        display: flex;
-    }
-
-    /* LOGO ONG */
-    .logo_ong {
-        display: flex;
-        align-items: center;
-    }
-
-
-    /* 2022 by Alkemy. All Rights Reserved. */
-    .info_alkemy {
-        display: flex;
-        justify-content: center;
-        padding: 20px 0;
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 24px;
-        text-align: center;
-        letter-spacing: -0.015em;
-        color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* Iconos y tamaños */
-
-    .icons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 20px 0;
-    }
-
-    .icons_size {
-        width: 75px;
-        height: 75px;
-    }
-
-    .icons_list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 20px 0;
-        width: 100vw;
-    }
-
-    .icons_size:hover {
-        cursor: pointer;
-    }
+/* main */
+.container {
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
 }
 
-@media screen and (min-width: 810px) and (max-width: 1110px) {
+/* Rectangle */
 
-    .container {
-        padding: 25px 15px 15px 15px;
-        background-color: #DC3545;
-    }
-
-    .logo_ong {
-        font-family: 'Comfortaa';
-        font-style: normal;
-        display: flex;
-        align-items: center;
-        width: 150px;
-        height: 150px;
-    }
-
-    .footer_navigation {
-        border-top: 1px solid #373636;
-        border-bottom: 1px solid #373636;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .navLink {
-        padding: 20px 10px;
-        font-size: 1.3rem;
-        font-weight: 600;
-        font-family: 'Montserrat';
-        color: white;
-        text-decoration: none;
-    }
-
-
-    .navLink:hover {
-        color: #000000d4;
-        text-decoration: none;
-        text-decoration: underline;
-    }
-
-    .info_alkemy {
-        display: flex;
-        justify-content: center;
-        padding-top: 20px;
-        font-size: 15px;
-        font-weight: 400;
-        font-family: 'Montserrat';
-        color: rgb(0, 0, 0);
-    }
-
-    .rectangle_top {
-        display: none;
-    }
-
-    .rectangle_bottom {
-        display: none;
-    }
-
-    .icons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 20px 0;
-    }
-
-    .icons_size {
-        width: 75px;
-        height: 75px;
-    }
-
-    .icons_list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 20px 0;
-        width: 100vw;
-    }
-
-    .icons_size:hover {
-        cursor: pointer;
-    }
+.footer_navigation {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
 }
 
-@media screen and (min-width: 0px) and (max-width: 811px) {
+.footer_navigation a {
+  text-decoration: none;
+  font-weight: 700;
+  color: inherit;
+}
 
-    .container {
-        padding: 15px;
-        background-color: #DC3545;
+.footer_navigation a:hover {
+  text-decoration: underline;
+}
 
-    }
+.information {
+  order: 1;
+}
 
-    .sample_logo {
-        display: flex;
-        justify-content: center;
-    }
+.activities {
+  order: 2;
+}
 
-    .logo_ong {
-        font-family: 'Comfortaa';
-        font-style: normal;
-        display: flex;
-        align-items: center;
-        width: 150px;
-        height: 150px;
-    }
+.news {
+  order: 3;
+}
 
-    .footer_navigation {
-        border-top: 1px solid #373636;
-        border-bottom: 1px solid #373636;
-        display: flex;
-        flex-direction: column;
+.sample_logo {
+  order: 0;
+  width: 100%;
+  text-align: center;
+}
 
-    }
+.testimonial {
+  order: 5;
+}
 
-    .navLink {
-        padding: 10px 10px;
-        font-size: 1.3rem;
-        font-weight: 600;
-        font-family: 'Montserrat';
-        color: white;
-        text-decoration: none;
-        margin-right: auto;
-    }
+.us {
+  order: 6;
+}
 
-    .footer_navigation a {
-        color: white;
-    }
+.contact {
+  order: 7;
+}
 
+/* Iconos y tamaños */
+.icons {
+  top: 279px;
+  left: 670px;
+}
+.icons a {
+  text-decoration: none;
+}
+.icons_size {
+  height: 44px;
+  width: 44px;
+  margin-left: 21px;
+}
 
-    .navLink:hover {
-        color: #000000d4;
-        text-decoration: none;
-        text-decoration: underline;
-    }
+.info_alkemy {
+  width: 100%;
+  text-align: center;
+}
 
-    .info_alkemy {
-        display: flex;
-        justify-content: center;
-        padding: 5px;
-        font-size: 15px;
-        font-weight: 400;
-        font-family: 'Montserrat';
-        color: rgb(0, 0, 0);
-    }
+@media (min-width: 992px) {
+  .footer_navigation {
+    gap: var(--spacing-10);
+  }
 
-    .icons {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 20px 0;
-        max-width: 100%;
-    }
-
-    .icons_list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 20px 0;
-        width: 100vw;
-    }
-
-    .icons_size {
-        width: 50px;
-        height: 50px;
-    }
-
-    .icons_size:hover {
-        cursor: pointer;
-    }
+  .sample_logo {
+    order: 4;
+    width: auto;
+  }
 }

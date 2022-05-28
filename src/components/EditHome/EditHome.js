@@ -5,7 +5,6 @@ import { Loader } from '../loader/Loader';
 import { editHomeFormValidationSchema } from './EditHomeFormValidation';
 import styles from './EditHome.module.css';
 import Carousel from '../carousel/Carousel';
-import Header from '../Header/Header';
 
 const EditHome = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,7 +42,6 @@ const EditHome = () => {
 
   return (
     <>
-      <Header logo={"/images/assets/logo1.png"} menu={[]} />
       <section className={styles.edit_home}>
         <h1 className={styles.title}>Editar página de inicio</h1>
         <Formik

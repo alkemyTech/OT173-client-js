@@ -1,10 +1,9 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm'
-import Header from '../Header/Header';
 import contactFormStyles from './styles.module.css'
 import { post } from '../../services/apiService'
 import { error, info }  from '../../services/alertService'
-import { HeaderLinks } from '../../constants/HeaderLinks-Home';
+import Members from "../members/Members";
 
 export const ContactForm = () => {
 
@@ -15,13 +14,13 @@ export const ContactForm = () => {
         message: ''
     });
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!name || !phone || !email || !message) {
             info("Debe completar los campos")
             return;
-        }  
+        }
 
         try {
             await post('/contacts', { name, phone, email, message })
@@ -29,12 +28,11 @@ export const ContactForm = () => {
             reset();
         } catch (error) {
             error(error)
-        }   
+        }
     };
 
     return (
         <>
-            <Header logo={"/images/assets/logo1.png"} menu={HeaderLinks} buttons={true} />
             <div className={contactFormStyles.content}>
                 <div className={contactFormStyles.container}>
                     <div className={contactFormStyles.formContainer}>
@@ -86,6 +84,7 @@ export const ContactForm = () => {
                     </div>
                 </div>
             </div>
+            <Members />
         </>
     )
 }

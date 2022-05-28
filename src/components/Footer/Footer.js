@@ -1,23 +1,22 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import style from "./Footer.module.css";
-import mailIcon from "../../data/icons/email.png";
-import facebookIcon from "../../data/icons/facebook.png";
-import instagramIcon from "../../data/icons/instagram.png";
-import phoneIcon from "../../data/icons/phone-call.png";
-import { Link } from "react-router-dom";
-import linkedinIcon from "../../data/icons/linke.png";
-
+import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import style from './Footer.module.css';
+import mailIcon from '../../data/icons/email.png';
+import facebookIcon from '../../data/icons/facebook.png';
+import instagramIcon from '../../data/icons/instagram.png';
+import phoneIcon from '../../data/icons/phone-call.png';
+import linkedinIcon from '../../data/icons/linkedin.png';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
-  const [info, setInfo] = useState([])
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
     const fetchInfo = async () => {
-      const result = await axios.get('/organizations/public')
-      setInfo(result.data)
-    }
+      const result = await axios.get('/organizations/public');
+      setInfo(result.data);
+    };
     fetchInfo();
   }, []);
 
