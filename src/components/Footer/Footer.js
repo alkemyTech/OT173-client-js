@@ -7,7 +7,6 @@ import facebookIcon from '../../data/icons/facebook.png';
 import instagramIcon from '../../data/icons/instagram.png';
 import phoneIcon from '../../data/icons/phone-call.png';
 import linkedinIcon from '../../data/icons/linkedin.png';
-import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const [info, setInfo] = useState([]);
@@ -23,88 +22,82 @@ export default function Footer() {
   return (
     <div className={style.container}>
       <div className={style.footer_navigation}>
-        <Link to='/' className={style.sample_logo}>
-          <img className={style.logo_ong} src={'/images/assets/logo1.png'} alt="Logo ONG" />
-        </Link>
-        <Link to='/information' className={style.navLink}>
-          Noticias
-        </Link>
-        <Link to='/activities' className={style.navLink}>
-          Actividades
-        </Link>
-        <Link to='/news' className={style.navLink}>
-          Novedades
-        </Link>
-        <Link to='/testimonial' className={style.navLink}>
-          Testimonios
-        </Link>
-        <Link to='/us' className={style.navLink}>
-          Nosotros
-        </Link>
-        <Link to='/contact' className={style.navLink}>
-          Contacto
-        </Link>
+        <div className={style.sample_logo}>
+          <img
+            className={style.logo_ong}
+            src={'/images/assets/logo1.png'}
+            alt="Logo ONG"
+          />
+        </div>
+        <p className={style.information}>
+          <a href="/">Inicio</a>
+        </p>
+        <p className={style.activities}>
+          <a href="/activities">Actividades</a>
+        </p>
+        <p className={style.news}>
+          <a href="/news">Novedades</a>
+        </p>
+        <p className={style.testimonial}>
+          <a href="/testimonial">Testimonios</a>
+        </p>
+        <p className={style.us}>
+          <a href="/us">Nosotros</a>
+        </p>
+        <p className={style.contact}>
+          <a href="/contact">Contacto</a>
+        </p>
       </div>
       <div className={style.icons}>
-        <div className={style.icons_list}>
-          <Link
-            to={`/${info?.email}`}
-            rel="noopener noreferrer">
-            <img
-              src={mailIcon}
-              className={style.icons_size}
-              alt="Icono Mail"
-            />
-          </Link>
-          <Link
-            to={`/${info?.social_instagram}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={instagramIcon}
-              className={style.icons_size}
-              alt="Icono Instagram"
-            />
-          </Link>
-          <Link
-            to={`/${info?.social_facebook}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={facebookIcon}
-              className={style.icons_size}
-              alt="Icono Facebook"
-            />
-          </Link>
-          <Link
-            to={`/${info?.linkedin}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={linkedinIcon}
-              className={style.icons_size}
-              alt="Icono linkedin"
-            />
-          </Link>
-          <Link
-            to={`/${info?.phone}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={phoneIcon}
-              className={style.icons_size}
-              alt="Icono Telefono"
-            />
-          </Link>
-        </div>
+        {info
+          .filter(val => val.id === 8)
+          .map((item, index) => (
+            <div key={index}>
+              <a href={item.address} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={mailIcon}
+                  className={style.icons_size}
+                  alt="Icono Mail"
+                />
+              </a>
+              <a
+                href={item.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={instagramIcon}
+                  className={style.icons_size}
+                  alt="Icono Instagram"
+                />
+              </a>
+              <a href={item.facebook} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={facebookIcon}
+                  className={style.icons_size}
+                  alt="Icono Facebook"
+                />
+              </a>
+              <a href={item.linkedin} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={linkedinIcon}
+                  className={style.icons_size}
+                  alt="Icono linkedin"
+                />
+              </a>
+              <a href={item.phone} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={phoneIcon}
+                  className={style.icons_size}
+                  alt="Icono Telefono"
+                />
+              </a>
+            </div>
+          ))}
       </div>
       <span className={style.info_alkemy}>
         2022 by Alkemy. All Rights Reserved.
       </span>
-    </div >
+    </div>
   );
 }

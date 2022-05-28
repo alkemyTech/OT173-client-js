@@ -28,15 +28,15 @@ function Header({ logo, menu, buttons }) {
   return (
     <header className={styles.navbar}>
       <nav className={styles.navlinks}>
-        <div className={styles.containerHeaderResponsive}>
-          <Link to="/">
-            <img className={styles.logo} src={logo} alt="Logo" />
-          </Link>
-        </div>
+        <Link to="/">
+          <img className={styles.logo} src={logo} alt="Logo" />
+        </Link>
         {menu.map(menuItem => (
           <Link
             className={`
-              ${pathname === menuItem.link ? styles.active : {}} ${styles.navlink} ${styles.expandable}
+              ${pathname === menuItem.link ? styles.active : {}} ${
+              styles.navlink
+            }
             `}
             to={menuItem.link}
             key={menuItem.name}

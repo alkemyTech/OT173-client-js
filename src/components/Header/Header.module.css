@@ -28,11 +28,6 @@
   margin-left: var(--spacing-8);
 }
 
-.buttonsContent {
-  display: flex;
-  align-items: center;
-}
-
 .buttons {
   display: flex;
   align-items: center;
