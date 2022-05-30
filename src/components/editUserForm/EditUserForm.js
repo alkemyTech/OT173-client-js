@@ -1,11 +1,9 @@
 import React from 'react'
-import Header from '../Header/Header';
 import formUserEdit from './styles.module.css'
 
 export const EditUserForm = () => {
     return (
         <div>
-            <Header logo={"/images/assets/logo1.png"} menu={[]} />
             <div className={formUserEdit.content}>
                 <div className={formUserEdit.container}>
                     <div className={formUserEdit.formContainer}>

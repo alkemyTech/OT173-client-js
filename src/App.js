@@ -27,6 +27,7 @@ import { BackofficeCategories } from './components/categories/ListOfCategories';
 import CategoryForm from './components/CategoryForm/CategoryForm';
 import ProtectedAdminRoutes from './components/Routes/ProtectedAdminRoutes';
 import ProtectedUserRoute from './components/Routes/ProtectedUserRoute';
+import OutletLayoutSecondary from './layout/OutletLayoutSecondary';
 
 import './App.css';
 
@@ -42,35 +43,36 @@ function App() {
           <Route path="news" element={<News />} />
           <Route path="news/:id" element={<NewsDetail />} />
           <Route path="activities/:id" element={<Activity />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
           <Route path="contact" element={<ContactForm />} />
         </Route>
 
         {/* Menu de opciones BackOffice Admin */}
 
-        <Route path="/backoffice" element={<ProtectedAdminRoutes />}>
-          <Route index element={<LayoutBackOffice />} />
-          <Route path="users" element={<ListUsers />} />
-          <Route path="edithome" element={<EditHome />} />
-          <Route path="edituser" element={<EditUserForm />} />
-          <Route path="user" element={<UserProfile />} />
-          <Route path="edit-organization" element={<EditOrganizationForm />} />
-          <Route path="news" element={<BackofficeNews />} />
-          <Route path="activities" element={<Activities />} />
-          <Route path="testimonials" element={<BackofficeTestimonials />} />
-          <Route path="categories" element={<BackofficeCategories />} />
-          <Route path="category" element={<CategoryForm />} />
-          <Route path="activities/create" element={<FormActivities />} />
-          <Route path="activities/update/:id" element={<FormActivities />} />
-          <Route path="news/create" element={<FormNews />} />
-          <Route path="news/update/:id" element={<FormNews />} />
-          <Route path="contacts" element={<ListContacts />} />
+        <Route path="/backoffice" element={<OutletLayoutSecondary />}>
+          <Route index element={ProtectedAdminRoutes(<LayoutBackOffice />)} />
+          <Route path="users" element={ProtectedAdminRoutes(<ListUsers />)} />
+          <Route path="edithome" element={ProtectedAdminRoutes(<EditHome />)} />
+          <Route path="edituser" element={ProtectedAdminRoutes(<EditUserForm />)} />
+          <Route path="user" element={ProtectedAdminRoutes(<UserProfile />)} />
+          <Route path="edit-organization" element={ProtectedAdminRoutes(<EditOrganizationForm />)} />
+          <Route path="news" element={ProtectedAdminRoutes(<BackofficeNews />)} />
+          <Route path="activities" element={ProtectedAdminRoutes(<Activities />)} />
+          <Route path="testimonials" element={ProtectedAdminRoutes(<BackofficeTestimonials />)} />
+          <Route path="categories" element={ProtectedAdminRoutes(<BackofficeCategories />)} />
+          <Route path='category' element={ProtectedAdminRoutes(<CategoryForm />)} />
+          <Route path="activities/create" element={ProtectedAdminRoutes(<FormActivities />)} />
+          <Route path="activities/update/:id" element={ProtectedAdminRoutes(<FormActivities />)} />
+          <Route path="news/create" element={ProtectedAdminRoutes(<FormNews />)} />
+          <Route path="news/update/:id" element={ProtectedAdminRoutes(<FormNews />)} />
+          <Route path="contacts" element={ProtectedAdminRoutes(<ListContacts />)} />
         </Route>
 
         {/* Opciones editar perfil usuario registrado */}
-        <Route path="/user" element={<ProtectedUserRoute />}>
-          <Route path="edit" element={<UserProfile />} />
+        <Route path="/user" element={<OutletLayoutSecondary />}>
+          <Route index element={ProtectedUserRoute(<UserProfile />)} />
+          <Route path="edit" element={ProtectedUserRoute(<UserProfile />)} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
         </Route>
       </Routes>
     </AnimatePresence>

@@ -4,7 +4,6 @@ import { signUpRequest } from '../../services/authService';
 import { error as popUpError } from '../../services/alertService';
 import { signUpFormValidationSchema } from './SignUpFormValidation';
 import styles from './SignUp.module.css';
-import Header from '../Header/Header';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/user/userSlice';
 
@@ -32,7 +31,6 @@ const SignUp = () => {
 
   return (
     <>
-      <Header logo={'/images/assets/logo1.png'} menu={[]} />
       <section className={styles.sign_up_wrapper}>
         <div className={styles.sign_up}>
           <h1 className={styles.title}>Registrarse</h1>

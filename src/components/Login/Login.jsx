@@ -8,7 +8,6 @@ import {
 import { loginRequest } from '../../services/authService';
 import { error as popUpError } from '../../services/alertService';
 import LoginStyles from './Login.module.css';
-import Header from '../Header/Header';
 import { useDispatch } from 'react-redux';
 import { login } from '../../features/user/userSlice';
 
@@ -19,8 +18,19 @@ const Login = () => {
   const logInSubmit = async formvalue => {
     const { ok, error, data } = await loginRequest(formvalue);
     if (ok) {
-      const { email } = formvalue;
-      dispatch(login({ email, roleId: data.user.roleId, token: data.token }));
+      dispatch(
+        login({
+          user: {
+            id: data.user.id,
+            firstName: data.user.firstName,
+            lastName: data.user.lastName,
+            image: data.user.image,
+            email: data.user.email,
+          },
+          roleId: data.user.roleId,
+          token: data.token,
+        })
+      );
       navigate('/');
     } else {
       popUpError({ text: `${error.message}` });
@@ -28,7 +38,6 @@ const Login = () => {
   };
   return (
     <>
-      <Header logo={'/images/assets/logo1.png'} menu={[]} />
       <div className={LoginStyles.login_wrapper}>
         <div className={LoginStyles.login}>
           <h1 className={LoginStyles.title}>Iniciar sesión</h1>

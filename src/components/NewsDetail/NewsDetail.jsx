@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { error as serviceError } from '../../services/alertService';
 import { get } from '../../services/apiService';
-import Header from '../Header/Header';
 import { Loader } from '../loader/Loader';
 import NewStyles from './NewsDetail.module.css';
-import { HeaderLinks } from '../../constants/HeaderLinks-Home';
 
 const NewsDetail = () => {
   const { id } = useParams();
@@ -25,11 +23,6 @@ const NewsDetail = () => {
   }, [id]);
   return (
     <>
-      <Header
-        logo={'/images/assets/logo1.png'}
-        menu={HeaderLinks}
-        buttons={true}
-      />
       <div className={NewStyles.new_wrapper}>
         {selectedNew ? (
           <div className={NewStyles.new}>
