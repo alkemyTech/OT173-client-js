@@ -46,8 +46,8 @@ const Carousel = () => {
                 return (
                     <SwiperSlide key={index+1}>
                         <div className={styles.container}>
-                            <img src={element.imageUrl} alt="" />
-                            <p className={styles.description}>{element.text}</p>
+                            <img src={element.imageUrl} alt="" className={styles.img}/>
+                            <p className={`${styles.description} ${styles.overflowEllipsis}`}>{element.text}</p>
                         </div>
                     </SwiperSlide>
             )

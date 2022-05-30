@@ -1,11 +1,34 @@
 .container {
   width: min-content;
-  margin: 0 auto;
+  margin: 50px auto;
 }
-
+.img{
+  border-radius: 10px;
+  width: 55vw;
+}
 .description {
   background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
   color: var(--color-text-accent);
   margin: 0;
   padding: var(--spacing-1);
+}
+
+@media screen and (max-width: 1100px) {
+  .container {
+    margin-top: 50px;
+  }
+  .img{
+    border-radius: 10px;
+    width: 75vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    margin-top: 50px;
+  }
+  .img {
+    width: 100vw;
+  }
 }
