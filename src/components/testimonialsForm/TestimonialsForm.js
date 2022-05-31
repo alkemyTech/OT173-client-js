@@ -33,6 +33,10 @@ export const TestimonialsForm = React.memo(({ currentName = '', currentImagen = 
         setConcept('');
     }
 
+    const handleClickCancel = () => {
+        navigate(-1);
+    }
+
     useEffect(() => {
         setConcept(currentConcept)
     }, [])
@@ -90,6 +94,7 @@ export const TestimonialsForm = React.memo(({ currentName = '', currentImagen = 
                                         <button
                                             type='button'
                                             className={testimonialsFormStyle.buttonCancel}
+                                            onClick={handleClickCancel}
                                         >
                                             Cancelar
                                         </button>
