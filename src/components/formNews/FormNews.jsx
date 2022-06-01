@@ -4,9 +4,9 @@ import Form from './Form';
 import { Formik } from 'formik';
 import { formNewsValidationSchema } from './formNewsValidation';
 import { formPatchNewsValidationSchema } from './formPatchNewsValidation';
-import axios from "axios";
-import { error, info } from "../../services/alertService";
 import { get, post, put } from "../../services/apiService";
+import { useDispatch } from 'react-redux';
+import { alertStart } from "../../features/alert/slice/alertSlice";
 
 const FormNews = () => {
 
@@ -14,6 +14,9 @@ const FormNews = () => {
     let [initValues, setInitValues] = useState({});
     let url = `${process.env.REACT_APP_API_URI}/news/`;
     
+    const dispatch = useDispatch();
+
+
     useEffect(async () => {
         
         //Request novelty information to edit
@@ -47,23 +50,33 @@ const FormNews = () => {
                 const response = await put(url, data)
 
                 if (response?.status === 200) {
-                    data = {
-                        title: response.data.msg || "Updated successfully."
-                    }
-                    return info(data)
+
+                    return dispatch(alertStart({
+                        alert : { 
+                            title: response.data.msg || "Updated successfully.", 
+                            icon: "info", 
+                            timer: 1000, 
+                            buttons: false 
+                        }
+                    }))
                 }
 
-                data = {
-                    title: "Failed. Try again."
-                }
-                return error(data)
+                return dispatch(alertStart({
+                    alert : { 
+                        title: response.data.msg || "Failed. Try again.", 
+                        icon: "error",
+                        dangerMode: true
+                    }
+                }))
 
             } catch (err) {
-                const msg = {
-                    title: "An error occurred. Try again."
-                }
-                error(msg)
-                return { title: "An error occurred. Try again.", err }
+                return dispatch(alertStart({
+                    alert : { 
+                        title: "An error occurred. Try again.", 
+                        icon: "error",
+                        dangerMode: true
+                    }
+                }))
             }
         } else {
             //insert
@@ -73,14 +86,24 @@ const FormNews = () => {
                 })
 
                 if (response?.status === 200) {
-                    const data = {
-                        title: response.data.message
-                    }
-                    return info(data)
+
+                    return dispatch(alertStart({
+                        alert : { 
+                            title: response.data.msg || "Created successfully.",
+                            icon: "info",
+                            timer: 1000
+                        }
+                    }))
                 }
 
             } catch (err) {
-                return error({ title: "An error occurred. Try again.", err })
+                return dispatch(alertStart({
+                    alert : { 
+                        title: "An error occurred. Try again.",
+                        icon: "error",
+                        dangerMode: true
+                    }
+                }))
             }
         }
     }
