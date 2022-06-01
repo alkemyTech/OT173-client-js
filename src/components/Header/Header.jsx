@@ -6,6 +6,7 @@ import { useLocation } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { logout } from '../../features/user/userSlice';
+import { alertReset } from "../../features/alert/slice/alertSlice";
 import { FiMenu } from 'react-icons/fi';
 import { FaUserCircle } from 'react-icons/fa';
 import { ROLES } from '../../constants/Roles';
@@ -20,6 +21,7 @@ function Header({ logo, menu, buttons }) {
 
   const handleLogOut = () => {
     dispatch(logout());
+    dispatch(alertReset())
     window.location.reload();
   };
 

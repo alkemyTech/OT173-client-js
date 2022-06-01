@@ -4,8 +4,9 @@ import Form from './Form';
 import { Formik } from 'formik';
 import { formEditActivitiesValidationSchema } from './validationEditFormActivities';
 import { formActivitiesValidationSchema } from './validationFormActivities';
-import { error, info } from '../../services/alertService';
 import { get, post, put } from '../../services/apiService';
+import { useDispatch } from 'react-redux';
+import { alertStart } from "../../features/alert/slice/alertSlice";
 
 const FormActivities = () => {
   const [activity, setActivity] = useState({});
@@ -15,6 +16,8 @@ const FormActivities = () => {
     title: 'An error occurred. Try again.',
   };
   let url = `/activities/`;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchActivitiesData = async (url, param, errorMessage) => {
@@ -49,20 +52,32 @@ const FormActivities = () => {
         const response = await put(url, data);
 
         if (response?.status === 200) {
-          data = {
-            title: response.data.msg || 'Activity updated successfully.',
-          };
 
-          await info(data.title);
-          return navigate('/backoffice/activities');
+          dispatch(alertStart({
+            alert : { 
+                title: response.data.msg || 'Activity updated successfully.', 
+                icon: "info",
+                timer: 1000
+            }
+        }));
+        return navigate('/backoffice/activities');
         }
 
-        data = {
-          title: 'Failed. Try again.',
-        };
-        return error(data);
+        return dispatch(alertStart({
+          alert : { 
+              title: 'Failed. Try again.', 
+              icon: "error",
+              dangerMode: true
+          }
+      }));
       } catch (err) {
-        error(errorMessage);
+        dispatch(alertStart({
+          alert : { 
+              title: errorMessage.title, 
+              icon: "error",
+              dangerMode: true
+          }
+      }));
         return { err, ...errorMessage };
       }
     } else {
@@ -73,15 +88,23 @@ const FormActivities = () => {
         });
 
         if (response?.status === 200) {
-          const data = {
-            title: response.data.msg || 'Activity created successfully.',
-          };
 
-          await info(data.title);
+          dispatch(alertStart({
+            alert : { 
+                title: response.data.msg || 'Activity created successfully.',
+                icon: "info"
+            }
+        }));
           return navigate('/backoffice/activities');
         }
       } catch (err) {
-        error(errorMessage);
+        dispatch(alertStart({
+          alert : { 
+              title: errorMessage.title,
+              icon: "error",
+              dangerMode: true
+          }
+      }));
         return { err, ...errorMessage };
       }
     }

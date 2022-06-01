@@ -14,12 +14,12 @@ import {
 } from 'redux-persist';
 
 const persistConfig = {
-    key: 'user',
+    key: ['user', "alert"],
     storage,
 };
 const reducers = combineReducers({ 
     user: userReducer,
-    alert: alertReducer 
+    alert: alertReducer
 });
 const persistedReducer = persistReducer(persistConfig, reducers);
 

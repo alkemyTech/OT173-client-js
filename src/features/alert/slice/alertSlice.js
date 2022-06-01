@@ -1,19 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
+import swal from "sweetalert";
 
 export const alertSlice = createSlice({
     name: "alert",
     initialState: {
-        alertStatus: null
+        alert: null
     },
     reducers: {
-        alertReduce: (state, action) => {
-            state.alertStatus = action.payload.alert
+        alertStart: (state, action) => {
+            state.alert = action.payload.alert
+            swal(state.alert)
+        },
+        alertReset: (state) => {
+            state.alert = null
         }
-    }  
+    }
 })
 
-export const { alertReduce } = alertSlice.actions;
+export const {
+    alertStart,
+    alertReset
+} = alertSlice.actions;
 
-export const selectAlert = state => state.alertStatus;
+export const selectAlert = (state) => state.alert;
 
 export default alertSlice.reducer;
