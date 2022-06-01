@@ -28,6 +28,8 @@ import CategoryForm from './components/CategoryForm/CategoryForm';
 import ProtectedAdminRoutes from './components/Routes/ProtectedAdminRoutes';
 import ProtectedUserRoute from './components/Routes/ProtectedUserRoute';
 import OutletLayoutSecondary from './layout/OutletLayoutSecondary';
+import { TestimonialsForm } from './components/testimonialsForm/TestimonialsForm';
+
 
 import './App.css';
 
@@ -58,6 +60,7 @@ function App() {
           <Route path="news" element={ProtectedAdminRoutes(<BackofficeNews />)} />
           <Route path="activities" element={ProtectedAdminRoutes(<Activities />)} />
           <Route path="testimonials" element={ProtectedAdminRoutes(<BackofficeTestimonials />)} />
+          <Route path="testimonials/create" element={ProtectedAdminRoutes(<TestimonialsForm />)} />
           <Route path="categories" element={ProtectedAdminRoutes(<BackofficeCategories />)} />
           <Route path='category' element={ProtectedAdminRoutes(<CategoryForm />)} />
           <Route path="activities/create" element={ProtectedAdminRoutes(<FormActivities />)} />

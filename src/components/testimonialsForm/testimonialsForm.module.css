@@ -100,9 +100,24 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.ckeditorContent{
+.ckeditorContent {
     height: 100%;
     margin: 20px 0;
     box-sizing: border-box;
     resize: none;
+}
+
+@media screen and (max-width: 600px) {
+
+    .container {
+        width: 95%;
+    }
+    .formTitle{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .formContainer{
+        margin: 20px 10px;
+    }
+
 }
